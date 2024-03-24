@@ -1,0 +1,33 @@
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+set icons
+set drawbox
+set cursorpreviewfmt "\033[7;90m"
+
+set period 1
+set info size
+set dircounts
+
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map C edit-config
+
+cmd drag &ripdrag -x $fx
+cmd trash %trash-put $fx
+cmd q quit
+map f $$EDITOR $(fzf)
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+map <c-f> :fzf_jump
