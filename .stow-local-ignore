@@ -1,0 +1,5 @@
+.git
+README.md
+.additional
+grub_install.sh
+plymouth_install.sh
