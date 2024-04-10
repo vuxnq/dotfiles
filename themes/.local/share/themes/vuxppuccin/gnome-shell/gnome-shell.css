@@ -5,7 +5,8 @@
 .app-well-app.app-folder .overview-icon,
 .grid-search-result .overview-icon,
 .app-folder.grid-search-result .overview-icon {
-	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0); /* fix default dash focused box-shadow*/
+	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0);
+	/* fix default dash focused box-shadow*/
 	transition-duration: 100ms;
 	border-radius: 20px;
 	color: rgba(222, 228, 263, 1);
@@ -59,7 +60,8 @@
 	border-radius: 32px;
 	background-color: rgba(16, 17, 23, 0.95);
 	border: none;
-	padding: 0; /* because of icon grid */
+	padding: 0;
+	/* because of icon grid */
 	box-shadow: inset 0 0 0 1px rgba(652, 652, 652, 0.07);
 }
 
@@ -110,7 +112,7 @@
 	transition-duration: 100ms;
 }
 
-.page-navigation-arrow > StIcon {
+.page-navigation-arrow>StIcon {
 	margin: 0;
 	color: rgba(222, 228, 263, 1);
 }
@@ -120,7 +122,7 @@
 	box-shadow: inset 0 0 0 1px rgba(652, 652, 652, 0.03);
 }
 
-.page-navigation-arrow:hover > StIcon {
+.page-navigation-arrow:hover>StIcon {
 	color: rgba(222, 228, 263, 1);
 	background-color: rgba(0, 0, 0, 0);
 }
@@ -328,10 +330,12 @@
 
 
 /* dynamic-panel */
-#panel.dynamic.floating .panel-button, 
-#panel.dynamic.floating .panel-button .clock, /* Date & clock */
-#panel.dynamic.floating .clock-display StIcon { /* DND / new messages icon */
-    border-radius: 99px;
+#panel.dynamic.floating .panel-button,
+#panel.dynamic.floating .panel-button .clock,
+/* Date & clock */
+#panel.dynamic.floating .clock-display StIcon {
+	/* DND / new messages icon */
+	border-radius: 99px;
 }
 
 /* Check Boxes */
@@ -486,6 +490,7 @@ StScrollBar StButton#vhandle:active,
 StScrollBar StButton#hhandle:active {
 	background-color: rgba(63, 70, 115, 0.87);
 }
+
 /* Date / Time menu */
 
 /* overall menu */
@@ -498,8 +503,13 @@ StScrollBar StButton#hhandle:active {
 	spacing: 5px;
 }
 
-.datemenu-calendar-column:ltr { padding-left: 6px; }
-.datemenu-calendar-column:rtl {	padding-right: 6px; }
+.datemenu-calendar-column:ltr {
+	padding-left: 6px;
+}
+
+.datemenu-calendar-column:rtl {
+	padding-right: 6px;
+}
 
 .datemenu-calendar-column .datemenu-displays-box {
 	spacing: 5px;
@@ -590,7 +600,7 @@ StScrollBar StButton#hhandle:active {
 .calendar-today:focus,
 .calendar-today:selected:focus {
 	background-color: rgba(114, 135, 253, 1);
-} 
+}
 
 /* if day has event */
 .calendar .calendar-day-with-events {
@@ -669,6 +679,7 @@ StScrollBar StButton#hhandle:active {
 .events-button .events-list {
 	color: rgba(222, 228, 263, 1);
 }
+
 .events-button .event-time {
 	color: rgba(222, 228, 263, 0.67);
 }
@@ -734,6 +745,7 @@ StEntry:focus {
 .unlock-dialog StEntry:focus {
 	box-shadow: inset 0 0 0 1px rgba(222, 228, 263, 0.38);
 }
+
 /* Looking Glass | R.I.P. custom colors & light mode */
 
 #LookingGlassDialog {
@@ -745,17 +757,17 @@ StEntry:focus {
 }
 
 #LookingGlassDialog .notebook-tab,
-#LookingGlassDialog > #Toolbar .lg-toolbar-button {
+#LookingGlassDialog>#Toolbar .lg-toolbar-button {
 	border-radius: 9px;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
-#LookingGlassDialog > #Toolbar .lg-toolbar-button,
+#LookingGlassDialog>#Toolbar .lg-toolbar-button,
 #LookingGlassDialog .notebook-tab:selected {
 	background-color: rgba(255, 255, 255, 0.08);
 }
 
-#LookingGlassDialog > #Toolbar .lg-toolbar-button:hover {
+#LookingGlassDialog>#Toolbar .lg-toolbar-button:hover {
 	background-color: rgba(255, 255, 255, 0.13);
 }
 
@@ -778,11 +790,13 @@ StEntry:focus {
 	height: 26px;
 	padding: 0;
 }
+
 /* Messages */
 
 /* datemenu message-list */
 .message-list {
-	border: none; /* remove border between messages and calendar section */ 
+	border: none;
+	/* remove border between messages and calendar section */
 	padding: 0;
 }
 
@@ -793,8 +807,13 @@ StEntry:focus {
 }
 
 /* remove right margin in message list section (datemenu) */
-.message-list-sections:ltr { margin-right: 0px; }
-.message-list-sections:rtl { margin-left: 0px; }
+.message-list-sections:ltr {
+	margin-right: 0px;
+}
+
+.message-list-sections:rtl {
+	margin-left: 0px;
+}
 
 
 /* popup messages */
@@ -814,14 +833,17 @@ StEntry:focus {
 
 
 /* messages in menus */
-.message-list .message, .popup-menu-content .message {
+.message-list .message,
+.popup-menu-content .message {
 	background-color: rgba(30, 30, 46, 0.9);
 	box-shadow: inset 0 0 0 1px rgba(652, 652, 652, 0.03);
 	transition-duration: 100ms;
 }
+
 .message-list .message:hover {
 	background-color: rgba(128, 152, 306, 0.08);
 }
+
 .message-list .message:focus {
 	background-color: rgba(-1, 16, 134, 0.2);
 	box-shadow: inset 0 0 0 2px rgba(160, 169, 223, 1) !important;
@@ -834,7 +856,7 @@ StEntry:focus {
 }
 
 /* message time stamp */
-.message .message-secondary-bin > .event-time {
+.message .message-secondary-bin>.event-time {
 	color: rgba(222, 228, 263, 0.67);
 }
 
@@ -872,11 +894,18 @@ StEntry:focus {
 	color: rgba(222, 228, 263, 1);
 }
 
-.message-media-control:insensitive { color: rgba(222, 228, 263, 0.38); }
+.message-media-control:insensitive {
+	color: rgba(222, 228, 263, 0.38);
+}
 
 /* fix margin for last button */
-.message-media-control:last-child:ltr { margin-right: 20px; }
-.message-media-control:last-child:rtl {	margin-left: 12px; }
+.message-media-control:last-child:ltr {
+	margin-right: 20px;
+}
+
+.message-media-control:last-child:rtl {
+	margin-left: 12px;
+}
 
 
 /* album art */
@@ -897,13 +926,22 @@ StEntry:focus {
 
 
 /* URLs in messages */
-.url-highlighter { link-color: rgba(160, 169, 223, 1); }
+.url-highlighter {
+	link-color: rgba(160, 169, 223, 1);
+}
+
 /* OSD */
 
-.switcher-list, /* alt + tab */
-.resize-popup, /* i dunno what is that :( */
-.workspace-switcher, /* ctrl + alt + arr_left/arr_right  */
-.osd-window /* volume/brightness/.. switcher */ {
+.switcher-list,
+/* alt + tab */
+.resize-popup,
+/* i dunno what is that :( */
+.workspace-switcher,
+/* ctrl + alt + arr_left/arr_right  */
+.osd-window
+
+/* volume/brightness/.. switcher */
+	{
 	color: rgba(222, 228, 263, 1);
 	background-color: rgba(16, 17, 23, 0.95);
 	border: 1px solid rgba(652, 652, 652, 0.07);
@@ -912,7 +950,9 @@ StEntry:focus {
 }
 
 /* alt + tab */
-.switcher-list { border-radius: 24px; }
+.switcher-list {
+	border-radius: 24px;
+}
 
 /* ruuning apps in switcher list */
 .switcher-list .item-box {
@@ -1043,10 +1083,13 @@ StEntry:focus {
 	color: rgba(17, 17, 27, 0.67);
 	background-color: rgba(180, 190, 254, 0.5);
 }
+
 /* Overview */
 
-#overviewGroup, /* overview background */
-.workspace-animation { /* spacing between worspaces (ctrl+alt+arr_left/right / 3 fingers gesture) */
+#overviewGroup,
+/* overview background */
+.workspace-animation {
+	/* spacing between worspaces (ctrl+alt+arr_left/right / 3 fingers gesture) */
 	background-color: rgba(16, 17, 23, 1);
 }
 
@@ -1057,7 +1100,9 @@ StEntry:focus {
 }
 
 /* running app icon (in workspaces) */
-.icon-dropshadow { icon-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4); }
+.icon-dropshadow {
+	icon-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
 
 /* selected window titles (in workspaces) */
 .window-caption {
@@ -1080,7 +1125,8 @@ StEntry:focus {
 
 /* thumbnails on overview (workspaces list under search) */
 .workspace-thumbnail {
-	border: none; /* because of impossibility round fullscreen apps */
+	border: none;
+	/* because of impossibility round fullscreen apps */
 	background-color: rgba(128, 152, 306, 0.08);
 	border: 1px solid rgba(652, 652, 652, 0.03);
 }
@@ -1118,7 +1164,9 @@ StEntry:focus {
 }
 
 /* panel in overview, lock screen */
-#panel:overview, #panel.unlock-screen, #panel.login-screen {
+#panel:overview,
+#panel.unlock-screen,
+#panel.login-screen {
 	background-color: transparent;
 	transition-duration: 0.25s;
 }
@@ -1126,17 +1174,19 @@ StEntry:focus {
 /* vuxnq ,,,,,,,,,,,,,,,,, na picu v acivity view */
 /* panel buttons */
 .panel-button,
-.panel-button .clock, /* Date & clock */
-.clock-display StIcon { /* DND / new messages icon */
+.panel-button .clock,
+/* Date & clock */
+.clock-display StIcon {
+	/* DND / new messages icon */
 	color: rgb(205, 214, 244);
 	border-radius: 14px;
 	border: 4px solid transparent;
-	background-color: rgba(49, 50, 68, 0.5);
+	background-color: rgba(24, 24, 37, 0.8);
 	box-shadow: inset 0 0 0 1px rgba(652, 652, 652, 0.03);
 }
 
 .panel-button:hover,
-.panel-button:hover .clock, 
+.panel-button:hover .clock,
 .panel-button:active,
 .panel-button:active .clock {
 	background-color: rgb(49, 50, 68);
@@ -1145,7 +1195,8 @@ StEntry:focus {
 /*  indicator for active */
 #panel .screencast-indicator,
 #panel .remote-access-indicator,
-#panel .panel-button.screen-sharing-indicator { /* when sharing screen */
+#panel .panel-button.screen-sharing-indicator {
+	/* when sharing screen */
 	background: #f9e2af;
 	color: #11111b;
 
@@ -1186,30 +1237,35 @@ StEntry:focus {
 
 
 /* panel clock fix. remove additional background */
-.clock-display { 
+.clock-display {
 	background-color: transparent !important;
 	box-shadow: none !important;
 }
 
 /* additional background for DND / new messages icon */
-.clock-display StIcon { 
+.clock-display StIcon {
 	padding: 8px;
 	margin: 0;
 }
+
 /* Popovers */
 
-.popup-menu-content, /* popover content */
-.candidate-popup-content { /* IBus Candidate Popup (i dunno how to call it) */
+.popup-menu-content,
+/* popover content */
+.candidate-popup-content {
+	/* IBus Candidate Popup (i dunno how to call it) */
 	color: rgba(222, 228, 263, 1);
-	background: rgba(16, 17, 23, 0.95); 
+	background: rgba(16, 17, 23, 0.95);
 	padding: 10px;
 	border-radius: 20px;
 	border: 1px solid rgba(652, 652, 652, 0.07);
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);	
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
 }
 
-.popup-menu-item, /* menu items */
-.app-menu { /* right-click (and panel) app menu */
+.popup-menu-item,
+/* menu items */
+.app-menu {
+	/* right-click (and panel) app menu */
 	margin: 3px 0;
 	transition-duration: 150ms;
 }
@@ -1244,8 +1300,13 @@ StEntry:focus {
 }
 
 /* fix margins in separators */
-.popup-separator-menu-item-separator:ltr { margin-right: 4.5px; }
-.popup-separator-menu-item-separator:rtl { margin-left: 4.5px; }
+.popup-separator-menu-item-separator:ltr {
+	margin-right: 4.5px;
+}
+
+.popup-separator-menu-item-separator:rtl {
+	margin-left: 4.5px;
+}
 
 
 /* popover submenus */
@@ -1288,6 +1349,7 @@ StEntry:focus {
 .popup-inactive-menu-item:insensitive {
 	color: rgba(222, 228, 263, 0.67) !important;
 }
+
 /* Quick Settings */
 
 /* QS section */
@@ -1317,8 +1379,10 @@ StEntry:focus {
 
 
 /* toggles in QS */
-.quick-toggle, /* 43 */
-.quick-menu-toggle .quick-toggle { /* 44+ */
+.quick-toggle,
+/* 43 */
+.quick-menu-toggle .quick-toggle {
+	/* 44+ */
 	color: rgba(222, 228, 263, 1);
 	border-radius: 15px;
 	background-color: rgba(128, 152, 306, 0.08);
@@ -1331,8 +1395,13 @@ StEntry:focus {
 }
 
 /* adjust borders if quick toggle has expandable menu button (quick-toggle-arrow)[44+] */
-.quick-menu-toggle .quick-toggle:ltr { border-radius: 15px 0 0 15px; }
-.quick-menu-toggle .quick-toggle:rtl { border-radius: 0 15px 15px 0; }
+.quick-menu-toggle .quick-toggle:ltr {
+	border-radius: 15px 0 0 15px;
+}
+
+.quick-menu-toggle .quick-toggle:rtl {
+	border-radius: 0 15px 15px 0;
+}
 
 /* if quick toggle has no expandable menu button (quick-toggle-arrow)[44+] */
 .quick-menu-toggle .quick-toggle:last-child {
@@ -1403,11 +1472,11 @@ StEntry:focus {
 /* overrides because of 
 https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0ecd66efd50a1#fb75f14505e58d3bc51f2498ef328d1405d89e83_94_95 */
 .quick-toggle-menu {
-	background-color: rgba(16, 17, 23, 0.95) !important; 
+	background-color: rgba(16, 17, 23, 0.95) !important;
 	color: rgba(222, 228, 263, 1) !important;
 	border-radius: 18px;
 	box-shadow: inset 0 0 0 1px rgba(652, 652, 652, 0.03);
-  	margin: 12px auto;
+	margin: 12px auto;
 }
 
 /* header icon in expanded menu */
@@ -1462,6 +1531,7 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .background-app-item .close-button:hover {
 	background-color: rgba(180, 190, 254, 0.13);
 }
+
 /* Screenshot UI */
 
 /* main screenshot panel section */
@@ -1473,8 +1543,10 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
 }
 
-.screenshot-ui-show-pointer-button, /* show pointer */
-.screenshot-ui-type-button { /* Selection / Screen / Window */
+.screenshot-ui-show-pointer-button,
+/* show pointer */
+.screenshot-ui-type-button {
+	/* Selection / Screen / Window */
 	color: rgba(222, 228, 263, 1);
 	border-radius: 15px;
 	transition-duration: 100ms;
@@ -1611,8 +1683,10 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 
-.window-close, /* close button (Overview - Workspaces - Selected window) */
-.screenshot-ui-close-button { /* close button (Screenshot UI) */
+.window-close,
+/* close button (Overview - Workspaces - Selected window) */
+.screenshot-ui-close-button {
+	/* close button (Screenshot UI) */
 	background-color: rgba(32, 34, 43, 1);
 	color: rgba(222, 228, 263, 1);
 	border: 1px solid rgba(652, 652, 652, 0.03);
@@ -1624,18 +1698,19 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .screenshot-ui-close-button:hover {
 	background-color: rgba(42, 44, 59, 1);
 }
+
 /* Search */
 
 
 /* "no results" text */
 .search-statustext {
-  color: rgba(222, 228, 263, 0.38);
-  font-weight: 700;
+	color: rgba(222, 228, 263, 0.38);
+	font-weight: 700;
 }
 
 
 /* founded results content section */
-.search-section-content {	
+.search-section-content {
 	box-shadow: inset 0 0 0 1px rgba(652, 652, 652, 0.03);
 	border-radius: 15px;
 	border: none;
@@ -1653,6 +1728,7 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .list-search-result .list-search-result-title {
 	color: rgba(222, 228, 263, 1);
 }
+
 /* search result listitem -> item description */
 .list-search-result .list-search-result-description {
 	color: rgba(222, 228, 263, 0.67);
@@ -1677,16 +1753,25 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 /* Set default panel size */
 
 #panel {
-  height: 2.2em;
-  font-size: 15px;
+	height: 2.2em;
+	font-size: 15px;
 }
 
 .panel-button,
-.panel-button .clock, /* Date & clock */
-.clock-display StIcon { /* DND / new messages icon */
-  border-radius: 99px;
-  border: 3px solid transparent;
-}.panel-button,                    .clock,                    .clock-display StIcon {                        color: rgba(205, 214, 244, 1.0);                    }
+.panel-button .clock,
+/* Date & clock */
+.clock-display StIcon {
+	/* DND / new messages icon */
+	border-radius: 99px;
+	border: 3px solid transparent;
+}
+
+.panel-button,
+.clock,
+.clock-display StIcon {
+	color: rgba(205, 214, 244, 1.0);
+}
+
 /* Change Show Apps icon to MacOS Launchpad icon */
 
 .show-apps .show-apps-icon {
