@@ -1,0 +1,148 @@
+{
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/spotify"
+    ],
+    "modules-right": [
+        "tray",
+        "memory",
+        "cpu",
+        "temperature",
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "active": "󱓻",
+            "urgent": "󱓻"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+    },
+    "memory": {
+        "interval": 5,
+        "format": "󰧑 {}%",
+        "max-length": 10
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%",
+        "max-length": 10
+    },
+    "temperature": {
+        "interval": 5,
+        "format": " {}°C",
+        "max-length": 10
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "format-alt": "{:%a, %d %b %Y}",
+        "format": "{:%H:%M}"
+    },
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 /home/vuxnq/.config/waybar/modules/mediaplayer.py --player spotify",
+        "format": " {}",
+        "escape": true,
+        "return-type": "json",
+        "on-click-middle": "playerctl --player=spotify play-pause",
+        "on-click-forward": "playerctl --player=spotify next",
+        "on-click-backward": "playerctl --player=spotify previous",
+        "on-scroll-up": "playerctl --player=spotify volume 0.05+",
+        "on-scroll-down": "playerctl --player=spotify volume 0.05-"
+    },
+    "network": {
+        "format-wifi" : "{icon}",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-ethernet": "󰀂",
+        "format-disconnected" : "󰖪",
+	    "tooltip-format-wifi": "{icon} {essid}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+	    "tooltip-format-disconnected": "Disconnected",
+	    "on-click": "notify-send 'network menu'",
+	    "interval": 5,
+	    "nospacing": 1
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "{volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀","󰕾",""]
+        },
+        "on-click": "notify-send 'audiomixer'",
+        "scroll-step": 1
+    },
+    "custom/logo": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "notify-send 'launcher'"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        }
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "notify-send 'powermenu'"
+    }
+}
