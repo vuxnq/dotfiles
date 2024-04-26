@@ -37,7 +37,9 @@
             "2": [],
             "3": [],
             "4": []
-        }
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
     },
     "memory": {
         "interval": 5,
@@ -67,6 +69,7 @@
         "format": " {}",
         "escape": true,
         "return-type": "json",
+        "on-click": "~/.config/rofi/mpd.sh",
         "on-click-middle": "playerctl --player=spotify play-pause",
         "on-click-forward": "playerctl --player=spotify next",
         "on-click-backward": "playerctl --player=spotify previous",
@@ -81,7 +84,7 @@
 	    "tooltip-format-wifi": "{icon} {essid}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
 	    "tooltip-format-disconnected": "Disconnected",
-	    "on-click": "notify-send 'network menu'",
+	    "on-click": "notify-send 'TODO: network menu'",
 	    "interval": 5,
 	    "nospacing": 1
     },
@@ -95,13 +98,13 @@
             "headphone": "",
             "default": ["󰖀","󰕾",""]
         },
-        "on-click": "notify-send 'audiomixer'",
+        "on-click": "~/.config/rofi/volume.sh",
         "scroll-step": 1
     },
     "custom/logo": {
         "format": "  ",
         "tooltip": false,
-        "on-click": "notify-send 'launcher'"
+        "on-click": "~/.config/rofi/launcher.sh"
     },
     "battery": {
         "format": "{capacity}% {icon}",
@@ -136,11 +139,12 @@
         "states": {
             "warning": 20,
             "critical": 10
-        }
+        },
+        "on-click": "~/.config/rofi/battery.sh"
     },
     "custom/power": {
         "format": "",
         "tooltip": false,
-        "on-click": "notify-send 'powermenu'"
+        "on-click": "~/.config/rofi/powermenu.sh"
     }
 }
