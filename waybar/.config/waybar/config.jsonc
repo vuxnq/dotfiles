@@ -85,7 +85,8 @@
 	    "tooltip-format-wifi": "{icon} {essid}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
 	    "tooltip-format-disconnected": "Disconnected",
-	    "on-click": "notify-send 'TODO: network menu'",
+	    "on-click": "~/.config/rofi/wifi.sh",
+	    "on-click-right": "~/.config/rofi/wifinew.sh",
 	    "interval": 5,
 	    "nospacing": 1
     },
