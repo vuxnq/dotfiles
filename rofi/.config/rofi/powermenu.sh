@@ -62,7 +62,7 @@ confirm_cmd() {
 
 # Ask for confirmation
 confirm_exit() {
-	echo -e "$yes\n$no" | confirm_cmd
+	echo -e "$no\n$yes" | confirm_cmd
 }
 
 # Confirm and execute

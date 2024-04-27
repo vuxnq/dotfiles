@@ -2,71 +2,37 @@
 
 theme="$HOME/.config/rofi/config/applets.rasi"
 
-# Theme Elements
-prompt='Screenshot'
-mesg="DIR: `xdg-user-dir PICTURES`/Screenshots"
-
 list_col='1'
-list_row='5'
+list_row='4'
 
 # Options
-layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
-if [[ "$layout" == 'NO' ]]; then
-	option_1=" Capture Desktop"
-	option_2=" Capture Area"
-	option_3=" Capture Window"
-	option_4=" Capture in 5s"
-	option_5=" Capture in 10s"
-else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-fi
+option_1="" # Capture Desktop
+option_2="" # Capture Area
+option_3="" # Capture Window
+option_4="" # Capture in 5s
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
 		-theme-str 'textbox-prompt-colon {str: "";}' \
 		-dmenu \
-		-p "$prompt" \
-		-mesg "$mesg" \
 		-markup-rows \
 		-theme ${theme}
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi_cmd
+	echo -e "$option_1\n$option_2\n$option_3\n$option_4" | rofi_cmd
 }
 
 # Screenshot
 time=`date +%Y-%m-%d-%H-%M-%S`
-geometry=`xrandr | grep 'current' | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
 dir="`xdg-user-dir PICTURES`/Screenshots"
-file="Screenshot_${time}_${geometry}.png"
+file="${time}.png"
 
 if [[ ! -d "$dir" ]]; then
 	mkdir -p "$dir"
 fi
-
-# notify and view screenshot
-notify_view() {
-	notify_cmd_shot='dunstify -u low --replace=699'
-	${notify_cmd_shot} "Copied to clipboard."
-	viewnior ${dir}/"$file"
-	if [[ -e "$dir/$file" ]]; then
-		${notify_cmd_shot} "Screenshot Saved."
-	else
-		${notify_cmd_shot} "Screenshot Deleted."
-	fi
-}
-
-# Copy screenshot to clipboard
-copy_shot () {
-	tee "$file" | xclip -selection clipboard -t image/png
-}
 
 # countdown
 countdown () {
@@ -78,30 +44,22 @@ countdown () {
 
 # take shots
 shotnow () {
-	cd ${dir} && sleep 0.5 && maim -u -f png | copy_shot
-	notify_view
-}
-
-shot5 () {
-	countdown '5'
-	sleep 1 && cd ${dir} && maim -u -f png | copy_shot
-	notify_view
-}
-
-shot10 () {
-	countdown '10'
-	sleep 1 && cd ${dir} && maim -u -f png | copy_shot
-	notify_view
-}
-
-shotwin () {
-	cd ${dir} && maim -u -f png -i `xdotool getactivewindow` | copy_shot
-	notify_view
+	sleep 0.1 # so the rofi app disappears
+	hyprshot -m output -o ${dir} -f ${file} -c
 }
 
 shotarea () {
-	cd ${dir} && maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l | copy_shot
-	notify_view
+	hyprshot -m region -o ${dir} -f ${file}
+}
+
+shotwin () {
+	hyprshot -m window -o ${dir} -f ${file}
+}
+
+shotdelay () {
+	countdown '5'
+	sleep 1
+	hyprshot -m output -o ${dir} -f ${file} -c
 }
 
 # Execute Command
@@ -113,9 +71,7 @@ run_cmd() {
 	elif [[ "$1" == '--opt3' ]]; then
 		shotwin
 	elif [[ "$1" == '--opt4' ]]; then
-		shot5
-	elif [[ "$1" == '--opt5' ]]; then
-		shot10
+		shotdelay
 	fi
 }
 
@@ -134,9 +90,4 @@ case ${chosen} in
     $option_4)
 		run_cmd --opt4
         ;;
-    $option_5)
-		run_cmd --opt5
-        ;;
 esac
-
-
