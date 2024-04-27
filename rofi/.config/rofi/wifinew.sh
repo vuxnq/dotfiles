@@ -2,6 +2,7 @@
 
 bssid=$(nmcli device wifi list | sed -n '1!P' | cut -b 9- \
     | rofi -dmenu \
+    -theme-str 'configuration {show-icons: false;}' \
     -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' \
     -theme-str 'window {location: northeast; anchor: northeast;}' \
     -theme-str 'window {x-offset: -10px; y-offset: 10px;}' \

@@ -52,7 +52,8 @@ window#waybar.hidden {
 #custom-spotify, #window,
 #custom-power, #battery,
 #backlight, #pulseaudio,
-#network, #clock, #tray {
+#network, #clock, #tray,
+#bluetooth {
   border-radius: 4px;
   margin: 3px;
   padding: 3px 6px;
@@ -114,9 +115,16 @@ window#waybar.hidden {
   padding-right: 10px;
 }
 
-#network {
+#network, #bluetooth {
   background-color: #fab387;
   padding-right: 10px;
+}
+
+#network.disabled,
+#network.disconnected,
+#bluetooth.off {
+  background-color: #1e1e2e;
+  color: #fab387;
 }
 
 #clock {
