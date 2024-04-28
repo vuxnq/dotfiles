@@ -65,6 +65,7 @@
     },
     "custom/spotify": {
         // TODO: PYTHON -> BASH SCRIPT
+        "max-length": 50,
         "exec": "/usr/bin/python3 /home/vuxnq/.config/waybar/modules/mediaplayer.py --player spotify",
         "format": " {}",
         "escape": true,

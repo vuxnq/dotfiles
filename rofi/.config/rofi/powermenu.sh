@@ -78,7 +78,7 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		grim -l 0 ~/.cache/screenlock.png
+		hyprshot -m output -o ~/.cache/ -f screenlock.png -c -s && xsel -bc
 		convert .cache/screenlock.png -scale 10% .cache/screenlock.png
 		hyprlock
 	elif [[ "$1" == '--opt2' ]]; then
