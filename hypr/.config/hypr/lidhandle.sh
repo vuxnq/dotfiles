@@ -1,8 +1,8 @@
 #!/bin/bash
 
-state=$1
+state=$(cat /proc/acpi/button/lid/LID/state | tr -s ' ' | cut -d ' ' -f 2)
 
-if [ "$state" == "on" ]; then
+if [ "$state" == "open" ]; then
     hyprctl keyword monitor "eDP-1, preferred, 0x0, auto"
 else
     count_monitors=$(hyprctl monitors | grep -c '^Monitor')
