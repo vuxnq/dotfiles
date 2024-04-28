@@ -89,7 +89,6 @@
         "tooltip-format-ethernet": "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
 	    "tooltip-format-disconnected": "Disconnected",
 	    "on-click": "~/.config/rofi/wifi.sh",
-	    "on-click-right": "~/.config/rofi/wifinew.sh",
 	    "interval": 5,
 	    "nospacing": 1
     },
@@ -113,6 +112,7 @@
             "default": ["󰖀","󰕾",""]
         },
         "on-click": "~/.config/rofi/volume.sh",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 1
     },
     "custom/logo": {
