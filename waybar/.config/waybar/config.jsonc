@@ -66,6 +66,7 @@
         "format": "{:%H:%M}"
     },
     "custom/spotify": {
+        // TODO: PYTHON -> BASH SCRIPT
         "exec": "/usr/bin/python3 /home/vuxnq/.config/waybar/modules/mediaplayer.py --player spotify",
         "format": " {}",
         "escape": true,
