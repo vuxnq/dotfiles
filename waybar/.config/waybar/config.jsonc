@@ -19,40 +19,14 @@
         "battery",
         "custom/power"
     ],
+    "custom/logo": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/launcher.sh"
+    },
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9"
-        },
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1"
-    },
-    "memory": {
-        "interval": 5,
-        "format": "󰧑 {}%",
-        "max-length": 10
-    },
-    "cpu": {
-        "interval": 5,
-        "format": " {usage}%",
-        "max-length": 10
-    },
-    "temperature": {
-        "interval": 5,
-        "format": " {}°C",
-        "max-length": 10
-    },
-    "tray": {
-        "spacing": 10
     },
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
@@ -74,6 +48,31 @@
         "on-scroll-up": "playerctl --player=spotify volume 0.05+",
         "on-scroll-down": "playerctl --player=spotify volume 0.05-"
     },
+    "tray": {
+        "spacing": 10
+    },
+    "memory": {
+        "interval": 5,
+        "format": "󰧑 {}%"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%"
+    },
+    "temperature": {
+        "interval": 5,
+        "format": " {}°C"
+    },
+    "bluetooth": {
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-connected": "󰂱  {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	    "on-click": "~/.config/rofi/bluetooth.sh",
+	    "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
+    },
     "network": {
         "exec": "/usr/bin/python3 /home/vuxnq/.config/waybar/modules/mediaplayer.py --player spotify",
         "format-wifi" : "{icon}",
@@ -89,16 +88,6 @@
 	    "interval": 5,
 	    "nospacing": 1
     },
-    "bluetooth": {
-        "format-on": "󰂯",
-        "format-off": "󰂲",
-        "format-connected": "󰂱  {num_connections}",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	    "on-click": "~/.config/rofi/bluetooth.sh",
-	    "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
-    },
     "pulseaudio": {
         "format": "{icon}",
         "format-bluetooth": "󰂰",
@@ -112,11 +101,6 @@
         "on-click": "~/.config/rofi/volume.sh",
         "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 1
-    },
-    "custom/logo": {
-        "format": "  ",
-        "tooltip": false,
-        "on-click": "~/.config/rofi/launcher.sh"
     },
     "battery": {
         "format": "{capacity}% {icon}",
