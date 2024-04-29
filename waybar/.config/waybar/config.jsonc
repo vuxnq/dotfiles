@@ -33,10 +33,6 @@
             "8": "8",
             "9": "9"
         },
-        "persistent-workspaces": {
-            "1": [],
-            "2": []
-        },
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1"
     },
@@ -89,6 +85,7 @@
         "tooltip-format-ethernet": "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
 	    "tooltip-format-disconnected": "Disconnected",
 	    "on-click": "~/.config/rofi/wifi.sh",
+	    "on-click-middle": "~/.config/rofi/wifi.sh toggle",
 	    "interval": 5,
 	    "nospacing": 1
     },
@@ -99,7 +96,8 @@
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	    "on-click": "~/.config/rofi/bluetooth.sh"
+	    "on-click": "~/.config/rofi/bluetooth.sh",
+	    "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -148,7 +146,7 @@
                 "󰁹"
             ]
         },
-        "format-full": "Charged ",
+        "format-full": "",
         "interval": 5,
         "states": {
             "warning": 20,

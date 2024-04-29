@@ -2,11 +2,16 @@
 
 # https://github.com/ericmurphyxyz/rofi-wifi-menu
 
+
+connected=$(nmcli -fields WIFI g)
+
+[ $1 == "toggle" ] && [[ "$connected" =~ "disabled" ]] && nmcli radio wifi on && exit
+[ $1 == "toggle" ] && [[ "$connected" =~ "enabled" ]] && nmcli radio wifi off && exit
+
 notify-send "Getting list of available Wi-Fi networks..."
 # Get a list of available wifi connections and morph it into a nice-looking list
 wifi_list=$(echo "" && nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S/ /g" | sed "s/^--/ /g" | sed "s/  //g" | sed "/--/d")
 
-connected=$(nmcli -fields WIFI g)
 if [[ "$connected" =~ "enabled" ]]; then
 	toggle="󰖪  Disable Wi-Fi"
 elif [[ "$connected" =~ "disabled" ]]; then

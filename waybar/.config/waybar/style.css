@@ -30,12 +30,14 @@ window#waybar.hidden {
   background-color: #1e1e2e;
   color: #cdd6f4;
 }
-
 #workspaces button:first-child {
   border-radius: 4px 0 0 4px;
 }
 #workspaces button:last-child {
   border-radius: 0 4px 4px 0;
+}
+#workspaces button:only-child {
+  border-radius: 4px;
 }
 
 #workspaces button.active {

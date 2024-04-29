@@ -16,16 +16,16 @@ power_on() {
 }
 
 # Toggles power state
-toggle_power() {
+toggle_power() {        
     if power_on; then
         bluetoothctl power off
-        show_menu
+        ! [ $1 == "nomenu" ] && show_menu
     else
         if rfkill list bluetooth | grep -q 'blocked: yes'; then
             rfkill unblock bluetooth && sleep 3
         fi
         bluetoothctl power on
-        show_menu
+        ! [ $1 == "nomenu" ] && show_menu
     fi
 }
 
@@ -303,6 +303,9 @@ rofi_command="rofi -dmenu $* \
 case "$1" in
     --status)
         print_status
+        ;;
+    toggle)
+        toggle_power nomenu
         ;;
     *)
         show_menu
