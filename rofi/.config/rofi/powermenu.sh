@@ -10,26 +10,14 @@ list_col='1'
 list_row='6'
 
 # Options
-layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
-if [[ "$layout" == 'NO' ]]; then
-	option_1=" Lock"
-	option_2=" Logout"
-	option_3=" Suspend"
-	option_4=" Hibernate"
-	option_5=" Reboot"
-	option_6=" Shutdown"
-	yes=' Yes'
-	no=' No'
-else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
-	yes=''
-	no=''
-fi
+option_1="" # Lock
+option_2="" # Logout
+option_3="" # Suspend
+option_4="" # Hibernate
+option_5="" # Reboot
+option_6="" # Shutdown
+yes=''
+no=''
 
 # Rofi CMD
 rofi_cmd() {
@@ -78,8 +66,7 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		hyprshot -m output -o ~/.cache/ -f screenlock.png -c -s && xsel -bc
-		convert .cache/screenlock.png -scale 10% .cache/screenlock.png
+		~/.config/hypr/setlockimage.sh
 		hyprlock
 	elif [[ "$1" == '--opt2' ]]; then
 		confirm_run 'kill -9 -1'
