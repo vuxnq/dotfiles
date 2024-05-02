@@ -7,9 +7,10 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+set fish_greeting
 set -gx EDITOR hx
+set -gx PATH $PATH ~/.local/bin
 set -gx PATH $PATH ~/.spicetify # spicetify
 set -gx PATH $PATH ~/.cargo/bin # rust cargo
-set fish_greeting
 
 zoxide init --cmd cd fish | source

@@ -66,7 +66,7 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		~/.config/hypr/setlockimage.sh
+		~/.local/bin/setlockimage.sh
 		hyprlock
 	elif [[ "$1" == '--opt2' ]]; then
 		confirm_run 'kill -9 -1'

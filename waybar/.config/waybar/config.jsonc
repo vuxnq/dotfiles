@@ -1,24 +1,8 @@
 {
-    "modules-left": [
-        "custom/logo",
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock",
-        "custom/spotify"
-    ],
-    "modules-right": [
-        "tray",
-        "memory",
-        "cpu",
-        "temperature",
-        "bluetooth",
-        "network",
-        "pulseaudio",
-        "battery",
-        "custom/power"
-    ],
+    "modules-left": ["custom/logo", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock", "custom/spotify"],
+    "modules-right": ["tray", "memory", "cpu", "temperature", "bluetooth",
+                        "network", "pulseaudio", "battery", "custom/power"],
     "custom/logo": {
         "format": "  ",
         "tooltip": false,
