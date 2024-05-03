@@ -9,8 +9,8 @@ function is_mute {
 }
 
 function send_notification {
-    volume=`get_volume`
-    notify-send -i audio-volume-muted-blocking -r 2593 "volume" -h int:value:$volume
+    volume=$(get_volume)
+    notify-send -i NONE -r 2593 "  volume $volume%" -h int:value:$volume
 }
 
 change=5
@@ -30,7 +30,7 @@ case $1 in
     mute)
 	amixer set Master 1+ toggle > /dev/null
 	if is_mute ; then
-	    notify-send -i audio-volume-muted -r 2593 "mute"
+	    notify-send -i NONE -r 2593 "  mute"
 	else
 	    send_notification
 	fi

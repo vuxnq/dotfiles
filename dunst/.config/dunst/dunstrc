@@ -16,7 +16,8 @@
     background = "#11111b"
     foreground = "#cdd6f4"
 
-
+    progress_bar_corner_radius = 4
+    
 [urgency_low]
     foreground = "#cdd6f4"
     highlight = "#b4befe"
