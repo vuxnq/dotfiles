@@ -12,25 +12,22 @@
     frame_color = "#313244"
     separator_color= frame
     font = "JetBrains Mono Medium"
-    corner_radius = 8
-    background = "#11111B"
-    foreground = "#CDD6F4"
+    corner_radius = 10
+    background = "#11111b"
+    foreground = "#cdd6f4"
 
 
 [urgency_low]
-    background = "#1e1e2e"
     foreground = "#cdd6f4"
-    highlight = "#cba6f7"
+    highlight = "#b4befe"
     timeout = 4
 
 [urgency_normal]
-    background = "#1e1e2e"
     foreground = "#cdd6f4"
-    highlight = "#cba6f7"
+    highlight = "#b4befe"
     timeout = 6
 
 [urgency_critical]
-    background = "#1e1e2e"
     foreground = "#cdd6f4"
-    highlight = "#cba6f7"
+    highlight = "#b4befe"
     timeout = 0

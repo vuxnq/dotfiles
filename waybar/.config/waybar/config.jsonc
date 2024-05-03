@@ -83,8 +83,9 @@
             "default": ["󰖀","󰕾",""]
         },
         "on-click": "~/.config/rofi/volume.sh",
-        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "scroll-step": 1
+        "on-click-middle": "~/.local/bin/volume.sh mute",
+        "on-scroll-down": "~/.local/bin/volume.sh down 1",
+        "on-scroll-up": "~/.local/bin/volume.sh up 1"
     },
     "battery": {
         "format": "{capacity}% {icon}",
