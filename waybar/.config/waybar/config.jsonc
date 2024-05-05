@@ -4,8 +4,9 @@
     "modules-right": ["tray", "memory", "cpu", "temperature", "bluetooth",
                         "network", "pulseaudio", "battery", "custom/power"],
     "custom/logo": {
-        "format": "  ",
+        "format": "  ",
         "tooltip": false,
+        "on-click-right": "hyprctl dispatch overview:toggle",
         "on-click": "~/.config/rofi/launcher.sh"
     },
     "hyprland/workspaces": {
