@@ -7,8 +7,7 @@
   ],
   "modules-center": [
     "clock",
-    // "custom/spotify",
-    "mpris"
+    "custom/spotify"
   ],
   "modules-right": [
     "tray",
@@ -36,28 +35,14 @@
     "format-alt": "{:%a, %d %b %Y}",
     "format": "{:%H:%M}"
   },
-  "mpris": {
-    "player": "spotify",
-    "format": " {title} | {artist}",
-    "format-paused": " paused",
-    "title-len": 40,
-    "artist-len": 40,
-    "interval": 0,
-    "on-click": "~/.config/rofi/mpd.sh",
-    "on-click-right": "hyprctl dispatch focuswindow Spotify",
-    "on-click-middle": "playerctl --player=spotify play-pause",
-    "on-scroll-up": "playerctl --player=spotify volume 0.05+",
-    "on-scroll-down": "playerctl --player=spotify volume 0.05-",
-    "on-click-forward": "playerctl --player=spotify next", // TODO: NOT WORKING
-    "on-click-backward": "playerctl --player=spotify previous"
-  },
   "custom/spotify": {
-    // TODO: PYTHON -> BASH SCRIPT
-    "max-length": 50,
-    "exec": "/usr/bin/python3 /home/vuxnq/.config/waybar/modules/mediaplayer.py --player spotify",
-    "format": " {}",
-    "escape": true,
+    "exec": "~/.config/waybar/modules/spotify.sh",
     "return-type": "json",
+    "format": "{icon} {}",
+    "format-icons": {
+      "playing": " ",
+      "paused": " "
+    },
     "on-click": "~/.config/rofi/mpd.sh",
     "on-click-right": "hyprctl dispatch focuswindow Spotify",
     "on-click-middle": "playerctl --player=spotify play-pause",
@@ -92,7 +77,6 @@
     "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
   },
   "network": {
-    "exec": "/usr/bin/python3 /home/vuxnq/.config/waybar/modules/mediaplayer.py --player spotify",
     "format-wifi": "{icon}",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-ethernet": "󰀂",

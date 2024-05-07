@@ -41,7 +41,7 @@ window#waybar {
 }
 
 #memory, #cpu, #temperature,
-#mpris, #window,
+#custom-spotify, #window,
 #custom-power, #battery,
 #backlight, #pulseaudio,
 #network, #clock, #tray,
@@ -60,7 +60,7 @@ window#waybar {
   color: #cdd6f4;
 }
 
-#mpris {
+#custom-spotify {
   color: #a6e3a1;
 }
 

@@ -19,13 +19,13 @@ power_on() {
 toggle_power() {        
     if power_on; then
         bluetoothctl power off
-        ! [ $1 == "nomenu" ] && show_menu
+        ! [ "$1" == "nomenu" ] && show_menu
     else
         if rfkill list bluetooth | grep -q 'blocked: yes'; then
             rfkill unblock bluetooth && sleep 3
         fi
         bluetoothctl power on
-        ! [ $1 == "nomenu" ] && show_menu
+        ! [ "$1" == "nomenu" ] && show_menu
     fi
 }
 

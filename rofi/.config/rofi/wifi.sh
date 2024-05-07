@@ -5,8 +5,8 @@
 
 connected=$(nmcli -fields WIFI g)
 
-[ $1 == "toggle" ] && [[ "$connected" =~ "disabled" ]] && nmcli radio wifi on && exit
-[ $1 == "toggle" ] && [[ "$connected" =~ "enabled" ]] && nmcli radio wifi off && exit
+[ "$1" == "toggle" ] && [[ "$connected" =~ "disabled" ]] && nmcli radio wifi on && exit
+[ "$1" == "toggle" ] && [[ "$connected" =~ "enabled" ]] && nmcli radio wifi off && exit
 
 notify-send "Getting list of available Wi-Fi networks..."
 # Get a list of available wifi connections and morph it into a nice-looking list
