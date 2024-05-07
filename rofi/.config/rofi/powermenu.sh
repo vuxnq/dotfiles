@@ -3,31 +3,31 @@
 theme="$HOME/.config/rofi/config/applets.rasi"
 
 # Theme Elements
-prompt="`hostname`"
 mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
 
 list_col='1'
 list_row='6'
 
 # Options
-option_1="" # Lock
-option_2="" # Logout
-option_3="" # Suspend
-option_4="" # Hibernate
-option_5="" # Reboot
-option_6="" # Shutdown
-yes=''
-no=''
+option_1="lock" # Lock
+option_2="logout" # Logout
+option_3="suspend" # Suspend
+option_4="hibernate" # Hibernate
+option_5="reboot" # Reboot
+option_6="shutdown" # Shutdown
+yes='yes'
+no='no'
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
-		-dmenu \
-		-p "$prompt" \
+	rofi -dmenu \
 		-mesg "$mesg" \
-		-markup-rows \
-		-theme ${theme}
+		-theme-str configuration{show-icons:false\;} \
+		-theme-str mainbox\{children:["message","listview"]\;} \
+		-theme-str window{width:300\;location:northeast\;anchor:northeast\;} \
+		-theme-str window{x-offset:-10px\;y-offset:10px\;} \
+		-theme-str listview{lines:6\;} \
+		-theme $HOME/.config/rofi/config/launcher.rasi
 }
 
 # Pass variables to rofi dmenu

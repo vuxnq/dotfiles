@@ -38,19 +38,21 @@ elif [ $percentage -ge 10 ]; then ICON_BATTERY="󰁻"
 fi
 
 # Options
-option_1="$ICON_BATTERY"
-option_2="$ICON_CONSERVATION"
-option_3=""
+option_1="$ICON_BATTERY $percentage%"
+option_2="$ICON_CONSERVATION conservation"
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str "textbox-prompt-colon {str: \"$ICON_BATTERY\";}" \
 		-dmenu \
 		-p "$status" \
 		${active} \
-		-markup-rows \
-		-theme ${theme}
+		-theme-str configuration{show-icons:false\;} \
+		-theme-str mainbox\{children:["message","listview"]\;} \
+		-theme-str window{width:300\;location:northeast\;anchor:northeast\;} \
+		-theme-str window{x-offset:-10px\;y-offset:10px\;} \
+		-theme-str listview{lines:2\;} \
+		-theme $HOME/.config/rofi/config/launcher.rasi
 }
 
 # Pass variables to rofi dmenu

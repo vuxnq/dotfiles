@@ -115,7 +115,6 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "feather 15";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;

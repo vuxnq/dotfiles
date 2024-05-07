@@ -26,7 +26,7 @@ chosen="$(echo -e "$options" | rofi -show -dmenu\
     -theme-str mainbox\{children:["message","listview"]\;} \
     -theme-str window{width:300\;location:north\;anchor:north\;} \
     -theme-str window{x-offset:-10px\;y-offset:10px\;} \
-    -theme-str listview{lines:4\;} \
+    -theme-str listview{lines:7\;} \
     -theme $HOME/.config/rofi/config/launcher.rasi
 )"
 

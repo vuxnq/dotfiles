@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-theme="$HOME/.config/rofi/config/applets.rasi"
-
 list_col='1'
 list_row='4'
 
 # Options
-option_1="" # Capture Desktop
-option_2="" # Capture Area
-option_3="" # Capture Window
-option_4="" # Capture in 5s
+option_1="desktop" # Capture Desktop
+option_2="area" # Capture Area
+option_3="window" # Capture Window
+option_4="capture in 5s" # Capture in 5s
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
-		-dmenu \
-		-markup-rows \
-		-theme ${theme}
+	rofi -dmenu -theme-str "listview {columns: $list_col; lines: $list_row;}" \
+    -theme-str 'configuration{show-icons:false;}' \
+    -theme-str 'mainbox{children:["message","listview"];}' \
+    -theme-str 'window{width:300;location:northeast;anchor:northeast;}' \
+    -theme-str 'window{x-offset:-10px;y-offset:10px;}' \
+    -theme-str 'listview{lines:4;}' \
+    -theme $HOME/.config/rofi/config/launcher.rasi
 }
 
 # Pass variables to rofi dmenu
