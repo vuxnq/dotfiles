@@ -25,6 +25,7 @@ window#waybar {
   border-radius: 4px;
 }
 
+
 #workspaces button.active {
   color: #1e1e2e;
   background-color: #cdd6f4;
@@ -38,6 +39,11 @@ window#waybar {
 #workspaces button.urgent {
   color: #1e1e2e;
   background-color: #f38ba8;
+}
+
+#workspaces button.special {
+  color: #cdd6f4;
+  background-color: #313244;
 }
 
 #memory, #cpu, #temperature,
@@ -113,6 +119,10 @@ window#waybar {
 #pulseaudio.muted {
   background-color: #1e1e2e;
   color: #f9e2af;
+}
+#pulseaudio.input {
+  color: #cdd6f4;
+  background-color: #313244;
 }
 
 #network, #bluetooth {

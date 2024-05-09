@@ -17,18 +17,26 @@
     "bluetooth",
     "network",
     "pulseaudio",
+    "pulseaudio#input",
     "battery",
     "custom/power"
   ],
   "custom/logo": {
     "format": "  ",
     "tooltip": false,
-    "on-click-right": "hyprctl dispatch overview:toggle",
     "on-click": "~/.config/rofi/launcher.sh"
   },
   "hyprland/workspaces": {
+    "show-special": true,
+    "format": "{icon}",
+    "format-icons": {
+      "special": "*"
+    },
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1"
+  },
+  "hyprland/window": {
+    "on-click": "hyprctl dispatch togglefloating"
   },
   "clock": {
     "tooltip-format": "<tt>{calendar}</tt>",
@@ -56,7 +64,8 @@
   },
   "memory": {
     "interval": 5,
-    "format": "󰧑 {}%"
+    "format": "󰧑 {}%",
+    "format-alt": "󰧑 {used}G"
   },
   "cpu": {
     "interval": 5,
@@ -94,7 +103,6 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "󰂰",
     "nospacing": 1,
-    "tooltip-format": "{volume}%",
     "format-muted": "",
     "format-icons": {
       "headphone": "",
@@ -102,8 +110,18 @@
     },
     "on-click": "~/.config/rofi/volume.sh",
     "on-click-middle": "~/.local/bin/volume.sh mute",
-    "on-scroll-down": "~/.local/bin/volume.sh down 1",
-    "on-scroll-up": "~/.local/bin/volume.sh up 1"
+    "on-click-right": "amixer sset 'Capture' toggle",
+    "on-scroll-down": "~/.local/bin/volume.sh down 2",
+    "on-scroll-up": "~/.local/bin/volume.sh up 2"
+  },
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "~/.config/rofi/volume.sh mic",
+    "on-click-right": "amixer sset 'Capture' toggle",
+    "on-scroll-up": "amixer sset 'Capture' 2%+",
+    "on-scroll-down": "amixer sset 'Capture' 2%-"
   },
   "battery": {
     "format": "{capacity}% {icon}",
