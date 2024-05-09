@@ -7,7 +7,6 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "clock",
     "custom/spotify"
   ],
   "modules-right": [
@@ -15,12 +14,12 @@
     "memory",
     "cpu",
     "temperature",
-    "bluetooth",
     "network",
+    "bluetooth",
     "pulseaudio",
     "pulseaudio#input",
     "battery",
-    "custom/power"
+    "clock"
   ],
   "custom/logo": {
     "format": "  ",
@@ -37,12 +36,12 @@
     "on-scroll-down": "hyprctl dispatch workspace e+1"
   },
   "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "": "vuxnq"
+    },
+    "max-length": 50,
     "on-click": "hyprctl dispatch togglefloating"
-  },
-  "clock": {
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "format-alt": "{:%a, %d %b %Y}",
-    "format": "{:%H:%M}"
   },
   "custom/spotify": {
     "exec": "~/.config/waybar/modules/spotify.sh",
@@ -76,16 +75,6 @@
     "interval": 5,
     "format": " {}°C"
   },
-  "bluetooth": {
-    "format-on": "󰂯",
-    "format-off": "󰂲",
-    "format-connected": "󰂱  {num_connections}",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "~/.config/rofi/bluetooth.sh",
-    "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
-  },
   "network": {
     "format-wifi": "{icon}",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -97,14 +86,25 @@
     "tooltip-format-disconnected": "Disconnected",
     "on-click": "~/.config/rofi/wifi.sh",
     "on-click-middle": "~/.config/rofi/wifi.sh toggle",
+    "on-click-right": "~/.config/rofi/bluetooth.sh toggle",
     "interval": 5,
     "nospacing": 1
+  },
+  "bluetooth": {
+    "format-on": "󰂯",
+    "format-off": "",
+    "format-connected": "󰂱  {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "~/.config/rofi/bluetooth.sh",
+    "on-click-right": "~/.config/rofi/bluetooth.sh toggle"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "󰂰",
     "nospacing": 1,
-    "format-muted": "",
+    "format-muted": " ",
     "format-icons": {
       "headphone": "",
       "default": [" ", " ", " "]
@@ -125,7 +125,7 @@
     "on-scroll-down": "amixer sset 'Capture' 2%-"
   },
   "battery": {
-    "format": "{capacity}% {icon}",
+    "format": "{icon} {capacity}%",
     "format-icons": {
       "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
       "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
@@ -138,9 +138,9 @@
     },
     "on-click": "~/.config/rofi/battery.sh"
   },
-  "custom/power": {
-    "format": "",
-    "tooltip": false,
+  "clock": {
+    "tooltip-format": "{:%A}\n{calendar}",
+    "format": "{:%d|%m|%y  %H:%M}",
     "on-click": "~/.config/rofi/powermenu.sh"
   }
 }
