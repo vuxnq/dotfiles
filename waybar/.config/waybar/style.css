@@ -21,7 +21,7 @@ window#waybar {
 #workspaces {
   background-color: #1e1e2e;
   margin: 6px 3px 0 3px;
-  padding: 4px;
+  padding: 3px;
 }
 
 #workspaces button {
@@ -54,7 +54,7 @@ window#waybar.floating #window {
 }
 
 window#waybar.fullscreen #window,
-#memory, #cpu, #temperature, #clock,
+#hardware, #clock,
 #custom-spotify, #window, #tray,
 #battery, #backlight, #custom-logo,
 #pulseaudio, #pulseaudio.muted,
@@ -77,18 +77,12 @@ window#waybar.fullscreen #window,
 
 #memory {
   color: #eebebe;
-  margin-right: 0;
-  border-radius: 4px 0 0 4px;
 }
 #cpu {
   color: #eba0ac;
-  margin: 6px 0 0 0;
-  border-radius: 0;
 }
 #temperature {
   color: #f38ba8;
-  margin-left: 0;
-  border-radius: 0 4px 4px 0;
 }
 
 #battery.plugged {
@@ -119,6 +113,10 @@ window#waybar.fullscreen #window,
   color: #fab387;
 }
 
+#clock {
+  margin-right: 6px;
+}
+
 /* toggle */
 #workspaces button.special,
 #pulseaudio.input,
@@ -129,11 +127,12 @@ window#waybar.fullscreen #window,
 
 /* fix non-mono icons */
 #network, #bluetooth {
-  padding-right: 10px;
+  padding-right: 4px;
 }
 
-#clock {
-  margin-right: 6px;
+/* children of groups */
+#hardware .child * {
+  margin-right: 10px;
 }
 
 tooltip {

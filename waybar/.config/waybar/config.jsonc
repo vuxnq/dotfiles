@@ -11,16 +11,46 @@
   ],
   "modules-right": [
     "tray",
-    "memory",
-    "cpu",
-    "temperature",
-    "network",
-    "bluetooth",
-    "pulseaudio",
-    "pulseaudio#input",
+    "group/hardware",
+    "group/net",
+    "group/audio",
     "battery",
     "clock"
   ],
+  "group/hardware": {
+		"orientation": "inherit",
+		"modules": [
+      "memory",
+      "temperature",
+      "cpu"
+      ],
+      "drawer": {
+        "transition-left-to-right": false,
+        "children-class": "child"
+      }
+	},
+  "group/net": {
+		"orientation": "inherit",
+    "modules": [
+      "network",
+      "bluetooth"
+    ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "child"
+    }
+  },
+  "group/audio": {
+		"orientation": "inherit",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#input"
+    ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "child"
+    }
+  },
   "custom/logo": {
     "format": "  ",
     "tooltip": false,
@@ -77,28 +107,26 @@
   },
   "network": {
     "format-wifi": "{icon}",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format-ethernet": "󰀂",
-    "format-disconnected": "󰖪",
-    "format-disabled": "󰖪",
-    "tooltip-format-wifi": "{icon} {essid}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "󰀂  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤭 ",
+    "format-disabled": "󰤭 ",
+    "tooltip-format-wifi": "{icon} {essid} {frequency}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "on-click": "~/.config/rofi/wifi.sh",
     "on-click-middle": "~/.config/rofi/wifi.sh toggle",
-    "on-click-right": "~/.config/rofi/bluetooth.sh toggle",
     "interval": 5,
     "nospacing": 1
   },
   "bluetooth": {
-    "format-on": "󰂯",
-    "format-off": "",
-    "format-connected": "󰂱  {num_connections}",
+    "format-on": "󰂯 {num_connections}",
+    "format-off": "󰂲 ",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "~/.config/rofi/bluetooth.sh",
-    "on-click-right": "~/.config/rofi/bluetooth.sh toggle"
+    "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -111,16 +139,15 @@
     },
     "on-click": "~/.config/rofi/volume.sh",
     "on-click-middle": "~/.local/bin/volume.sh mute",
-    "on-click-right": "amixer sset 'Capture' toggle",
     "on-scroll-down": "~/.local/bin/volume.sh down 2",
     "on-scroll-up": "~/.local/bin/volume.sh up 2"
   },
   "pulseaudio#input": {
     "format": "{format_source}",
     "format-source": " {volume}%",
-    "format-source-muted": "",
+    "format-source-muted": " ",
     "on-click": "~/.config/rofi/volume.sh mic",
-    "on-click-right": "amixer sset 'Capture' toggle",
+    "on-click-middle": "amixer sset 'Capture' toggle",
     "on-scroll-up": "amixer sset 'Capture' 2%+",
     "on-scroll-down": "amixer sset 'Capture' 2%-"
   },
