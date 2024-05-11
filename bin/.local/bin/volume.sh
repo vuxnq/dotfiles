@@ -10,7 +10,7 @@ function is_mute {
 
 function send_notification {
     volume=$(get_volume)
-    notify-send -i NONE -r 2593 "  volume $volume%" -h int:value:$volume
+    notify-send -i NONE -r 2593 -t 500 "  volume $volume%" -h int:value:$volume
 }
 
 change=5

@@ -6,7 +6,7 @@ function get_brightness {
 
 function send_notification {
     brightness=$(get_brightness)
-    notify-send -i NONE -r 2500 "󰳲 brightness $brightness%" -h int:value:$brightness
+    notify-send -i NONE -r 2500 -t 500 "󰳲 brightness $brightness%" -h int:value:$brightness
 }
 
 change=5
