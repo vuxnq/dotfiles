@@ -23,12 +23,12 @@ $ stow <directory>
 
 ### additional
 ```sh
+# firefox theme
+./firefox_install.sh
+
 # grub theme
 sudo ./grub_install.sh
 
 # plymouth theme
 sudo ./plymouth_install.sh
 ```
-
-## info
-for firefox to work, the profile folder must be renamed
