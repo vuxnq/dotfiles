@@ -15,7 +15,7 @@ $ cd ~/.dotfiles
 
 use [stow](https://www.gnu.org/software/stow/) to create symlinks
 ```sh
-$ stow *
+$ stow .
 # or choose specifically
 $ stow <directory>
 # <directory> - e.g. fish / helix / kitty...
