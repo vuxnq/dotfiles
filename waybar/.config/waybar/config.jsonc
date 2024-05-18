@@ -4,8 +4,7 @@
   "modules-left": [
     "custom/logo",
     "hyprland/workspaces",
-    "wlr/taskbar",
-    "hyprland/window"
+    "group/windows"
   ],
   "modules-center": [
     "custom/spotify"
@@ -18,6 +17,17 @@
     "battery",
     "clock"
   ],
+  "group/windows": {
+		"orientation": "inherit",
+    "modules": [
+      "hyprland/window",
+      "wlr/taskbar"
+    ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "child"
+    }
+  },
   "group/hardware": {
 		"orientation": "inherit",
 		"modules": [

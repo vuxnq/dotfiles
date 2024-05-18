@@ -15,7 +15,6 @@
 
 window#waybar {
   background-color: transparent;
-  transition-duration: 0.5s;
 }
 
 #workspaces,
@@ -31,13 +30,15 @@ window#waybar {
   padding: 0 9px;
   color: #cdd6f4;
   border-radius: 2px;
+  transition-duration: 0.1s;
 }
 
 #taskbar button {
   padding: 0 4px;
 }
 
-#workspaces button.active {
+#workspaces button.active,
+#taskbar button.active {
   color: #1e1e2e;
   background-color: #cdd6f4;
 }
@@ -125,7 +126,6 @@ window#waybar.fullscreen #window,
 
 /* toggle */
 #workspaces button.special,
-#taskbar button.active,
 #pulseaudio.input,
 #bluetooth {
   color: #cdd6f4;
