@@ -18,26 +18,32 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
-#workspaces {
+#workspaces,
+#taskbar {
   background-color: #1e1e2e;
   margin: 4px 2px 0 2px;
   padding: 2px;
 }
 
-#workspaces button {
+#workspaces button,
+#taskbar button {
   all: initial; /* Remove GTK theme values (waybar #1351) */
   padding: 0 9px;
   color: #cdd6f4;
   border-radius: 2px;
 }
 
+#taskbar button {
+  padding: 0 4px;
+}
 
 #workspaces button.active {
   color: #1e1e2e;
   background-color: #cdd6f4;
 }
 
-#workspaces button:hover {
+#workspaces button:hover,
+#taskbar button:hover {
   color: #1e1e2e;
   background-color: #b4befe;
 }
@@ -119,6 +125,7 @@ window#waybar.fullscreen #window,
 
 /* toggle */
 #workspaces button.special,
+#taskbar button.active,
 #pulseaudio.input,
 #bluetooth {
   color: #cdd6f4;
