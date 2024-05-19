@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-theme="$HOME/.config/rofi/config/applets.rasi"
-
 # Theme Elements
 mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
 
@@ -22,12 +20,9 @@ no='no'
 rofi_cmd() {
 	rofi -dmenu \
 		-mesg "$mesg" \
-		-theme-str configuration{show-icons:false\;} \
-		-theme-str mainbox\{children:["message","listview"]\;} \
-		-theme-str window{width:300\;location:northeast\;anchor:northeast\;} \
-		-theme-str window{x-offset:-10px\;y-offset:10px\;} \
-		-theme-str listview{lines:6\;} \
-		-theme $HOME/.config/rofi/config/launcher.rasi
+		-theme-str 'window {location: northeast; anchor: northeast;}' \
+		-theme-str 'window {x-offset: -10px; y-offset: 10px;}' \
+		-theme $HOME/.config/rofi/config/applets.rasi
 }
 
 # Pass variables to rofi dmenu
@@ -37,15 +32,9 @@ run_rofi() {
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
-		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 1;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
-		-p 'Confirmation' \
+	rofi -dmenu \
 		-mesg 'Are you Sure?' \
-		-theme ${theme}
+		-theme $HOME/.config/rofi/config/applets.rasi
 }
 
 # Ask for confirmation

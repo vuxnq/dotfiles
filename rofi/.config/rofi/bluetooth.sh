@@ -292,13 +292,11 @@ show_menu() {
 
 # TODO: need separate rasi for these bruh
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -dmenu $* \
-    -theme-str configuration{show-icons:false;} \
-    -theme-str mainbox{children:["message","listview"];} \
-    -theme-str window{width:300;location:northeast;anchor:northeast;} \
+rofi_command="rofi -dmenu \
+    -theme-str window{location:northeast;anchor:northeast;} \
     -theme-str window{x-offset:-10px;y-offset:10px;} \
     -theme-str listview{lines:4;} \
-    -theme $HOME/.config/rofi/config/launcher.rasi -p "󰂯" "
+    -theme $HOME/.config/rofi/config/applets.rasi"
 
 case "$1" in
     --status)

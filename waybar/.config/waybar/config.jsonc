@@ -100,7 +100,7 @@
       "playing": " ",
       "paused": " "
     },
-    "on-click": "~/.config/rofi/mpd.sh",
+    "on-click": "~/.config/rofi/mediaplayer.sh",
     "on-click-right": "hyprctl dispatch focuswindow Spotify",
     "on-click-middle": "playerctl --player=spotify play-pause",
     "on-click-forward": "playerctl --player=spotify next",

@@ -19,13 +19,11 @@ elif [[ "$connected" =~ "disabled" ]]; then
 fi
 
 # Use rofi to select wifi network
-rofi_command="rofi -dmenu $* \
-    -theme-str configuration{show-icons:false;} \
-    -theme-str mainbox{children:["message","listview"];} \
-    -theme-str window{width:300;location:northeast;anchor:northeast;} \
+rofi_command="rofi -dmenu \
+    -theme-str window{location:northeast;anchor:northeast;} \
     -theme-str window{x-offset:-10px;y-offset:10px;} \
     -theme-str listview{lines:4;} \
-    -theme $HOME/.config/rofi/config/launcher.rasi -i -selected-row 1 -p \"Wi-Fi SSID: \" "
+    -theme $HOME/.config/rofi/config/applets.rasi"
 
 chosen_network=$(echo -e "$toggle$wifi_list\n󰈆  Exit" | $rofi_command)
 
@@ -45,7 +43,7 @@ else
 		nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
 	else
 		if [[ "$chosen_network" =~ "" ]]; then
-			wifi_password=$(rofi -dmenu -theme-str 'mainbox {children: [ inputbar ];}' -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' -theme-str 'textbox-prompt-colon {str: "";}' -theme-str 'entry {placeholder: "Password";}' -theme-str 'window {width: 300;}' -theme $HOME/.config/rofi/config/launcher.rasi -p "Enter password")
+			wifi_password=$(rofi -dmenu -theme-str 'mainbox {children: [inputbar];}' -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' -theme-str 'textbox-prompt-colon {str: "";}' -theme-str 'entry {placeholder: "Password";}' -theme $HOME/.config/rofi/config/applets.rasi -p "Enter password")
 		fi
 
         if [ $(nmcli device wifi connect "$chosen_id" password "$wifi_password" | -q grep "successfully") ]; then

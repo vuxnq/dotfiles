@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-list_col='1'
-list_row='4'
-
 # Options
 option_1="desktop" # Capture Desktop
 option_2="area" # Capture Area
@@ -11,13 +8,11 @@ option_4="capture in 5s" # Capture in 5s
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -dmenu -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-    -theme-str 'configuration{show-icons:false;}' \
-    -theme-str 'mainbox{children:["message","listview"];}' \
-    -theme-str 'window{width:300;location:northeast;anchor:northeast;}' \
-    -theme-str 'window{x-offset:-10px;y-offset:10px;}' \
-    -theme-str 'listview{lines:4;}' \
-    -theme $HOME/.config/rofi/config/launcher.rasi
+	rofi -dmenu \
+    -theme-str 'window{location: northeast; anchor: northeast;}' \
+    -theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
+    -theme-str 'listview{lines: 4;}' \
+    -theme $HOME/.config/rofi/config/applets.rasi
 }
 
 # Pass variables to rofi dmenu
