@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Theme Elements
-mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
+mesg="uptime: `uptime -p | sed -e 's/up //g'`"
 
 list_col='1'
 list_row='6'
@@ -33,7 +33,8 @@ run_rofi() {
 # Confirmation CMD
 confirm_cmd() {
 	rofi -dmenu \
-		-mesg 'Are you Sure?' \
+		-mesg 'are you sure?' \
+    	-theme-str 'listview{lines: 2;}' \
 		-theme $HOME/.config/rofi/config/applets.rasi
 }
 

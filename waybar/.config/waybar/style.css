@@ -17,6 +17,11 @@ window#waybar {
   background-color: transparent;
 }
 
+window#waybar.solo {
+  background-color: #11111b;
+  border-radius: 0;
+}
+
 #workspaces,
 #taskbar {
   background-color: #1e1e2e;

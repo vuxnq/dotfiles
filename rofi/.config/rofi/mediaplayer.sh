@@ -4,23 +4,23 @@ status_function () {
 	if playerctl status > /dev/null; then
 		echo "$(playerctl status -f "{{playerName}}"): $(playerctl metadata -f "{{trunc(default(title, \"[Unknown]\"), 25)}} by {{trunc(default(artist, \"[Unknown]\"), 25)}}") ($(playerctl status))"
 	else
-		echo "Nothing is playing"
+		echo "nothing is playing"
 	fi
 }
 
 toggle_function () {
-	[ "$(playerctl status)" == "Paused" ] && echo "Play" || echo "Pause"
+	[ "$(playerctl status)" == "Paused" ] && echo "play" || echo "pause"
 }
 
 status=$(status_function)
 
 # Options
 toggle=$(toggle_function)
-next="Next"
-prev="Previous"
-seekminus="Go back 15 seconds"
-seekplus="Go ahead 15 seconds"
-switch="Change selected player"
+next="next"
+prev="previous"
+seekminus="seek -15 s"
+seekplus="seek +15 s"
+switch="switch player"
 
 # Variable passed to rofi
 options="$toggle\n$next\n$prev\n$seekplus\n$seekminus\n$switch"
