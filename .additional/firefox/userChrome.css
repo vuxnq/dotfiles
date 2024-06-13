@@ -42,3 +42,8 @@ $ git clone https://git.gay/Freeplay/firefox-onebar.git onebar
 #navigator-toolbox:hover > #nav-bar:focus-within + #PersonalToolbar {  
   transform: rotateX(0);
 }
+
+/*** Hide Tab Close buttons ***/
+.tabbrowser-tab .tab-close-button {
+  visibility: collapse !important;
+}

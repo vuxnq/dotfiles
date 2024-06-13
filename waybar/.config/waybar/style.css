@@ -17,11 +17,6 @@ window#waybar {
   background-color: transparent;
 }
 
-window#waybar.solo {
-  background-color: #11111b;
-  border-radius: 0;
-}
-
 #workspaces,
 #taskbar {
   background-color: #1e1e2e;
@@ -65,16 +60,45 @@ window#waybar.floating #window {
   color: transparent;
 }
 
-window#waybar.fullscreen #window,
-#hardware, #clock,
-#custom-spotify, #window, #tray,
-#battery, #backlight, #custom-logo,
-#pulseaudio, #pulseaudio.muted,
-#network, #bluetooth {
+
+#hardware,
+#clock,
+#custom-spotify,
+#window,
+#tray,
+#battery,
+#backlight,
+#custom-logo,
+#pulseaudio,
+#pulseaudio.muted,
+#network,
+#bluetooth {
   margin: 4px 2px 0 2px;
   padding: 0 4px;
   background-color: #1e1e2e;
   color: #cdd6f4;
+}
+
+/* fullscreen */
+window#waybar.solo {
+  border-radius: 0;
+  background-color: #11111b;
+}
+window#waybar.solo #workspaces,
+window#waybar.solo #taskbar,
+window#waybar.solo #hardware,
+window#waybar.solo #clock,
+window#waybar.solo #custom-spotify,
+window#waybar.solo #window,
+window#waybar.solo #tray,
+window#waybar.solo #battery,
+window#waybar.solo #backlight,
+window#waybar.solo #custom-logo,
+window#waybar.solo #pulseaudio,
+window#waybar.solo #pulseaudio.muted,
+window#waybar.solo #network,
+window#waybar.solo #bluetooth {
+  margin-top: 0;
 }
 
 #custom-logo {

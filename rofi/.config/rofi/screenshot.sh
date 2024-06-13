@@ -39,22 +39,24 @@ countdown () {
 
 # take shots
 shotnow () {
-	sleep 0.1 # so the rofi app disappears
-	hyprshot -m output -o ${dir} -f ${file} -c
+	sleep 0.2 # so the rofi app disappears
+	hyprshot -m output -o ${dir} -f ${file} -c -z
 }
 
 shotarea () {
-	hyprshot -m region -o ${dir} -f ${file}
+	sleep 0.2 # so the rofi app disappears
+	hyprshot -m region -o ${dir} -f ${file} -z
 }
 
 shotwin () {
-	hyprshot -m window -o ${dir} -f ${file}
+	sleep 0.2 # so the rofi app disappears
+	hyprshot -m window -o ${dir} -f ${file} -z
 }
 
 shotdelay () {
 	countdown '5'
 	sleep 1
-	hyprshot -m output -o ${dir} -f ${file} -c
+	hyprshot -m output -m active -o ${dir} -f ${file} -c -z
 }
 
 # Execute Command
