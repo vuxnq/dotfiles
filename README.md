@@ -15,8 +15,6 @@ $ cd ~/.dotfiles
 
 use [stow](https://www.gnu.org/software/stow/) to create symlinks
 ```sh
-$ stow .
-# or choose specifically
 $ stow <directory>
 # <directory> - e.g. fish / helix / kitty...
 ```
@@ -30,5 +28,6 @@ $ stow <directory>
 sudo ./grub_install.sh
 
 # plymouth theme
+sudo dnf install plymouth-theme-script
 sudo ./plymouth_install.sh
 ```

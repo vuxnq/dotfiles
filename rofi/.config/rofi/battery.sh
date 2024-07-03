@@ -50,6 +50,7 @@ run_rofi() {
 	echo -e "$cons" | rofi_cmd
 }
 
+# TODO: sudo does not work
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--cons' ]]; then

@@ -14,3 +14,5 @@ set -gx PATH $PATH ~/.spicetify # spicetify
 set -gx PATH $PATH ~/.cargo/bin # rust cargo
 
 zoxide init --cmd cd fish | source
+
+fish_add_path /home/vuxnq/.spicetify
