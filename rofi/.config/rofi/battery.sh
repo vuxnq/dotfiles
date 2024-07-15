@@ -50,11 +50,11 @@ run_rofi() {
 	echo -e "$cons" | rofi_cmd
 }
 
-# TODO: sudo does not work
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--cons' ]]; then
 		echo $conservation | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+		notify-send "conservation status" "$conservation"
 	fi
 }
 
