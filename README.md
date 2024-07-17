@@ -21,13 +21,16 @@ $ stow <directory>
 
 ### additional
 ```sh
+# spotify theme
+./spicetify_install.sh
+
 # firefox theme
 ./firefox_install.sh
 
 # grub theme
-sudo ./grub_install.sh
+./grub_install.sh
 
 # plymouth theme
 sudo dnf install plymouth-theme-script
-sudo ./plymouth_install.sh
+./plymouth_install.sh
 ```

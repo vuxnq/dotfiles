@@ -1,0 +1,24 @@
+:root {
+    --font-family: "JetBrainsMono NF Medium", monospace;
+    --font-size: 14px;
+    --font-weight: 900;
+    --line-height: 1.2;
+
+    --font-size-lyrics: 14px;
+
+    --font-family-header: var(--font-family);
+    --font-size-multiplier-header: 1;
+
+
+    --display-card-image: block;
+    --display-coverart-image: block;
+    --display-header-image: block;
+    --display-library-image: block;
+    --display-tracklist-image: block;
+    --display-spicetify-banner-ascii: none;
+    --display-music-banner-ascii: none;
+
+    --border-radius: 0px;
+    --border-width: 1px;
+    --border-style: solid;
+}
