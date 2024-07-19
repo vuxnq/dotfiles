@@ -22,11 +22,14 @@
 #navigator-toolbox { background-color: transparent !important; }
 
 /* hiding bloat */
+#navigator-toolbox { border: none !important; }
 .titlebar-spacer,
 .tabbrowser-tab .tab-close-button,
 #back-button,
 #forward-button,
-#alltabs-button {
+#alltabs-button,
+#scrollbutton-down,
+#scrollbutton-up {
   display: none;
 }
 
