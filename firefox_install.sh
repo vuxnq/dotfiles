@@ -8,12 +8,8 @@ if ! [ -d "$HOME/.mozilla/firefox/$PROFILE/chrome" ]; then
     mkdir $HOME/.mozilla/firefox/$PROFILE/chrome
 fi
 
-if [ -d "$HOME/.mozilla/firefox/$PROFILE/chrome/onebar" ]; then
-    echo "> onebar already folder exists - cloning skipped"
-else
-    echo "> cloning [https://git.gay/Freeplay/firefox-onebar.git] into chrome/onebar folder"
-    git clone https://git.gay/Freeplay/firefox-onebar.git $HOME/.mozilla/firefox/$PROFILE/chrome/onebar
-fi
+echo "> manually install theme [https://addons.mozilla.org/firefox/addon/catppuccin-mocha-lavender-git/]"
+firefox https://addons.mozilla.org/firefox/addon/catppuccin-mocha-lavender-git/
 
 cd $HOME/.dotfiles/.additional/
 echo "> stowing .additional/firefox into chrome folder"

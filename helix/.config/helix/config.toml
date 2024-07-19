@@ -18,41 +18,13 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+right = ["diagnostics", "selections", "register", "position", "position-percentage", "file-encoding"]
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+
 [editor.lsp]
 display-messages = true
 # display-inlay-hints = true # want in other mode than insert
-
-# insert movements
-[keys.insert]
-C-i = "normal_mode"
-C-j = "move_line_down"
-C-k = "move_line_up"
-C-h = "move_char_left"
-C-l = "move_char_right"
-
-# insert movements+
-C-A-j = "extend_line_below"
-C-A-k = "extend_line_above"
-C-A-h = ["select_mode","move_prev_word_start","insert_mode"]
-C-A-l = ["select_mode","move_next_word_start","append_mode"]
-
-# insert functions
-del = "delete_selection"
-C-Y = ["yank_to_clipboard","yank"] # want to use C but terminal said no
-C-x = ["yank_to_clipboard","yank","delete_selection"]
-C-X = ["extend_line_below","yank_to_clipboard","yank","delete_selection"]
-C-S-ret = "open_above"
-C-ret = "open_below"
-C-s = ":w!"
-C-I = ":format"
-
-[keys.normal]
-C-i = "insert_mode"
-ret = ["open_below","insert_mode"]
-A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-
-# buffer switch
-[keys.normal."ě"]
-j = ":bp"
-k = ":bn"

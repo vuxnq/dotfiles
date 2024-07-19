@@ -1,49 +1,110 @@
-/*
-cd ~/.mozilla/firefox/*.default-release/chrome
-$ git clone https://git.gay/Freeplay/firefox-onebar.git onebar
-*/
-@import url(onebar/onebar.css);
+*, *::before, *::after {
+  font-family: JetBrainsMono NF, monospace;
+  font-weight: 700;
+  font-size: 12px;
+}
 
-/* autohiding personal / bookmarks bar */
-#PersonalToolbar{
-  --uc-bm-height: 20px;
-  --uc-bm-padding: 4px; /* Vertical padding for bookmarks */
-  --uc-autohide-toolbar-delay: 250ms; /* toolbar hidden delay */
+:root {
+  --uc-tabs-height: 33px;
+  --uc-nav-height: 36px;
+  --uc-gap: 4px;
+  --uc-rounding: 8px;
+  --uc-transition: cubic-bezier(0.270, 0.910, 0.435, 1.280);
+
+  /* translucent */
+  --tabpanel-background-color: transparent !important;
+  background: #1e1e2ecc !important;
+
+ 	/* tab height */
+  --tab-min-height: max-content !important;
+  --tab-max-height: max-content !important;
+}
+#navigator-toolbox { background-color: transparent !important; }
+
+/* hiding bloat */
+.titlebar-spacer,
+.tabbrowser-tab .tab-close-button,
+#back-button,
+#forward-button,
+#alltabs-button {
+  display: none;
+}
+
+/* floating elements */
+#nav-bar,
+#PersonalToolbar {
+  position: fixed !important;
+  left: 25%;
+  right: 25%;
+
+  color: #cdd6f4 !important;
   
-  --uc-autohide-toolbar-focus-rotation: 0deg;
-  --uc-autohide-toolbar-hover-rotation: 0deg; 
-  background-color: transparent !important;
+  @media (max-width: 800px) { left: 16px; right: 16px; }
 }
 
-:root[uidensity="compact"] #PersonalToolbar{ --uc-bm-padding: 1px }
-:root[uidensity="touch"] #PersonalToolbar{ --uc-bm-padding: 7px }
+/* navbar */
+#nav-bar {
+  top: 0;
 
-#PersonalToolbar:not([customizing]){
-  position: relative;
-  margin-bottom: calc(0px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
-  transform: rotateX(90deg);
-  transform-origin: top;
-  transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
-  z-index: 1;
+  z-index: -1;
+  border-top: none !important;
+  border-radius: var(--uc-rounding);
+  border: 1px solid #313244 !important;
+  background: #11111b !important;
+  opacity: 0;
+  overflow: visible !important;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.5rem;
+    top: -0.5rem;
+  }
 }
 
-#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
-
-#nav-bar:focus-within + #PersonalToolbar{
-  transition-delay: 100ms !important;
-  transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));
+:root[customizing],
+#navigator-toolbox:is(:hover, :focus-within, :has([open])) {
+  #nav-bar {
+    z-index: 5;
+    --uc-nav-pos: calc(var(--uc-tabs-height) + var(--uc-gap));
+    transition: top 0.2s var(--uc-transition), opacity 0.2s ease !important;
+    top: var(--uc-nav-pos);
+    opacity: 1;
+  }
 }
 
-#navigator-toolbox:hover > #PersonalToolbar{
-  transition-delay: 100ms !important;
-  transform: rotateX(var(--uc-autohide-toolbar-hover-rotation,0));
+/* bookmarks toolbar */
+#PersonalToolbar {
+  top: calc(var(--uc-tabs-height) + var(--uc-gap) + var(--uc-rounding));
+  height: 0;
+
+  z-index: 4;
+  transition: height 0.2s var(--uc-transition), opacity 0.1s ease !important;
+  border-radius: var(--uc-rounding);
+  background-color: #11111b !important;
+  min-height: 0px;
+  opacity: 0;
 }
 
-#navigator-toolbox:hover > #nav-bar:focus-within + #PersonalToolbar {  
-  transform: rotateX(0);
+:root[customizing] #PersonalToolbar,
+#navigator-toolbox:hover #PersonalToolbar {
+  height: 25px !important;
+  opacity: 100 !important;
+  box-sizing: content-box;
+  border: 1px solid #313244 !important;
+  border-top: solid calc(var(--uc-nav-height) - var(--uc-rounding)) #11111b !important;
+  transition-delay: 0.1s !important;
 }
 
-/*** Hide Tab Close buttons ***/
-.tabbrowser-tab .tab-close-button {
-  visibility: collapse !important;
+/* tabs */
+.tab-content { color: #cdd6f4 !important; transition: 0.2s; }
+.tab-background { background: #1e1e2e !important; transition: 0.2s; }
+
+.tab-background[selected] { background: #cdd6f4 !important; }
+.tabbrowser-tab:hover .tab-background { background: #b4befe !important; }
+
+.tabbrowser-tab:not([selected], [multiselected]):hover .tab-content,
+.tabbrowser-tab[selected] .tab-content {
+  color: #1e1e2e !important;
 }

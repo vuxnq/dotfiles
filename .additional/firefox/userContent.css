@@ -1,21 +1,8 @@
-  /* new tab */
-  @-moz-document url-prefix(about:home),
-  url-prefix(about:newtab) {
-    :root {
-      --base: #1e1e2e;
-      --opacity: #18182588;
-      --dark: #11111b88;
-      --foreground: #cdd6f4;
-      --accent: #96a3f3;
-      --edge: #313244;
-      --shadow: #11111b;
-      --subtext: #7f849c;
-    }
-
-    body {
-      background: radial-gradient(140% 107.13% at 50% 10%, transparent 37.41%, var(--base) 69.27%, var(--edge) 100%);
-      background-color: var(--shadow);
-      color: var(--foreground);
-      --newtab-background-color-secondary: var(--base) !important;
-    }
+@-moz-document url(about:home), url(about:newtab), url(about:blank) {
+  body {
+    background-color: #11111b !important;
+    color: #cdd6f4 !important;
+    --newtab-background-color-secondary: #1e1e2e !important;
   }
+}
+/* TODO: tranlucent background */
