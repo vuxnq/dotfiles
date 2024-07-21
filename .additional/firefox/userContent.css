@@ -1,7 +1,15 @@
 @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-    body {
-        background-color: transparent !important;
-        color: #cdd6f4 !important;
+    :root {
+        --newtab-primary-action-background: #b4befe !important;
         --newtab-background-color-secondary: #1e1e2e !important;
     }
+    * {
+        font-family: JetBrainsMono NF, monospace;
+        font-weight: 700;
+      }
+    body { background-color: transparent !important; }
+    .icon.icon-settings { color: #cdd6f4 !important; }
+    .card-context-icon { fill: #cdd6f4 !important; }
+    .card:hover .card-details,.card:hover .card-context, .context-menu-button:hover { background-color: #11111b !important; }
+    .context-menu-button { background-color: var(--newtab-background-color-secondary) !important; }
 }

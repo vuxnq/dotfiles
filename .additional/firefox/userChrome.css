@@ -18,6 +18,8 @@
  	/* tab height */
   --tab-min-height: max-content !important;
   --tab-max-height: max-content !important;
+
+  --focus-outline-color: #cdd6f4 !important;
 }
 #navigator-toolbox { background-color: transparent !important; }
 
