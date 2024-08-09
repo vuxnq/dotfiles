@@ -142,6 +142,10 @@ window#waybar.solo #bluetooth {
 #pulseaudio {
   color: #f9e2af;
 }
+#pulseaudio:not(.source-muted) {
+  background-color: #f9e2af;
+  color: #1e1e2e;
+}
 
 #network.wifi,
 #network.linked,

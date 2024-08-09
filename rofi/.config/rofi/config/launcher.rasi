@@ -40,6 +40,7 @@ configuration {
 	window-format:              "{w} · {c} · {t}";
     me-select-entry:            "MousePrimary";
     me-accept-entry:            "!MousePrimary";
+    kb-cancel:                  "Escape,MouseSecondary";
 }
 
 /*****----- Main Window -----*****/

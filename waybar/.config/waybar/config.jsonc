@@ -37,6 +37,7 @@
       ],
       "drawer": {
         "transition-left-to-right": false,
+        "click-to-reveal": true,
         "children-class": "child"
       }
 	},
@@ -114,8 +115,7 @@
   },
   "memory": {
     "interval": 5,
-    "format": "󰧑 {}%",
-    "format-alt": "󰧑 {used}G"
+    "format": "󰧑 {}%"
   },
   "cpu": {
     "interval": 5,
@@ -149,7 +149,9 @@
     "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{format_source}{icon} {volume}%",
+    "format-source": " {}% | ",
+    "format-source-muted": "",
     "format-bluetooth": "󰂰",
     "nospacing": 1,
     "format-muted": " ",
