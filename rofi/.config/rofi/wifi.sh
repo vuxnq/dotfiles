@@ -43,7 +43,7 @@ else
 		nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
 	else
 		if [[ "$chosen_network" =~ "" ]]; then
-			wifi_password=$(rofi -dmenu -theme-str 'mainbox {children: [inputbar];}' -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' -theme-str 'textbox-prompt-colon {str: "";}' -theme-str 'entry {placeholder: "Password";}' -theme $HOME/.config/rofi/config/applets.rasi -p "Enter password")
+			wifi_password=$(rofi -password -dmenu -theme-str 'mainbox {children: [inputbar];}' -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' -theme-str 'textbox-prompt-colon {str: "";}' -theme-str 'entry {placeholder: "Password";}' -theme $HOME/.config/rofi/config/applets.rasi -p "Enter password")
 		fi
 
         if [ $(nmcli device wifi connect "$chosen_id" password "$wifi_password" | -q grep "successfully") ]; then

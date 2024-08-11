@@ -53,8 +53,9 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--cons' ]]; then
-		echo $conservation | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
-		notify-send "conservation status" "$conservation"
+		pass=$(rofi -password -dmenu -theme-str 'mainbox {children: [inputbar];}' -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' -theme-str 'textbox-prompt-colon {str: "";}' -theme-str 'entry {placeholder: "Password";}' -theme $HOME/.config/rofi/config/applets.rasi -p "Enter password")
+		echo "$pass" | sudo -S bash -c "echo $conservation > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+		notify-send "conservation mode changed"
 	fi
 }
 
