@@ -1,68 +1,40 @@
 #!/usr/bin/env bash
 
-theme="$HOME/.config/rofi/config/applets.rasi"
+status=$(acpi -b | cut -d',' -f1 | cut -d':' -f2 | tr -d ' ')
+percentage=$(acpi -b | cut -d',' -f2 | tr -d ' ',\%)
+cons_status=$(cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode)
 
-# Battery Info
-status="`acpi -b | cut -d',' -f1 | cut -d':' -f2 | tr -d ' '`"
-percentage="`acpi -b | cut -d',' -f2 | tr -d ' ',\%`"
-
-conservation=`cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode`
-ICON_CONSERVATION="󱋙"
-
-if [ $conservation -eq 1 ]
-then
-	ICON_CONSERVATION="󰌪"
-	conservation=0
-	cons_text="conservation: on"
-else
-	conservation=1
-	cons_text="conservation: off"
-fi
-
-# Discharging
-ICON_BATTERY="󰁺"
-if [ $percentage -ge 90 ]; then ICON_BATTERY="󰁹"
-elif [ $percentage -ge 80 ]; then ICON_BATTERY="󰂂"
-elif [ $percentage -ge 70 ]; then ICON_BATTERY="󰂁"
-elif [ $percentage -ge 60 ]; then ICON_BATTERY="󰂀"
-elif [ $percentage -ge 50 ]; then ICON_BATTERY="󰁿"
-elif [ $percentage -ge 40 ]; then ICON_BATTERY="󰁾"
-elif [ $percentage -ge 30 ]; then ICON_BATTERY="󰁽"
-elif [ $percentage -ge 20 ]; then ICON_BATTERY="󰁼"
-elif [ $percentage -ge 10 ]; then ICON_BATTERY="󰁻"
-fi
+case $percentage in
+    9[0-9]|100) ICON_BATTERY="󰁹" ;;
+    8[0-9]) ICON_BATTERY="󰂂" ;;
+    7[0-9]) ICON_BATTERY="󰂁" ;;
+    6[0-9]) ICON_BATTERY="󰂀" ;;
+    5[0-9]) ICON_BATTERY="󰁿" ;;
+    4[0-9]) ICON_BATTERY="󰁾" ;;
+    3[0-9]) ICON_BATTERY="󰁽" ;;
+    2[0-9]) ICON_BATTERY="󰁼" ;;
+    1[0-9]) ICON_BATTERY="󰁻" ;;
+esac
 
 # Options
-cons="$ICON_CONSERVATION $cons_text"
+cons="conservation: $cons_status"
 
-# Rofi CMD
-rofi_cmd() {
-	rofi -dmenu \
-		-mesg "$ICON_BATTERY $percentage% $status" \
-		-theme-str 'window{location: northeast; anchor: northeast;}' \
-		-theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
-		-theme-str 'listview{lines: 1;}' \
-		-theme $HOME/.config/rofi/config/applets.rasi
-}
-
-# Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$cons" | rofi_cmd
+	echo -e "$cons" | rofi -dmenu \
+        -mesg "$ICON_BATTERY $percentage% $status" \
+        -theme-str 'window{location: northeast; anchor: northeast;}' \
+        -theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
+        -theme-str 'listview{lines: 1;}' \
+        -theme $HOME/.config/rofi/config/applets.rasi
 }
 
-# Execute Command
-run_cmd() {
-	if [[ "$1" == '--cons' ]]; then
-		pass=$(rofi -password -dmenu -theme-str 'mainbox {children: [inputbar];}' -theme-str 'inputbar {children: [ textbox-prompt-colon, entry ];}' -theme-str 'textbox-prompt-colon {str: "";}' -theme-str 'entry {placeholder: "Password";}' -theme $HOME/.config/rofi/config/applets.rasi -p "Enter password")
-		echo "$pass" | sudo -S bash -c "echo $conservation > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
-		notify-send "conservation mode changed"
-	fi
-}
-
-# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $cons)
-		run_cmd --cons
+        pass=$(rofi -password -dmenu -theme $HOME/.config/rofi/config/password.rasi)
+        [ $cons_status -eq 1 ] && cons_set=0 || cons_set=1
+        echo "$pass" | sudo -S bash -c "echo $cons_set > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+        cons_status=$(cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode)
+        [ "$cons_status" == "$cons_set" ] && notify-send "conservation mode changed" || notify-send "failed to change conservation mode"
         ;;
 esac

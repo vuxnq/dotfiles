@@ -1,37 +1,38 @@
 #!/usr/bin/env bash
 
+player_status="$(playerctl status)"
+
 status_function () {
 	if playerctl status > /dev/null; then
-		echo "$(playerctl status -f "{{playerName}}"): $(playerctl metadata -f "{{trunc(default(title, \"[Unknown]\"), 25)}} by {{trunc(default(artist, \"[Unknown]\"), 25)}}") ($(playerctl status))"
+        player="$(playerctl status -f "{{playerName}}")"
+        player_track="$(playerctl metadata -f "{{trunc(default(title, \"[Unknown]\"), 25)}}")"
+        player_artist="$(playerctl metadata -f "{{trunc(default(artist, \"[Unknown]\"), 25)}}")"
+        
+		echo -e "$player $player_status:\n$player_track by $player_artist"
 	else
 		echo "nothing is playing"
 	fi
 }
-
-toggle_function () {
-	[ "$(playerctl status)" == "Paused" ] && echo "play" || echo "pause"
-}
-
 status=$(status_function)
 
 # Options
-toggle=$(toggle_function)
+[ $player_status == "Paused" ] && toggle="play" || toggle="pause"
 next="next"
 prev="previous"
-seekminus="seek -15 s"
-seekplus="seek +15 s"
+seekminus="seek -15s"
+seekplus="seek +15s"
 switch="switch player"
 
-# Variable passed to rofi
-options="$toggle\n$next\n$prev\n$seekplus\n$seekminus\n$switch"
+run_rofi() {
+    echo -e "$toggle\n$next\n$prev\n$seekplus\n$seekminus\n$switch" | rofi -show -dmenu \
+        -mesg "${status^}" \
+        -theme-str 'window{location: north; anchor:north;}' \
+        -theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
+        -theme $HOME/.config/rofi/config/applets.rasi 
+}
 
-chosen="$(echo -e "$options" | rofi -show -dmenu \
-    -mesg "${status^}" \
-    -theme-str 'window{location: north; anchor:north;}' \
-    -theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
-    -theme $HOME/.config/rofi/config/applets.rasi )"
-
-case $chosen in
+chosen="$(run_rofi)"
+case ${chosen} in
     $toggle)
 		playerctl play-pause
         ;;

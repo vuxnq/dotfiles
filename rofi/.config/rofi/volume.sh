@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: BRUH CLEANUP
-
 if [ -n "$1" ]; then
     all_sources=$(pactl list short sources | cut -f 2)
     default_source=$(pactl get-default-source)

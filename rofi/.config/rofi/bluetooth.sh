@@ -2,6 +2,8 @@
 
 # https://github.com/nickclyde/rofi-bluetooth
 
+# TODO: 😭😭😭
+
 # Constants
 divider="--------------------------------"
 goback="  Back"

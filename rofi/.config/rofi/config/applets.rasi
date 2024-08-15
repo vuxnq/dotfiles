@@ -1,6 +1,5 @@
-@import "launcher.rasi"
+@import "../config.rasi"
 
-configuration { show-icons: false; }
 mainbox { children: ["message", "listview"]; }
 window { width: 300; }
 listview { lines: 6; }
