@@ -31,15 +31,10 @@
   "group/hardware": {
 		"orientation": "inherit",
 		"modules": [
-      "memory",
       "temperature",
-      "cpu"
-      ],
-      "drawer": {
-        "transition-left-to-right": false,
-        "click-to-reveal": true,
-        "children-class": "child"
-      }
+      "cpu",
+      "memory"
+      ]
 	},
   "group/net": {
 		"orientation": "inherit",
@@ -119,11 +114,11 @@
   },
   "cpu": {
     "interval": 5,
-    "format": " {usage}%"
+    "format": " {usage}% "
   },
   "temperature": {
     "interval": 5,
-    "format": " {}°C"
+    "format": " {}°C "
   },
   "network": {
     "format-wifi": "{icon}",
