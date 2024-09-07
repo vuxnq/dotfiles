@@ -60,7 +60,7 @@ window#waybar.floating #window {
   color: transparent;
 }
 
-
+#language,
 #hardware,
 #clock,
 #custom-spotify,
@@ -84,6 +84,7 @@ window#waybar.solo {
   border-radius: 0;
   background-color: #11111b;
 }
+window#waybar.solo #language,
 window#waybar.solo #workspaces,
 window#waybar.solo #taskbar,
 window#waybar.solo #hardware,

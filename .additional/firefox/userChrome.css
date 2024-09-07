@@ -11,9 +11,11 @@
   --uc-rounding: 8px;
   --uc-transition: cubic-bezier(0.270, 0.910, 0.435, 1.280);
 
-  /* translucent */
+  --tabpanel-background-color: #11111b !important;
+  /* translucent 
   --tabpanel-background-color: transparent !important;
   background: #1e1e2ecc !important;
+  */
 
  	/* tab height */
   --tab-min-height: max-content !important;
@@ -21,7 +23,7 @@
 
   --focus-outline-color: #cdd6f4 !important;
 }
-#navigator-toolbox { background-color: transparent !important; }
+/* #navigator-toolbox { background-color: transparent !important; } */
 
 /* hiding bloat */
 #navigator-toolbox { border: none !important; }

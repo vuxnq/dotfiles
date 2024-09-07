@@ -7,7 +7,8 @@
         font-family: JetBrainsMono NF, monospace;
         font-weight: 700;
       }
-    body { background-color: transparent !important; }
+    /* body { background-color: transparent !important; } */
+    body { background-color: #11111b !important; }
     .icon.icon-settings { color: #cdd6f4 !important; }
     .card-context-icon { fill: #cdd6f4 !important; }
     .card:hover .card-details,.card:hover .card-context, .context-menu-button:hover { background-color: #11111b !important; }

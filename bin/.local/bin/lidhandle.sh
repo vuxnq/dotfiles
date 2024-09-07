@@ -14,7 +14,8 @@ if [ "$state" == "closed" ]; then
     count=$(hyprctl monitors | grep -c '^Monitor')
     [ "$count" = 0 ] && loginctl lock-session | systemctl suspend
 else
-    hyprctl keyword monitor "eDP-1, preferred, 0x0, 1" > /dev/null
-    count=$(hyprctl monitors | grep -c '^Monitor')
-    [ "$count" = 1 ] && hyprctl keyword monitor "eDP-1, preferred, 0x0, auto" || :
+    hyprctl keyword monitor "eDP-1, preferred, 0x0, auto" > /dev/null
+    # hyprctl keyword monitor "eDP-1, preferred, 0x0, 1" > /dev/null
+    # count=$(hyprctl monitors | grep -c '^Monitor')
+    # [ "$count" = 1 ] && hyprctl keyword monitor "eDP-1, preferred, 0x0, auto" || :
 fi
