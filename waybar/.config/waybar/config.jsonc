@@ -60,7 +60,7 @@
     }
   },
   "custom/logo": {
-    "format": "  ",
+    "format": " 󰻀 ",
     "tooltip": false,
     "on-click": "~/.config/rofi/launcher.sh",
     "on-click-right": "hyprctl dispatch togglespecialworkspace"
