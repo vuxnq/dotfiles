@@ -1,4 +1,5 @@
 #!/bin/bash
+# /etc/systemd/logind.conf - [Login] HandleLidSwitch=ignore
 
 state=$(cat /proc/acpi/button/lid/LID/state | tr -s ' ' | cut -d ' ' -f 2)
 
@@ -10,12 +11,9 @@ case $1 in
 esac
 
 if [ "$state" == "closed" ]; then
-    hyprctl keyword monitor "eDP-1, disable"
-    count=$(hyprctl monitors | grep -c '^Monitor')
-    [ "$count" = 0 ] && loginctl lock-session | systemctl suspend
+    edp=$(hyprctl monitors | grep -c 'eDP-1')
+    count=$(($(hyprctl monitors | grep -c '^Monitor') - $edp))
+    [ "$count" = 0 ] && loginctl lock-session | systemctl suspend || hyprctl keyword monitor "eDP-1, disable"
 else
     hyprctl keyword monitor "eDP-1, preferred, 0x0, auto" > /dev/null
-    # hyprctl keyword monitor "eDP-1, preferred, 0x0, 1" > /dev/null
-    # count=$(hyprctl monitors | grep -c '^Monitor')
-    # [ "$count" = 1 ] && hyprctl keyword monitor "eDP-1, preferred, 0x0, auto" || :
 fi
