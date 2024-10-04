@@ -7,11 +7,37 @@ local M = {}
 
 M.base46 = {
 	theme = "catppuccin",
-
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  -- transparency = true,
 }
+
+M.ui = {
+   statusline = {
+     theme = "default", -- default/vscode/vscode_colored/minimal
+     separator_style = "block",
+   },
+
+   tabufline = {
+     lazyload = true,
+     order = { "treeOffset", "buffers", "tabs" },
+   }, 
+ }
+
+M.nvdash = {
+  load_on_startup = true,
+
+  header = {
+    "            •ᴗ•            ",
+    "                           ",
+  },
+
+  buttons = {
+    { txt = "  find file", keys = "spc f f", cmd = "Telescope find_files" },
+    { txt = "  recent files", keys = "spc f o", cmd = "Telescope oldfiles" },
+    { txt = "󰈭  find word", keys = "spc f w", cmd = "Telescope live_grep" },
+    { txt = "  mappings", keys = "spc c h", cmd = "NvCheatsheet" },
+  },
+}
+
+
 
 return M
