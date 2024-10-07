@@ -19,7 +19,7 @@ M.ui = {
    tabufline = {
      lazyload = true,
      order = { "treeOffset", "buffers", "tabs" },
-   }, 
+   },
  }
 
 M.nvdash = {
