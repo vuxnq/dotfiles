@@ -38,6 +38,7 @@ window#waybar {
 }
 
 #workspaces button.active,
+#workspaces button.special.active,
 #taskbar button.active {
   color: #1e1e2e;
   background-color: #cdd6f4;
