@@ -84,8 +84,7 @@
     "rewrite": {
       "": "vuxnq"
     },
-    "max-length": 50,
-    "on-click": "hyprctl dispatch togglefloating"
+    "max-length": 50
   },
   "custom/spotify": {
     "exec": "~/.config/waybar/modules/spotify.sh",
