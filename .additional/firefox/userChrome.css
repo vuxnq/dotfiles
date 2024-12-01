@@ -7,7 +7,7 @@
 :root {
   --uc-nav-height: 36px;
   --uc-gap: 4px;
-  --uc-rounding: 4px;
+  --uc-rounding: 8px;
 
   --tab-min-height: max-content !important;
   --tab-max-height: max-content !important;
@@ -25,11 +25,21 @@
 #scrollbutton-down,
 #scrollbutton-up { display: none; }
 
+#nav-bar,
+#PersonalToolbar {
+  position: fixed !important;
+  left: 25%;
+  right: 25%;
+
+  color: #cdd6f4 !important;
+  
+  @media (max-width: 800px) { left: 16px; right: 16px; }
+}
+
 /* navbar */
 #navigator-toolbox { z-index: auto !important; } /* w/o this navbar is not visible */
 
 #nav-bar {
-  margin: var(--uc-gap);
   border-radius: var(--uc-rounding);
   border: 1px solid #313244 !important;
   background: #11111b !important;
@@ -37,29 +47,57 @@
   height: var(--uc-nav-height);
 
   /* autohide properies */
-  margin-top: calc(var(--uc-nav-height) * -1);
-  margin-bottom: 0;
   z-index: -100;
   opacity: 0;
+  top: 0;
+
+  transition-delay: 1s !important;
 }
 
 #urlbar {
   /* autohide properies */
+  position: fixed !important;
   transition: all 0.2s ease !important;
+  pointer-events: none;
   opacity: 0;
+
+  transition-delay: 1s !important;
 }
 
-#navigator-toolbox:focus-within,
-#navigator-toolbox:hover,
+#PersonalToolbar {
+  z-index: 4;
+  transition: all 0.2s ease !important;
+  border-radius: var(--uc-rounding) !important;
+  background-color: #11111b !important;
+  box-sizing: content-box;
+  border: 1px solid #313244 !important;
+
+  height: 0;
+  opacity: 0;
+  top: var(--uc-nav-height);
+
+  transition-delay: 1s !important;
+}
+
+#navigator-toolbox:is(:hover, :focus-within, :has([open])),
 :root[customizing] {
   #nav-bar {
-    margin-top: 0;
-    margin-bottom: calc(var(--uc-nav-height) * -1);
+    top: calc(var(--uc-nav-height));
     z-index: 100;
     opacity: 1;
+    
+    transition-delay: 0s !important;
   }
 
-  #urlbar { opacity: 1; }
+  #urlbar { pointer-events: auto; opacity: 1; transition-delay: 0s !important;}
+
+  #PersonalToolbar {
+    height: 25px !important;
+    opacity: 1;
+    border-top: solid calc(var(--uc-nav-height)) #11111b !important;
+
+    transition-delay: 0.1s !important;
+  }
 }
 
 /* tabs */
