@@ -1,3 +1,5 @@
+@import url(menus.css);
+
 *, *::before, *::after {
   font-family: JetBrainsMono NF, monospace;
   font-weight: 700;
@@ -15,10 +17,13 @@
   --tab-max-height: max-content !important;
 
   --focus-outline-color: #cdd6f4 !important;
+
+  --tabpanel-background-color: #11111b !important;
+  --toolbar-field-focus-border-color: transparent !important;
+  --toolbarbutton-icon-fill-attention: #b4befe !important;
 }
 
 /* hiding bloat */
-#navigator-toolbox { border: none !important; }
 .titlebar-spacer,
 .tabbrowser-tab .tab-close-button,
 #back-button,
@@ -39,7 +44,11 @@
 }
 
 /* navbar */
-#navigator-toolbox { z-index: auto !important; }
+#navigator-toolbox {
+  z-index: auto !important;
+  border: none !important;
+  background: #11111b !important;
+}
 
 #nav-bar {
   border-radius: var(--uc-rounding);
@@ -110,3 +119,58 @@
 .tabbrowser-tab:not([selected], [multiselected]):hover .tab-content,
 .tabbrowser-tab[selected] .tab-content { color: #1e1e2e !important; }
 
+/* urlbar */
+#urlbar-background {
+  background-color: #1e1e2e !important;
+  border: 2px solid #313244 !important;
+}
+.urlbarView-body-inner {
+  #urlbar[open] > .urlbarView > .urlbarView-body-outer > & { border-top: unset !important; }
+}
+
+.urlbarView,
+#urlbar-input { color: #cdd6f4 !important; --link-color: #b4befe !important; }
+
+/* sidebar */
+#sidebar,
+#sidebar-header,
+#sidebar-search-container,
+#historyTree {
+  background-color: #11111b !important;
+  color: #cdd6f4 !important;
+}
+.sidebar-placesTreechildren { color: #cdd6f4 !important; }
+
+/* menus */
+menupopup,
+panel {
+  --panel-background: #11111b !important;
+  --panel-border-radius: var(--uc-rounding) !important;
+  --panel-border-color: #313244 !important;
+  --panel-separator-color: #313244 !important;
+}
+
+slot[part="content"] { border-width: 2px !important; }
+
+#appMenu-popup {
+  #shadow-root {
+    > * { border-width: 2px !important; }
+  }
+}
+
+menu,
+menuitem {
+  color: #cdd6f4 !important;
+
+  &:where([_moz-menuactive]:not([disabled="true"])) {
+    background: #b4befe !important;
+    color: #1e1e2e !important;
+  }
+  &:where([_moz-menuactive="true"][disabled="true"]) {
+    background: #b4befe !important;
+    color: #1e1e2e !important;
+  }
+}
+
+.menupopup-arrowscrollbox { border-width: 2px !important; }
+menuitem { border-radius: var(--uc-rounding) !important; }

@@ -1,16 +1,42 @@
 @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-    :root {
-        --newtab-primary-action-background: #b4befe !important;
-        --newtab-background-color-secondary: #1e1e2e !important;
-    }
-    * {
-        font-family: JetBrainsMono NF, monospace;
-        font-weight: 700;
+  :root {
+    --newtab-primary-action-background: #b4befe !important;
+    --newtab-background-color-secondary: #1e1e2e !important;
+  }
+  * {
+    font-family: JetBrainsMono NF, monospace;
+    font-weight: 700;
+  }
+  /* body { background-color: transparent !important; } */
+  body { background-color: #11111b !important; }
+  .icon.icon-settings { color: #cdd6f4 !important; }
+  .card-context-icon { fill: #cdd6f4 !important; }
+  .card:hover .card-details,.card:hover .card-context, .context-menu-button:hover { background-color: #11111b !important; }
+  .context-menu-button { background-color: var(--newtab-background-color-secondary) !important; }
+
+  .logo-and-wordmark {
+    .logo { display: none !important; }
+    .wordmark {
+      background: unset !important;
+      width: unset !important;
+      &::before {
+        content: "firefox";
+        white-space: pre-wrap;
+        display: block;
+        color: #cdd6f4;
+        font-size: 20px;
       }
-    /* body { background-color: transparent !important; } */
-    body { background-color: #11111b !important; }
-    .icon.icon-settings { color: #cdd6f4 !important; }
-    .card-context-icon { fill: #cdd6f4 !important; }
-    .card:hover .card-details,.card:hover .card-context, .context-menu-button:hover { background-color: #11111b !important; }
-    .context-menu-button { background-color: var(--newtab-background-color-secondary) !important; }
+    }
+  }
+    
+  .search-wrapper {
+    .search-handoff-button,
+    input {
+      border: 2px solid #313244 !important;
+      border-radius: 4px !important;
+      box-shadow: none !important;
+      color: #cdd6f4 !important;
+    }
+  }
 }
+
