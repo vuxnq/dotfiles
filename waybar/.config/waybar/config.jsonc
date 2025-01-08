@@ -95,7 +95,7 @@
       "paused": " "
     },
     "on-click": "~/.config/rofi/mediaplayer.sh",
-    "on-click-right": "hyprctl dispatch focuswindow Spotify",
+    "on-click-right": "hyprctl dispatch focuswindow class:Spotify | hyprctl dispatch alterzorder top, class:Spotify",
     "on-click-middle": "playerctl --player=spotify play-pause",
     "on-click-forward": "playerctl --player=spotify next",
     "on-click-backward": "playerctl --player=spotify previous",
