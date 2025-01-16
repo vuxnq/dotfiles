@@ -1,16 +1,29 @@
 # ~/.
 this repo contains the dotfiles for my fedora system
 
+i use [fedora (sway spin)](https://fedoraproject.org/spins/sway) as a base
+
 ## requirements
-### fedora
 ```sh
-$ dnf install git stow
+# stow
+dnf install git stow
+
+# hyprland
+sudo dnf copr enable solopasha/hyprland
+sudo dnf install hyprland hypridle hyprlock hyprshot
+
+# apps
+sudo dnf install kitty
+
+# misc
+sudo dnf install papirus-icon-theme rofimoji
 ```
+\*_depedencies included in [fedora (sway spin)](https://fedoraproject.org/spins/sway) may not be listed_
 
 ## usage
 ```sh
-$ git clone git@github.com:vuxnq/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
+git clone git@github.com:vuxnq/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ```
 
 use [stow](https://www.gnu.org/software/stow/) to create symlinks
