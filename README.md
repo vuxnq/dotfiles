@@ -6,7 +6,7 @@ i use [fedora (sway spin)](https://fedoraproject.org/spins/sway) as a base
 ## requirements
 ```sh
 # stow
-dnf install git stow
+sudo dnf install git stow
 
 # hyprland
 sudo dnf copr enable solopasha/hyprland
@@ -42,6 +42,9 @@ $ stow <directory>
 
 # grub theme
 ./grub_install.sh
+
+# gtk theme
+./gtk_install.sh
 
 # plymouth theme
 sudo dnf install plymouth-theme-script
