@@ -8,7 +8,7 @@ else
 fi
 
 echo "> copying the theme to the sddm's themes folder"
-sudo cp .additional/sddm/ $TARGET -pr
+sudo cp -a .additional/sddm/. $TARGET
 
 echo "> setting the theme"
 echo -e "[Theme]\nCurrent=vuxsddm" | sudo tee /etc/sddm.conf > /dev/null

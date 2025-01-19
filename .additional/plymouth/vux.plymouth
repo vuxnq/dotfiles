@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=vux
-Description=plymouth theme
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/vux
-ScriptFile=/usr/share/plymouth/themes/vux/vux.script

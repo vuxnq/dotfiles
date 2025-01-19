@@ -51,6 +51,6 @@ sudo dnf install plymouth-theme-script
 ./plymouth_install.sh
 
 # sddm theme
-sudo dnf install qt6-qtsvg
+sudo dnf install qt6-qtquickcontrols2 qt6-qtsvg
 ./sddm_install.sh
 ```

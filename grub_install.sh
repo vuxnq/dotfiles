@@ -8,7 +8,7 @@ else
 fi
 
 echo "> copying the theme to the grub's themes folder"
-sudo cp .additional/grub $TARGET -pr
+sudo cp -a .additional/grub/. $TARGET
 
 echo "> setting the theme"
 sudo sed -i /GRUB_THEME=/d /etc/default/grub
