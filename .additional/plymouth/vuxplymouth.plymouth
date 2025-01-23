@@ -5,4 +5,4 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/vuxplymouth
-ScriptFile=/usr/share/plymouth/themes/vux/vuxplymouth.script
+ScriptFile=/usr/share/plymouth/themes/vuxplymouth/vuxplymouth.script

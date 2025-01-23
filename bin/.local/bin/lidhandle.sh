@@ -8,6 +8,9 @@ case $1 in
     hyprctl keyword monitor "eDP-1, disable"
     exit
     ;;
+    load)
+    sleep 2
+    ;;
 esac
 
 if [ "$state" == "closed" ]; then
