@@ -7,7 +7,7 @@ window="window"
 [ $(pgrep wf-recorder) ] && record="stop recording" || record="record"
 
 time=$(date +%Y-%m-%d-%H%M%S)
-dir="$(xdg-user-dir PICTURES)/Screenshots"
+dir="$(xdg-user-dir PICTURES)/screenshots"
 file="$time.png"
 [ ! -d "$dir" ] && mkdir -p "$dir"
 

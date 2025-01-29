@@ -12,6 +12,7 @@ set -gx EDITOR nvim
 set -gx PATH $PATH ~/.local/bin
 set -gx PATH $PATH ~/.spicetify # spicetify
 set -gx PATH $PATH ~/.cargo/bin # rust cargo
+set -gx PATH $PATH ~/.filen-cli/bin # filen-cli
 
 zoxide init --cmd cd fish | source
 
