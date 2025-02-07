@@ -1,16 +1,29 @@
 #!/bin/bash
 
-if [[ ! -z $(which filen) ]]; then
-  # [[ ! -d ~/filen ]] && mkdir ~/filen
-  # filen mount ~/filen & disown
-  # notify-send "filen mounted"
+SYNCPAIRS='
+[
+	{
+		"local": "~/desktop",
+		"remote": "/laptop/desktop",
+		"syncMode": "localToCloud",
+		"disableLocalTrash": true
+	},
+	{
+		"local": "~/media",
+		"remote": "/laptop/media",
+		"syncMode": "localToCloud",
+		"disableLocalTrash": true
+	}
+]
+'
 
-  filen sync \
-    ~/desktop:tw:/Sync \
-    --disable-local-trash --continuous & disown
-  notify-send "filen sync enabled"
-else
-  notify-send "filen-cli is not installed!"
-  # firefox https://filen.io/products/cli
+if [[ -z $(which filen) ]]; then
+  notify-send -t 30000 "filen-cli is not installed!" "https://filen.io/products/cli"
+  exit
 fi
 
+[ ! -d ~/.filen-cli ] && mkdir ~/.filen-cli
+echo $SYNCPAIRS > ~/.filen-cli/syncPairs.json
+
+filen sync --continuous & disown
+notify-send "filen sync enabled"

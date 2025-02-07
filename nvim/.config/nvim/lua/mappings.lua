@@ -1,10 +1,17 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- save
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- menu
+map({ "n", "v" }, "<RightMouse>", function()
+  -- require('menu.utils').delete_old_menus()
+  vim.cmd.exec '"normal! \\<RightMouse>"'
+
+  local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+  require("menu").open(options, { mouse = true, border = true })
+end, {})
