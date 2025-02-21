@@ -5,13 +5,13 @@ SYNCPAIRS='
 	{
 		"local": "~/desktop",
 		"remote": "/laptop/desktop",
-		"syncMode": "localToCloud",
+		"syncMode": "twoWay",
 		"disableLocalTrash": true
 	},
 	{
 		"local": "~/media",
 		"remote": "/laptop/media",
-		"syncMode": "localToCloud",
+		"syncMode": "twoWay",
 		"disableLocalTrash": true
 	}
 ]
