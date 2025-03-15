@@ -39,11 +39,11 @@ case ${chosen} in
         kill $HYPRPICKER_PID
         ;;
     $record)
-        [ ! $(which wf-recorder) ] && notify-send 'error' "wf-recorder not found" && exit
+        [ ! $(which wf-recorder) ] && notify-send "unable to record" "wf-recorder not found" && exit
         if [ ! $wfr_running ]; then
             file=$(xdg-user-dir VIDEOS)/$time.mp4
             notify-send "recording started"
-            wf-recorder -a -p preset=ultrafast -r 60 -c libx264rgb -f $file
+            wf-recorder -a$(pactl get-default-sink).monitor -p preset=ultrafast -r 60 -c libx264rgb -f $file
         else
             pkill --signal SIGINT wf-recorder
             notify-send "recording stopped"

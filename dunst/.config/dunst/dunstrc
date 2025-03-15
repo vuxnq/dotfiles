@@ -1,4 +1,5 @@
 [global]
+    follow = keyboard
     format = "<b>%s</b>\n%b"
 
     icon_path = "~/.local/share/icons/"

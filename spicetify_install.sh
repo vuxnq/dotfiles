@@ -18,24 +18,24 @@ spicetify backup
 echo "> installing marketplace"
 curl -fsSL "https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh" | sh
 
-mkdir $SPATH/Themes/vux
-cd $HOME/.dotfiles/.additional/
-echo "> stowing .additional/spicetify into Themes folder"
-stow spicetify -t $SPATH/Themes/vux
-
-echo "> curling [https://raw.githubusercontent.com/spicetify/spicetify-themes/master/text/user.css]"
-curl https://raw.githubusercontent.com/spicetify/spicetify-themes/master/text/user.css -o $SPATH/Themes/vux/user.css
-
-echo "> appending base.css to user.css"
-cat $SPATH/Themes/vux/base.css >> $SPATH/Themes/vux/user.css
-
-echo "> setting current_theme"
-spicetify config current_theme vux
-
-echo "> setting patch"
-sed -i '/\[Patch\]/,/\[/{//!d}' $SPATH/config-xpui.ini
-line=$(cat --number $SPATH/config-xpui.ini | grep '\[Patch\]' | awk '{print $1}')
-sed -i "$(($line + 1)) i xpui.js_find_8008 = ,(\\\w+=)56,\nxpui.js_repl_8008 = ,\${1}32,\n" $SPATH/config-xpui.ini
+# mkdir $SPATH/Themes/vux
+# cd $HOME/.dotfiles/.additional/
+# echo "> stowing .additional/spicetify into Themes folder"
+# stow spicetify -t $SPATH/Themes/vux
+#
+# echo "> curling [https://raw.githubusercontent.com/spicetify/spicetify-themes/master/text/user.css]"
+# curl https://raw.githubusercontent.com/spicetify/spicetify-themes/master/text/user.css -o $SPATH/Themes/vux/user.css
+#
+# echo "> appending base.css to user.css"
+# cat $SPATH/Themes/vux/base.css >> $SPATH/Themes/vux/user.css
+#
+# echo "> setting current_theme"
+# spicetify config current_theme vux
+#
+# echo "> setting patch"
+# sed -i '/\[Patch\]/,/\[/{//!d}' $SPATH/config-xpui.ini
+# line=$(cat --number $SPATH/config-xpui.ini | grep '\[Patch\]' | awk '{print $1}')
+# sed -i "$(($line + 1)) i xpui.js_find_8008 = ,(\\\w+=)56,\nxpui.js_repl_8008 = ,\${1}32,\n" $SPATH/config-xpui.ini
 
 echo "> applying theme"
 spicetify apply

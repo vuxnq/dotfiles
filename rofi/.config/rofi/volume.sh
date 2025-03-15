@@ -7,8 +7,8 @@ if [ -n "$1" ]; then
 
     selected_source=$(echo "$all_sources" | rofi -dmenu -i -a $(($active_source - 1)) \
         -theme-str 'window{location: northeast; anchor: northeast;}' \
-        -theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
-        -theme-str 'listview{lines: 4;}' \
+        -theme-str 'window{x-offset: -10px; y-offset: 10px; width: 800px;}' \
+        -theme-str 'listview{lines: 8;}' \
         -theme $HOME/.config/rofi/config/applets.rasi
     )
     pactl set-default-source $selected_source
@@ -19,8 +19,8 @@ else
 
     selected_sink=$(echo "$all_sinks" | rofi -dmenu -i -a $(($active_sink - 1)) \
         -theme-str 'window{location: northeast; anchor: northeast;}' \
-        -theme-str 'window{x-offset: -10px; y-offset: 10px;}' \
-        -theme-str 'listview{lines: 4;}' \
+        -theme-str 'window{x-offset: -10px; y-offset: 10px; width: 800px;}' \
+        -theme-str 'listview{lines: 8;}' \
         -theme $HOME/.config/rofi/config/applets.rasi
     )
     pactl set-default-sink $selected_sink
