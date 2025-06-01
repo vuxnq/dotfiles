@@ -1,14 +1,14 @@
 #!/bin/bash
 
-function get_volume {
+get_volume() {
     amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1
 }
 
-function is_mute {
+is_mute() {
     amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
 }
 
-function send_notification {
+send_notification() {
     volume=$(get_volume)
     notify-send -i NONE -r 2593 -t 500 "  volume $volume%" -h int:value:$volume
 }

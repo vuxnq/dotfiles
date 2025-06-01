@@ -8,6 +8,11 @@ case $1 in
     hyprctl keyword monitor "eDP-1, disable"
     exit
     ;;
+    mirror)
+    # hyprctl keyword monitor "eDP-1, preferred, auto, auto, mirror, HDMI-A-1"
+    hyprctl keyword monitor "eDP-1, preferred, 1920x1080, auto, mirror, HDMI-A-1"
+    exit
+    ;;
     load)
     sleep 2
     ;;

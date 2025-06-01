@@ -1,10 +1,10 @@
 #!/bin/bash
 
-function get_brightness {
+get_brightness() {
 	brightnessctl i | head -n2 | tail -n1 | cut -d"(" -f2 | cut -d"%" -f1
 }
 
-function send_notification {
+send_notification() {
     brightness=$(get_brightness)
     notify-send -i NONE -r 2500 -t 500 "󰳲 brightness $brightness%" -h int:value:$brightness
 }

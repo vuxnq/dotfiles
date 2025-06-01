@@ -25,5 +25,14 @@ fi
 [ ! -d ~/.filen-cli ] && mkdir ~/.filen-cli
 echo $SYNCPAIRS > ~/.filen-cli/syncPairs.json
 
-filen sync --continuous & disown
-notify-send "filen sync enabled"
+filen sync --continuous > /tmp/filen-sync.log 2>&1 &
+
+SYNC_PID=$!
+
+sleep 5
+if ps -p $SYNC_PID > /dev/null; then
+  notify-send "filen sync enabled"
+else
+  notify-send "ERROR: filen failed to sync"
+fi
+

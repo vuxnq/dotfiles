@@ -87,7 +87,7 @@
     "max-length": 50
   },
   "custom/spotify": {
-    "exec": "~/.config/waybar/modules/spotify.sh",
+    "exec": "~/.local/bin/nowplaying.sh waybar",
     "return-type": "json",
     "format": "{icon} {0}",
     "format-icons": {
