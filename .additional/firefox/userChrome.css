@@ -1,5 +1,3 @@
-@import url(menus.css);
-
 *, *::before, *::after {
   font-family: JetBrainsMono NF, monospace;
   font-weight: 700;
@@ -21,6 +19,8 @@
   --tabpanel-background-color: #11111b !important;
   --toolbar-field-focus-border-color: transparent !important;
   --toolbarbutton-icon-fill-attention: #b4befe !important;
+
+  --swipe-nav-icon-primary-color: #11111b;
 }
 
 /* hiding bloat */
@@ -28,9 +28,7 @@
 .tabbrowser-tab .tab-close-button,
 #back-button,
 #forward-button,
-#alltabs-button,
-#scrollbutton-down,
-#scrollbutton-up { display: none; }
+#alltabs-button { display: none; }
 
 #nav-bar,
 #PersonalToolbar {
@@ -174,3 +172,9 @@ menuitem {
 
 .menupopup-arrowscrollbox { border-width: 2px !important; }
 menuitem { border-radius: var(--uc-rounding) !important; }
+
+
+#historySwipeAnimationPreviousArrow,
+#historySwipeAnimationNextArrow {
+  --swipe-nav-icon-primary-color: #cdd6f4 !important;
+}
