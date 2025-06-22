@@ -38,6 +38,7 @@ window#waybar {
 }
 
 #workspaces button.active,
+#workspaces button.focused,
 #workspaces button.special.active,
 #taskbar button.active {
   color: #1e1e2e;
@@ -62,6 +63,7 @@ window#waybar.floating #window {
 }
 
 #language,
+#mode,
 #hardware,
 #clock,
 #custom-spotify,
@@ -86,6 +88,7 @@ window#waybar.solo {
   background-color: #11111b;
 }
 window#waybar.solo #language,
+window#waybar.solo #mode,
 window#waybar.solo #workspaces,
 window#waybar.solo #taskbar,
 window#waybar.solo #hardware,
@@ -107,6 +110,11 @@ window#waybar.solo #bluetooth {
   margin-left: 4px;
   padding-right: 7px;
   padding-left: 4px;
+}
+
+#mode {
+  background-color: #cdd6f4;
+  color: #1e1e2e;
 }
 
 #custom-spotify {
