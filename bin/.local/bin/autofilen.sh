@@ -13,6 +13,12 @@ SYNCPAIRS='
 		"remote": "/laptop/media",
 		"syncMode": "twoWay",
 		"disableLocalTrash": true
+	},
+	{
+		"local": "~/.ssh",
+		"remote": "/laptop/.ssh",
+		"syncMode": "twoWay",
+		"disableLocalTrash": true
 	}
 ]
 '
