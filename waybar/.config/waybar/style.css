@@ -83,26 +83,26 @@ window#waybar.floating #window {
 }
 
 /* fullscreen */
-window#waybar.solo {
+window#waybar.fullscreen {
   border-radius: 0;
   background-color: #11111b;
 }
-window#waybar.solo #language,
-window#waybar.solo #mode,
-window#waybar.solo #workspaces,
-window#waybar.solo #taskbar,
-window#waybar.solo #hardware,
-window#waybar.solo #clock,
-window#waybar.solo #custom-spotify,
-window#waybar.solo #window,
-window#waybar.solo #tray,
-window#waybar.solo #battery,
-window#waybar.solo #backlight,
-window#waybar.solo #custom-logo,
-window#waybar.solo #pulseaudio,
-window#waybar.solo #pulseaudio.muted,
-window#waybar.solo #network,
-window#waybar.solo #bluetooth {
+window#waybar.fullscreen #language,
+window#waybar.fullscreen #mode,
+window#waybar.fullscreen #workspaces,
+window#waybar.fullscreen #taskbar,
+window#waybar.fullscreen #hardware,
+window#waybar.fullscreen #clock,
+window#waybar.fullscreen #custom-spotify,
+window#waybar.fullscreen #window,
+window#waybar.fullscreen #tray,
+window#waybar.fullscreen #battery,
+window#waybar.fullscreen #backlight,
+window#waybar.fullscreen #custom-logo,
+window#waybar.fullscreen #pulseaudio,
+window#waybar.fullscreen #pulseaudio.muted,
+window#waybar.fullscreen #network,
+window#waybar.fullscreen #bluetooth {
   margin-top: 0;
 }
 

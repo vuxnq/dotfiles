@@ -35,3 +35,22 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- indent 4
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "c",
+    "cpp",
+    "java",
+    "cs",
+    "go",
+    "haskell",
+  },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.expandtab = true
+  end,
+})
+
