@@ -5,16 +5,16 @@ i use [fedora (sway spin)](https://fedoraproject.org/spins/sway) as a base
 
 ## requirements
 ```sh
+# fish
+sudo dnf install fish
+chsh -s $(which fish)
+
 # stow
 sudo dnf install git stow
 
 # hyprland
 sudo dnf copr enable solopasha/hyprland
 sudo dnf install hyprland hypridle hyprlock hyprshot
-
-# fish
-sudo dnf install fish
-chsh -s $(which fish)
 
 # apps
 sudo dnf install kitty nvim zoxide btop unar
