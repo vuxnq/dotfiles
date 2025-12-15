@@ -12,8 +12,12 @@ sudo dnf install git stow
 sudo dnf copr enable solopasha/hyprland
 sudo dnf install hyprland hypridle hyprlock hyprshot
 
+# fish
+sudo dnf install fish
+chsh -s $(which fish)
+
 # apps
-sudo dnf install kitty
+sudo dnf install kitty nvim zoxide btop unar
 
 # misc
 sudo dnf install papirus-icon-theme rofimoji
@@ -22,8 +26,10 @@ sudo dnf install papirus-icon-theme rofimoji
 
 ## usage
 ```sh
-git clone git@github.com:vuxnq/dotfiles.git ~/.dotfiles
+git clone https://github.com/vuxnq/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+
+# TODO: submodules (e.g. nvim)
 ```
 
 use [stow](https://www.gnu.org/software/stow/) to create symlinks
@@ -51,6 +57,5 @@ sudo dnf install plymouth-theme-script
 ./plymouth_install.sh
 
 # sddm theme
-sudo dnf install qt6-qtquickcontrols2 qt6-qtsvg
 ./sddm_install.sh
 ```
