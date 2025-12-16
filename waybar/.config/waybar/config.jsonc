@@ -34,15 +34,15 @@
     }
   },
   "group/hardware": {
-		"orientation": "inherit",
-		"modules": [
+    "orientation": "inherit",
+    "modules": [
       "temperature",
       "cpu",
       "memory"
       ]
 	},
   "group/net": {
-		"orientation": "inherit",
+    "orientation": "inherit",
     "modules": [
       "network",
       "bluetooth"
@@ -53,7 +53,7 @@
     }
   },
   "group/audio": {
-		"orientation": "inherit",
+    "orientation": "inherit",
     "modules": [
       "pulseaudio",
       "pulseaudio#input"
@@ -110,8 +110,8 @@
     "return-type": "json",
     "format": "{icon} {0}",
     "format-icons": {
-      "playing": " ",
-      "paused": " "
+      "playing": "",
+      "paused": ""
     },
     "on-click": "~/.config/rofi/mediaplayer.sh",
     "on-click-right": "hyprctl dispatch focuswindow class:Spotify | hyprctl dispatch alterzorder top, class:Spotify",

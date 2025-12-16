@@ -12,7 +12,7 @@
     frame_width = 2
     frame_color = "#313244"
     separator_color= frame
-    font = "JetBrainsMono NF Medium"
+    font = "Maple Mono Medium"
     corner_radius = 2
     background = "#11111b"
     foreground = "#cdd6f4"

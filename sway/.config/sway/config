@@ -45,7 +45,7 @@ client.focused #313244 #cdd6f4 #11111b #cdd6f4 #313244
 client.unfocused #313244 #11111b #cdd6f4 #cdd6f4 #1e1e2e
 client.focused_inactive #313244 #11111b #cdd6f4 #cdd6f4 #1e1e2e
 
-font pango:JetBrainsMono NF Bold 9
+font pango:Maple Mono Bold 9
 
 
 input type:keyboard {
