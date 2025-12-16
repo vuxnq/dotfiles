@@ -26,10 +26,8 @@ sudo dnf install papirus-icon-theme rofimoji
 
 ## usage
 ```sh
-git clone https://github.com/vuxnq/dotfiles.git ~/.dotfiles
+git clone https://github.com/vuxnq/dotfiles.git ~/.dotfiles --recurse-submodules
 cd ~/.dotfiles
-
-# TODO: submodules (e.g. nvim)
 ```
 
 use [stow](https://www.gnu.org/software/stow/) to create symlinks
