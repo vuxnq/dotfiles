@@ -18,4 +18,5 @@ rm $THPATH/catppuccin.zip
 echo "> updating gtk theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$CATPPUCCIN"
 gsettings set org.gnome.desktop.wm.preferences theme "$CATPPUCCIN"
+gsettings set org.gnome.desktop.wm.preferences button-layout ""
 echo "> done"
