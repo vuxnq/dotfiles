@@ -7,21 +7,30 @@ SINK_DESC="TTS Virtual Cable"
 SOURCE_DESC="TTS Mic"
 
 CURRENT_LANG="cs"
+MONITOR=false
 
 cleanup() {
     echo -e "\n\nunloading modules..."
 
-    pactl list modules short | grep "sink_name=$SINK_ID" | awk '{print $1}' | xargs -r pactl unload-module
+    if [[ -n "$LOOPBACK_ID" ]]; then
+        pactl unload-module "$LOOPBACK_ID"
+        LOOPBACK_ID=""
+    else
+        pactl list modules short | grep -F "TTS_Monitor" | awk '{print $1}' | xargs -r pactl unload-module
+    fi
+
     pactl list modules short | grep "source_name=$SOURCE_ID" | awk '{print $1}' | xargs -r pactl unload-module
+    pactl list modules short | grep "sink_name=$SINK_ID" | awk '{print $1}' | xargs -r pactl unload-module
 
     exit 0
 }
 
 show_help() {
     echo "commands:"
-    echo "  !help          - Show this menu"
-    echo "  !lang <code>   - Change language (e.g., !lang en, !lang cs)"
-    echo "  !exit          - Close the program and remove the mic"
+    echo "  !help          - show this menu"
+    echo "  !lang <code>   - change language (e.g., !lang en, !lang cs)"
+    echo "  !monitor       - toggle monitoring: also play to default sink"
+    echo "  !exit          - close the program"
 }
 
 trap cleanup SIGINT SIGTERM
@@ -67,6 +76,23 @@ while true; do
     if [[ "$INPUT" =~ ^!lang[[:space:]](.+) ]]; then
         CURRENT_LANG="${BASH_REMATCH[1]}"
         echo "language changed to: $CURRENT_LANG"
+        continue
+    fi
+
+    if [[ "$INPUT" == "!monitor" ]]; then
+        DEFAULT_SINK=$(pactl info | grep "Default Sink" | awk '{print $3}')
+        if [ "$MONITOR" = false ]; then
+            LOOPBACK_ID=$(pactl load-module module-loopback \
+                source=$SINK_ID.monitor \
+                sink=$DEFAULT_SINK)
+            MONITOR=true
+            echo "monitoring enabled"
+        else
+            pactl unload-module "$LOOPBACK_ID"
+            LOOPBACK_ID=""
+            MONITOR=false
+            echo "monitoring disabled"
+        fi
         continue
     fi
 

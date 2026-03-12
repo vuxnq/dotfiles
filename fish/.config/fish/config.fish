@@ -17,3 +17,6 @@ set -gx PATH $PATH ~/.filen-cli/bin # filen-cli
 zoxide init --cmd cd fish | source
 
 fish_add_path /home/vuxnq/.spicetify
+
+# opencode
+fish_add_path /home/vuxnq/.opencode/bin
