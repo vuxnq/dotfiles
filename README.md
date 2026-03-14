@@ -56,4 +56,7 @@ sudo dnf install plymouth-theme-script
 
 # sddm theme
 ./sddm_install.sh
+
+# virtual monitor
+./virtualmonitor_install.sh
 ```
