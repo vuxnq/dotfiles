@@ -1,0 +1,18 @@
+packages:
+  fedora:
+    copr:
+      - solopasha/hyprland
+    dnf:
+      - git
+      - fish
+      - kitty
+      - neovim
+      - hyprland
+      - hypridle
+      - hyprlock
+      - hyprshot
+      - zoxide
+      - btop
+      - unar
+      - papirus-icon-theme
+      - rofimoji

@@ -10,7 +10,7 @@ PROFILE=$(grep -E "^Default=.*\.default" "$PROFILES_INI" | cut -d"=" -f2)
 echo "> firefox profile folder = $PROFILE"
 
 echo "> copying firefox files"
-cp -r "{{ .chezmoi.sourceDir }}/additional/firefox/." "$HOME/.mozilla/firefox/$PROFILE/"
+cp -r "{{ .chezmoi.sourceDir }}/.extras/firefox/." "$HOME/.mozilla/firefox/$PROFILE/"
 
 echo "> done"
 echo "> remember to manually install: https://addons.mozilla.org/firefox/addon/catppuccin-mocha-lavender-git/"

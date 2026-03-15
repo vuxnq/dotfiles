@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+# copr repos
+{{ range .packages.fedora.copr }}
+sudo dnf copr enable -y {{ . }}
+{{ end }}
+
+# packages
+sudo dnf install -y \
+{{ range .packages.fedora.dnf -}}
+    {{ . }} \
+{{ end }}
