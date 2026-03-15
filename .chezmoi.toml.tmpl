@@ -1,0 +1,4 @@
+{{- output "bash" "-c" "for p in /sys/class/drm/*/status; do con=${p%/status}; echo \"  ${con#*/card?-}: $(cat $p)\" >&2; done" -}}
+
+[data]
+    gpu_output_virtual = "{{ promptString "GPU output for virtual monitor" }}"

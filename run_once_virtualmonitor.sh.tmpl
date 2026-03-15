@@ -1,0 +1,25 @@
+#!/bin/bash
+{{ if ne .chezmoi.hostname "desktop" }} echo "> not a desktop, exitting"; exit 0; {{ end }}
+{{ if not .gpu_output_virtual }} echo "> error: gpu_output_virtual not set"; exit 1; {{ end }}
+
+EDID_FOLDER="/usr/lib/firmware/edid"
+EDID_FILE="samsung-q800t-hdmi2.1"
+
+echo "> creating $EDID_FOLDER folder"
+sudo mkdir -p $EDID_FOLDER
+
+echo "> downloading $EDID_FILE file into $EDID_FOLDER"
+sudo wget -O $EDID_FOLDER/$EDID_FILE https://git.linuxtv.org/v4l-utils.git/plain/utils/edid-decode/data/$EDID_FILE
+
+PARAMETERS="drm.edid_firmware={{ .gpu_output_virtual }}:edid/$EDID_FILE video={{ .gpu_output_virtual }}:e"
+
+echo "> adding kernel parameters ($PARAMETERS)"
+sudo grubby --update-kernel=ALL --args="$PARAMETERS"
+
+echo "> adding edid file to dracut (/etc/dracut.conf.d/99-edid.conf)"
+echo "install_items+=' $EDID_FOLDER/$EDID_FILE '" | sudo tee /etc/dracut.conf.d/99-edid.conf
+
+echo "> regenerating initramfs"
+sudo dracut -f --regenerate-all
+
+echo "> done, reboot to apply the changes"
