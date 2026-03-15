@@ -1,0 +1,5 @@
+@import "../config.rasi"
+
+mainbox { children: ["message", "listview"]; }
+window { width: 300; }
+listview { lines: 6; }

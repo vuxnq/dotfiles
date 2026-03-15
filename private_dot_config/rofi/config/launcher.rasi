@@ -1,0 +1,14 @@
+@import "../config.rasi"
+
+configuration {
+	modi: "drun,run,filebrowser,window";
+    show-icons: true;
+    display-drun: "";
+    display-run: "";
+    display-filebrowser: "";
+    display-window: "";
+    icon-theme: "MonoIcons";
+	drun-display-format: "{name}";
+}
+
+inputbar { children: [ "textbox-prompt-colon", "entry", "mode-switcher" ]; }

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if [ -n "$1" ]; then
+    all_sources=$(pactl list short sources | cut -f 2)
+    default_source=$(pactl get-default-source)
+    active_source=$(echo "$all_sources" | grep -n $default_source | cut -d : -f 1)
+
+    selected_source=$(echo "$all_sources" | rofi -dmenu -i -a $(($active_source - 1)) \
+        -theme-str 'window{location: northeast; anchor: northeast;}' \
+        -theme-str 'window{x-offset: -10px; y-offset: 10px; width: 800px;}' \
+        -theme-str 'listview{lines: 8;}' \
+        -theme $HOME/.config/rofi/config/applets.rasi
+    )
+    pactl set-default-source $selected_source
+else
+    all_sinks=$(pactl list short sinks | cut -f 2)
+    default_sink=$(pactl get-default-sink)
+    active_sink=$(echo "$all_sinks" | grep -n $default_sink | cut -d : -f 1)
+
+    selected_sink=$(echo "$all_sinks" | rofi -dmenu -i -a $(($active_sink - 1)) \
+        -theme-str 'window{location: northeast; anchor: northeast;}' \
+        -theme-str 'window{x-offset: -10px; y-offset: 10px; width: 800px;}' \
+        -theme-str 'listview{lines: 8;}' \
+        -theme $HOME/.config/rofi/config/applets.rasi
+    )
+    pactl set-default-sink $selected_sink
+fi

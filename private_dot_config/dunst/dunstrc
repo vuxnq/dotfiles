@@ -1,0 +1,35 @@
+[global]
+    follow = keyboard
+    format = "<b>%s</b>\n%b"
+
+    icon_path = "~/.local/share/icons/"
+    icon_theme = MonoIcons
+    max_icon_size = 64
+    enable_recursive_icon_lookup = true
+
+    origin = top-right
+    offset = 10x10
+    frame_width = 2
+    frame_color = "#313244"
+    separator_color= frame
+    font = "Maple Mono Medium"
+    corner_radius = 2
+    background = "#11111b"
+    foreground = "#cdd6f4"
+
+    progress_bar_corner_radius = 2
+    
+[urgency_low]
+    foreground = "#cdd6f4"
+    highlight = "#b4befe"
+    timeout = 4
+
+[urgency_normal]
+    foreground = "#cdd6f4"
+    highlight = "#b4befe"
+    timeout = 6
+
+[urgency_critical]
+    foreground = "#cdd6f4"
+    highlight = "#b4befe"
+    timeout = 0

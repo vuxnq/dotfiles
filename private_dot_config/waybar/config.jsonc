@@ -1,0 +1,209 @@
+{
+  "layer": "top",
+	"reload_style_on_change": true,
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces",
+    "sway/workspaces",
+    "group/windows",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "custom/spotify"
+  ],
+  "modules-right": [
+    "tray",
+    "group/hardware",
+    "group/net",
+    "group/audio",
+    "battery",
+    "hyprland/language",
+    "sway/language",
+    "clock"
+  ],
+  "group/windows": {
+		"orientation": "inherit",
+    "modules": [
+      "hyprland/window",
+      "sway/window",
+      "wlr/taskbar"
+    ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "child"
+    }
+  },
+  "group/hardware": {
+    "orientation": "inherit",
+    "modules": [
+      "temperature",
+      "cpu",
+      "memory"
+      ]
+	},
+  "group/net": {
+    "orientation": "inherit",
+    "modules": [
+      "network",
+      "bluetooth"
+    ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "child"
+    }
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#input"
+    ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "child"
+    }
+  },
+  "custom/logo": {
+    "format": " 󰻀 ",
+    "tooltip": false,
+    "on-click": "~/.config/rofi/launcher.sh",
+    "on-click-right": "hyprctl dispatch togglespecialworkspace s"
+    // "on-click-right": "~/.config/sway/toggle_special.sh"
+  },
+  "hyprland/workspaces": {
+    "show-special": true,
+    "format": "{name}",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "on-click-right": "hyprctl dispatch togglespecialworkspace s"
+  },
+  "sway/workspaces": {
+    "show-special": true,
+    "format": "{name}",
+    // "on-scroll-up": "hyprctl dispatch workspace e-1",
+    // "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "on-click-right": "~/.config/sway/toggle_special.sh"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 10,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "": "vuxnq"
+    },
+    "max-length": 50
+  },
+  "sway/window": {
+    "format": "{}",
+    "rewrite": {
+      "": "vuxnq"
+    },
+    "max-length": 50
+  },
+  "custom/spotify": {
+    "exec": "~/.local/bin/nowplaying.sh waybar",
+    "return-type": "json",
+    "format": "{icon} {0}",
+    "format-icons": {
+      "playing": "",
+      "paused": ""
+    },
+    "on-click": "~/.config/rofi/mediaplayer.sh",
+    "on-click-right": "hyprctl dispatch focuswindow class:spotify | hyprctl dispatch alterzorder top, class:spotify",
+    // "on-click-right": "swaymsg [class=spotify] focus",
+    "on-click-middle": "playerctl --player=spotify play-pause",
+    "on-click-forward": "playerctl --player=spotify next",
+    "on-click-backward": "playerctl --player=spotify previous",
+    "on-scroll-up": "playerctl --player=spotify volume 0.05+",
+    "on-scroll-down": "playerctl --player=spotify volume 0.05-"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "memory": {
+    "interval": 5,
+    "format": "󰧑 {}%"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}% "
+  },
+  "temperature": {
+    "interval": 5,
+    "format": " {}°C "
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤭 ",
+    "format-disabled": "󰤭 ",
+    "tooltip-format-wifi": "{icon} {essid} {frequency}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "~/.config/rofi/wifi.sh",
+    "on-click-middle": "~/.config/rofi/wifi.sh toggle",
+    "interval": 5,
+    "nospacing": 1
+  },
+  "bluetooth": {
+    "format-on": "󰂯 {num_connections}",
+    "format-off": "󰂲 ",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "~/.config/rofi/bluetooth.sh",
+    "on-click-middle": "~/.config/rofi/bluetooth.sh toggle"
+  },
+  "pulseaudio": {
+    "format": "{format_source}{icon} {volume}%",
+    "format-source": " {}% | ",
+    "format-source-muted": "",
+    "format-bluetooth": "󰂰",
+    "nospacing": 1,
+    "format-muted": " ",
+    "format-icons": {
+      "headphone": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "~/.config/rofi/volume.sh",
+    "on-click-middle": "~/.local/bin/volume.sh mute",
+    "on-scroll-down": "~/.local/bin/volume.sh down 2",
+    "on-scroll-up": "~/.local/bin/volume.sh up 2"
+  },
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "on-click": "~/.config/rofi/volume.sh mic",
+    "on-click-middle": "amixer sset 'Capture' toggle",
+    "on-scroll-up": "amixer sset 'Capture' 2%+",
+    "on-scroll-down": "amixer sset 'Capture' 2%-"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "on-click": "~/.config/rofi/battery.sh"
+  },
+  "hyprland/language": {
+    "format": "{short}"
+  },
+  "clock": {
+    "tooltip-format": "{:%A}\n{calendar}",
+    "format": "{:%d|%m|%y  %H:%M}",
+    "on-click": "~/.config/rofi/powermenu.sh"
+  }
+}

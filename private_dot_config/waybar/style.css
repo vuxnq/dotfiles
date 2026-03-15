@@ -1,0 +1,196 @@
+* {
+  border: none;
+  border-radius: 4px;
+  min-height: 0;
+  font-family: Maple Mono ExtraBold;
+  font-size: 12px;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f5e0dc;
+    color: #181825;
+  }
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+#workspaces,
+#taskbar {
+  background-color: #1e1e2e;
+  margin: 4px 2px 0 2px;
+  padding: 2px;
+}
+
+#workspaces button,
+#taskbar button {
+  all: initial; /* Remove GTK theme values (waybar #1351) */
+  padding: 0 9px;
+  color: #cdd6f4;
+  border-radius: 2px;
+  transition-duration: 0.1s;
+}
+
+#taskbar button {
+  padding: 0 4px;
+}
+
+#workspaces button.active,
+#workspaces button.focused,
+#workspaces button.special.active,
+#taskbar button.active {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+#workspaces button:hover,
+#taskbar button:hover {
+  color: #1e1e2e;
+  background-color: #b4befe;
+}
+
+#workspaces button.urgent {
+  color: #1e1e2e;
+  background-color: #f38ba8;
+}
+
+window#waybar.empty #window,
+window#waybar.floating #window {
+  background-color: transparent;
+  color: transparent;
+}
+
+#language,
+#mode,
+#hardware,
+#clock,
+#custom-spotify,
+#window,
+#tray,
+#battery,
+#backlight,
+#custom-logo,
+#pulseaudio,
+#pulseaudio.muted,
+#network,
+#bluetooth {
+  margin: 4px 2px 0 2px;
+  padding: 0 4px;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+}
+
+/* fullscreen */
+window#waybar.fullscreen {
+  border-radius: 0;
+  background-color: #11111b;
+}
+window#waybar.fullscreen #language,
+window#waybar.fullscreen #mode,
+window#waybar.fullscreen #workspaces,
+window#waybar.fullscreen #taskbar,
+window#waybar.fullscreen #hardware,
+window#waybar.fullscreen #clock,
+window#waybar.fullscreen #custom-spotify,
+window#waybar.fullscreen #window,
+window#waybar.fullscreen #tray,
+window#waybar.fullscreen #battery,
+window#waybar.fullscreen #backlight,
+window#waybar.fullscreen #custom-logo,
+window#waybar.fullscreen #pulseaudio,
+window#waybar.fullscreen #pulseaudio.muted,
+window#waybar.fullscreen #network,
+window#waybar.fullscreen #bluetooth {
+  margin-top: 0;
+}
+
+#custom-logo {
+  margin-left: 4px;
+  padding-right: 7px;
+  padding-left: 4px;
+}
+
+#mode {
+  background-color: #cdd6f4;
+  color: #1e1e2e;
+}
+
+#custom-spotify {
+  color: #a6e3a1;
+}
+
+#memory {
+  color: #eebebe;
+}
+#cpu {
+  color: #eba0ac;
+}
+#temperature {
+  color: #f38ba8;
+}
+
+#battery.plugged {
+  color: #a6e3a1;
+}
+#battery.charging {
+  background-color: #a6e3a1;
+  color: #1e1e2e;
+}
+#battery.warning {
+  background-color: #f38ba8;
+  color: #1e1e2e;
+}
+#battery.critical,
+#battery.urgent {
+  background-color: #f38ba8;
+  color: #1e1e2e;
+  animation: blink 0.5s ease infinite alternate;
+}
+
+#pulseaudio {
+  color: #f9e2af;
+}
+#pulseaudio:not(.source-muted) {
+  background-color: #f9e2af;
+  color: #1e1e2e;
+}
+
+#network.wifi,
+#network.linked,
+#network.ethernet {
+  color: #fab387;
+}
+
+#clock {
+  margin-right: 4px;
+}
+
+/* toggle */
+#workspaces button.special,
+#pulseaudio.input,
+#bluetooth {
+  color: #cdd6f4;
+  background-color: #313244;
+}
+
+/* fix non-mono icons */
+#network, #bluetooth {
+  padding-right: 2px;
+}
+
+/* children of groups */
+#hardware .child * {
+  margin-right: 10px;
+}
+
+tooltip {
+  color: #cdd6f4;
+  background-color: #11111b;
+  border: 2px solid #313244;
+}
+
+tooltip label {
+  padding: 5px;
+}
