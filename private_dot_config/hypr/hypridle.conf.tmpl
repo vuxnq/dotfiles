@@ -1,0 +1,30 @@
+general {
+    lock_cmd = ~/.local/bin/setlockimage.sh && pidof hyprlock || hyprlock
+    before_sleep_cmd = loginctl lock-session
+    after_sleep_cmd = hyprctl dispatch dpms on
+}
+
+# lock
+listener {
+    timeout = 600 # 10 min
+    {{ if eq .chezmoi.hostname "laptop" }}
+    on-timeout = loginctl lock-session
+    {{ end }}
+}
+
+# screen off
+listener {
+    timeout = 900 # 15 min
+    {{ if eq .chezmoi.hostname "laptop" }}
+    on-timeout = hyprctl dispatch dpms off
+    on-resume = hyprctl dispatch dpms on
+    {{ end }}
+}
+
+# suspend
+listener {
+    timeout = 1200 # 20 min
+    {{ if eq .chezmoi.hostname "laptop" }}
+    on-timeout = systemctl suspend
+    {{ end }}
+}
