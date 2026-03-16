@@ -1,12 +1,21 @@
 #!/bin/bash
-SCRIPT="postinstall"
+SCRIPT="post"
 
+set -e
+
+# shell
 echo "$SCRIPT > changing shell to fish"
 chsh -s $(which fish)
 
+# font
 echo "$SCRIPT > installing MapleMono fonts system-wide"
 sudo mkdir -p "/usr/local/share/fonts"
 sudo cp -a "$HOME/.local/share/fonts/MapleMono" "/usr/local/share/fonts/MapleMono"
 sudo fc-cache -f
+
+# syncthing
+echo "$SCRIPT > enabling syncthing"
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
 
 echo "$SCRIPT > done"

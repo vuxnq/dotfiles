@@ -1,0 +1,10 @@
+#!/bin/bash
+SCRIPT="setup"
+
+set -e
+
+# hostname
+echo "$SCRIPT > settings hostname to '{{ .hostname }}'"
+sudo hostnamectl set-hostname "{{ .hostname }}"
+
+echo "$SCRIPT > done"

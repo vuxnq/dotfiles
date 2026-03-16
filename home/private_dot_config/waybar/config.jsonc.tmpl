@@ -1,8 +1,8 @@
 {
   "layer": "top",
-	"reload_style_on_change": true,
+  "reload_style_on_change": true,
   "modules-left": [
-    "custom/logo",
+    "custom/hostname",
     "hyprland/workspaces",
     "sway/workspaces",
     "group/windows",
@@ -22,7 +22,7 @@
     "clock"
   ],
   "group/windows": {
-		"orientation": "inherit",
+    "orientation": "inherit",
     "modules": [
       "hyprland/window",
       "sway/window",
@@ -31,7 +31,9 @@
     "drawer": {
       "transition-left-to-right": false,
       "children-class": "child"
-    }
+    },
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   "group/hardware": {
     "orientation": "inherit",
@@ -39,8 +41,8 @@
       "temperature",
       "cpu",
       "memory"
-      ]
-	},
+    ]
+  },
   "group/net": {
     "orientation": "inherit",
     "modules": [
@@ -63,8 +65,8 @@
       "children-class": "child"
     }
   },
-  "custom/logo": {
-    "format": " 󰻀 ",
+  "custom/hostname": {
+    "format": "{{ .hostname }}",
     "tooltip": false,
     "on-click": "~/.config/rofi/launcher.sh",
     "on-click-right": "hyprctl dispatch togglespecialworkspace s"

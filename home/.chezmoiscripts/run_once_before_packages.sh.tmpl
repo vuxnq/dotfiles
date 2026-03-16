@@ -1,0 +1,43 @@
+#!/bin/bash
+SCRIPT="packages"
+
+set -e
+
+# repos
+echo "$SCRIPT > enabling rpmfusion"
+sudo dnf install -y \
+    "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
+    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+sudo dnf group upgrade -y core
+
+echo "$SCRIPT > enabling copr packages"
+{{ range .packages.fedora.copr }}
+sudo dnf copr enable -y {{ . }}
+{{ end }}
+
+echo "$SCRIPT > adding flathub"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# packages
+echo "$SCRIPT > upgrading system"
+sudo dnf upgrade -y --refresh
+
+echo "$SCRIPT > installing packages"
+sudo dnf install -y \
+{{ range .packages.fedora.dnf -}}
+    {{ . }} \
+{{ end }}
+
+echo "$SCRIPT > installing external rpms"
+sudo dnf install -y \
+{{ range .packages.fedora.rpm -}}
+    {{ . }} \
+{{ end }}
+
+echo "$SCRIPT > installing flatpaks"
+flatpak install -y flathub \
+{{ range .packages.fedora.flathub -}}
+    {{ . }} \
+{{ end }}
+
+echo "$SCRIPT > done"

@@ -7,7 +7,7 @@ general {
 # lock
 listener {
     timeout = 600 # 10 min
-    {{ if eq .chezmoi.hostname "laptop" }}
+    {{ if eq .hostname "laptop" }}
     on-timeout = loginctl lock-session
     {{ end }}
 }
@@ -15,7 +15,7 @@ listener {
 # screen off
 listener {
     timeout = 900 # 15 min
-    {{ if eq .chezmoi.hostname "laptop" }}
+    {{ if eq .hostname "laptop" }}
     on-timeout = hyprctl dispatch dpms off
     on-resume = hyprctl dispatch dpms on
     {{ end }}
@@ -24,7 +24,7 @@ listener {
 # suspend
 listener {
     timeout = 1200 # 20 min
-    {{ if eq .chezmoi.hostname "laptop" }}
+    {{ if eq .hostname "laptop" }}
     on-timeout = systemctl suspend
     {{ end }}
 }

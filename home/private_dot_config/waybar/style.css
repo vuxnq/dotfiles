@@ -71,7 +71,7 @@ window#waybar.floating #window {
 #tray,
 #battery,
 #backlight,
-#custom-logo,
+#custom-hostname,
 #pulseaudio,
 #pulseaudio.muted,
 #network,
@@ -98,7 +98,7 @@ window#waybar.fullscreen #window,
 window#waybar.fullscreen #tray,
 window#waybar.fullscreen #battery,
 window#waybar.fullscreen #backlight,
-window#waybar.fullscreen #custom-logo,
+window#waybar.fullscreen #custom-hostname,
 window#waybar.fullscreen #pulseaudio,
 window#waybar.fullscreen #pulseaudio.muted,
 window#waybar.fullscreen #network,
@@ -106,10 +106,8 @@ window#waybar.fullscreen #bluetooth {
   margin-top: 0;
 }
 
-#custom-logo {
+#custom-hostname {
   margin-left: 4px;
-  padding-right: 7px;
-  padding-left: 4px;
 }
 
 #mode {

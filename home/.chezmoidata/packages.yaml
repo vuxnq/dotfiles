@@ -17,3 +17,8 @@ packages:
       - ncdu
       - unar
       - fastfetch
+      - syncthing
+    rpm:
+      - https://vencord.dev/download/vesktop/amd64/rpm
+    flathub:
+      - com.spotify.Client

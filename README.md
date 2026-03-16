@@ -22,7 +22,7 @@ sudo dnf install chezmoi
 ## usage
 ```sh
 # clone repo, install packages and apply dotfiles
-chezmoi init --apply https://github.com/vuxnq/dotfiles.git
+chezmoi init --apply vuxnq
 ```
 
 ```sh

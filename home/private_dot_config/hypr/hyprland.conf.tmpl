@@ -5,7 +5,7 @@ $brightness = ~/.local/bin/brightness.sh
 $volume = ~/.local/bin/volume.sh
 $autofilen = ~/.local/bin/autofilen.sh
 
-{{ if eq .chezmoi.hostname "laptop" }}
+{{ if eq .hostname "laptop" }}
 monitor = eDP-1, preferred, 0x0, auto
 exec = $lidhandle load
 {{ else }}
