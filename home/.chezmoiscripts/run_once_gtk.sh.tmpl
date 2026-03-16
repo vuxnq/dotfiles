@@ -1,4 +1,5 @@
 #!/bin/bash
+SCRIPT="gtk"
 
 set -e
 
@@ -11,14 +12,14 @@ rm -rf "$THEMES_PATH/$CATPPUCCIN"
 rm -rf "$THEMES_PATH/$CATPPUCCIN-hdpi"
 rm -rf "$THEMES_PATH/$CATPPUCCIN-xhdpi"
 
-echo "> getting catppuccin gtk theme"
+echo "$SCRIPT > getting catppuccin gtk theme"
 curl -L "https://github.com/catppuccin/gtk/releases/download/v1.0.3/$CATPPUCCIN.zip" -o $THEMES_PATH/catppuccin.zip
 unzip -q "$THEMES_PATH/catppuccin.zip" -d "$THEMES_PATH"
 rm "$THEMES_PATH/catppuccin.zip"
 
-echo "> updating gtk theme"
+echo "$SCRIPT > updating gtk theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$CATPPUCCIN"
 gsettings set org.gnome.desktop.wm.preferences theme "$CATPPUCCIN"
 gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
-echo "> done"
+echo "$SCRIPT > done"

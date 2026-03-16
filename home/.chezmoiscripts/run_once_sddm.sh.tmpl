@@ -1,15 +1,16 @@
 #!/bin/bash
+SCRIPT="sddm"
 
 set -e
 
 TARGET="/usr/share/sddm/themes/vuxsddm"
 
-echo "> copying the theme to sddm's themes folder"
+echo "$SCRIPT > copying the theme to sddm's themes folder"
 sudo rm -rf "$TARGET"
 sudo mkdir -p "$TARGET"
 sudo cp -a "{{ .chezmoi.sourceDir }}/.extras/sddm/." "$TARGET"
 
-echo "> setting the theme"
+echo "$SCRIPT > setting the theme"
 echo -e "[Theme]\nCurrent=vuxsddm" | sudo tee /etc/sddm.conf > /dev/null
 
-echo "> done"
+echo "$SCRIPT > done"

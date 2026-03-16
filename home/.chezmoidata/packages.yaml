@@ -11,8 +11,10 @@ packages:
       - hypridle
       - hyprlock
       - hyprshot
+      - rofimoji
       - zoxide
       - btop
+      - ncdu
       - unar
       - papirus-icon-theme
-      - rofimoji
+      - fastfetch

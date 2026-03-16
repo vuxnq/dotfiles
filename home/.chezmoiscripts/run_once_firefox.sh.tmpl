@@ -1,16 +1,17 @@
 #!/bin/bash
+SCRIPT="firefox"
 
 PROFILES_INI="$HOME/.mozilla/firefox/profiles.ini"
 if [[ ! -f "$PROFILES_INI" ]]; then
-    echo "> profiles.ini not found, exitting"
+    echo "$SCRIPT > profiles.ini not found, exitting"
     exit 0
 fi
 
 PROFILE=$(grep -E "^Default=.*\.default" "$PROFILES_INI" | cut -d"=" -f2)
-echo "> firefox profile folder = $PROFILE"
+echo "$SCRIPT > firefox profile folder = $PROFILE"
 
-echo "> copying firefox files"
+echo "$SCRIPT > copying firefox files"
 cp -r "{{ .chezmoi.sourceDir }}/.extras/firefox/." "$HOME/.mozilla/firefox/$PROFILE/"
 
-echo "> done"
-echo "> remember to manually install: https://addons.mozilla.org/firefox/addon/catppuccin-mocha-lavender-git/"
+echo "$SCRIPT > done"
+echo "$SCRIPT > remember to manually install: https://addons.mozilla.org/firefox/addon/catppuccin-mocha-lavender-git/"

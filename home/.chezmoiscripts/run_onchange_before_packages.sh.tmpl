@@ -1,14 +1,19 @@
 #!/bin/bash
+SCRIPT="packages"
 
 set -e
 
 # copr repos
+echo "$SCRIPT > enabling copr packages"
 {{ range .packages.fedora.copr }}
 sudo dnf copr enable -y {{ . }}
 {{ end }}
 
 # packages
+echo "$SCRIPT > installing packages"
 sudo dnf install -y \
 {{ range .packages.fedora.dnf -}}
     {{ . }} \
 {{ end }}
+
+echo "$SCRIPT > done"
