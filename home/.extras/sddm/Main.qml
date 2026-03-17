@@ -7,42 +7,25 @@ Item {
   id: root
   height: Screen.height
   width: Screen.width
-  Rectangle {
-    id: background
-    anchors.fill: parent
-    height: parent.height
-    width: parent.width
-    z: 0
-    color: config.base
-  }
+
   Image {
     id: backgroundImage
-    anchors.fill: parent
-    height: parent.height
-    width: parent.width
-    fillMode: Image.PreserveAspectCrop
-    visible: config.CustomBackground == "true" ? true : false
-    z: 1
     source: config.Background
-    asynchronous: false
-    cache: true
-    mipmap: true
-    clip: true
+    anchors.fill: parent
+    fillMode: Image.PreserveAspectCrop
   }
+
   Item {
     id: mainPanel
     z: 3
     anchors {
       fill: parent
-      margins: 10
     }
     Clock {
       id: time
-      visible: config.ClockEnabled == "true" ? true : false
     }
     LoginPanel {
       id: loginPanel
-      anchors.fill: parent
     }
   }
 }

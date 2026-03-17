@@ -1,48 +1,12 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
-TextField {
-  id: passwordField
+StyledTextField {
+  id: root
   focus: true
-  selectByMouse: true
   placeholderText: "password"
+  placeholderTextColor: config.subtext0
   echoMode: TextInput.Password
   passwordCharacter: "*"
   passwordMaskDelay: config.PasswordShowLastLetter
-  selectionColor: config.overlay0
-  renderType: Text.NativeRendering
-  font.family: config.Font
-  font.pointSize: config.FontSize
-  font.weight: 800
-  color: config.text
-  horizontalAlignment: TextInput.AlignHCenter
-  background: Rectangle {
-    id: passFieldBackground
-    radius: 3
-    color: config.surface0
-  }
-  states: [
-    State {
-      name: "focused"
-      when: passwordField.activeFocus
-      PropertyChanges {
-        target: passFieldBackground
-        color: config.surface1
-      }
-    },
-    State {
-      name: "hovered"
-      when: passwordField.hovered
-      PropertyChanges {
-        target: passFieldBackground
-        color: config.surface1
-      }
-    }
-  ]
-  transitions: Transition {
-    PropertyAnimation {
-      properties: "color"
-      duration: 100
-    }
-  }
 }

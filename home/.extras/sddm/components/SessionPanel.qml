@@ -6,6 +6,7 @@ Item {
   property var session: sessionList.currentIndex
   implicitHeight: sessionButton.height
   implicitWidth: sessionButton.width
+
   DelegateModel {
     id: sessionWrapper
     model: sessionModel
@@ -14,37 +15,42 @@ Item {
       height: inputHeight
       width: parent.width
       highlighted: sessionList.currentIndex == index
+
       contentItem: Text {
         renderType: Text.NativeRendering
         font.family: config.Font
         font.pointSize: config.FontSize
-        font.bold: true
+        font.weight: config.FontWeightBold
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         color: config.text
         text: name
       }
+
       background: Rectangle {
-        id: sessionEntryBackground
-        color: config.surface1
-        radius: 3
+        color: config.base
+        radius: 2
       }
+
       states: [
         State {
           name: "hovered"
           when: sessionEntry.hovered
-          PropertyChanges {
-            target: sessionEntryBackground
-            color: config.surface2
-          }
+          PropertyChanges { target: background; color: config.lavender }
+          PropertyChanges { target: contentItem; color: config.base }
+        },
+        State {
+          name: "selected"
+          when: sessionEntry.highlighted
+          PropertyChanges { target: background; color: config.lavender }
+          PropertyChanges { target: contentItem; color: config.base }
         }
       ]
+
       transitions: Transition {
-        PropertyAnimation {
-          property: "color"
-          duration: 100
-        }
+        PropertyAnimation { properties: "color"; duration: 100 }
       }
+
       MouseArea {
         anchors.fill: parent
         onClicked: {
@@ -54,105 +60,81 @@ Item {
       }
     }
   }
+
   Button {
     id: sessionButton
     height: inputHeight
     width: inputHeight
     hoverEnabled: true
+
     Label {
-      text: "󰒓 "
-      anchors {
-        verticalCenter: parent.verticalCenter
-        horizontalCenter: parent.horizontalCenter
-      }
+      id: buttonLabel
+      anchors.centerIn: parent
+      font.family: config.Font
+      font.pointSize: config.FontSize
+      font.weight: config.FontWeight
       color: config.text
+      text: ""
     }
-    background: Rectangle {
-      id: sessionButtonBackground
-      color: config.crust
-      radius: 3
-    }
+
+    background: Rectangle { radius: 2; color: config.surface0 }
+
     states: [
       State {
         name: "pressed"
-        when: sessionButton.down
-        PropertyChanges {
-          target: sessionButtonBackground
-          color: config.surface1
-        }
+        when: down
+        PropertyChanges { target: background; color: config.surface1 }
       },
       State {
         name: "hovered"
-        when: sessionButton.hovered
-        PropertyChanges {
-          target: sessionButtonBackground
-          color: config.surface2
-        }
+        when: hovered
+        PropertyChanges { target: background; color: config.lavender }
+        PropertyChanges { target: buttonLabel; color: config.base }
       },
       State {
-        name: "selection"
-        when: sessionPopup.visible
-        PropertyChanges {
-          target: sessionButtonBackground
-          color: config.surface2
-        }
+        name: "active"
+        when: checked || highlighted
+        PropertyChanges { target: background; color: config.lavender }
+        PropertyChanges { target: buttonLabel; color: config.base }
       }
     ]
-    transitions: Transition {
-      PropertyAnimation {
-        properties: "color"
-        duration: 100
-      }
-    }
-    onClicked: {
-      sessionPopup.visible ? sessionPopup.close() : sessionPopup.open()
-      sessionButton.state = "pressed"
-    }
+
+    transitions: Transition { PropertyAnimation { properties: "color"; duration: 100 } }
+
+    onClicked: sessionPopup.visible ? sessionPopup.close() : sessionPopup.open()
   }
+
   Popup {
     id: sessionPopup
     width: inputWidth + padding * 2
-    x: (sessionButton.width + sessionList.spacing) * -5
+    x: -inputWidth - 16
     y: -(contentHeight + padding * 2) + sessionButton.height
-    padding: inputHeight / 10
+    padding: 8
+
     background: Rectangle {
-      radius: 5.4
-      color: config.base
+      radius: 4
+      color: config.crust
+      border.width: 2
+      border.color: config.surface0
     }
+
     contentItem: ListView {
       id: sessionList
       implicitHeight: contentHeight
-      spacing: 8
+      spacing: 5
       model: sessionWrapper
       currentIndex: sessionModel.lastIndex
       clip: true
     }
+
     enter: Transition {
       ParallelAnimation {
-        NumberAnimation {
-          property: "opacity"
-          from: 0
-          to: 1
-          duration: 100
-          easing.type: Easing.OutExpo
-        }
-        NumberAnimation {
-          property: "x"
-          from: sessionPopup.x + (inputWidth * 0.1)
-          to: sessionPopup.x
-          duration: 100
-          easing.type: Easing.OutExpo
-        }
+        NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 100; easing.type: Easing.OutExpo }
+        NumberAnimation { property: "x"; from: sessionPopup.x + (inputWidth * 0.1); to: sessionPopup.x; duration: 100; easing.type: Easing.OutExpo }
       }
     }
     exit: Transition {
-      NumberAnimation {
-        property: "opacity"
-        from: 1
-        to: 0
-        duration: 100
-        easing.type: Easing.OutExpo
-      }
+      NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 100; easing.type: Easing.OutExpo }
     }
   }
 }

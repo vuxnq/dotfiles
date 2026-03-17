@@ -1,4 +1,5 @@
 #!/bin/bash
+# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir ".extras/firefox") }}
 SCRIPT="firefox"
 
 PROFILES_INI="$XDG_CONFIG_HOME/mozilla/firefox/profiles.ini"

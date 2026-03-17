@@ -1,14 +1,10 @@
 [SddmGreeterTheme]
-Name=Catppuccin mocha
-Description=Soothing pastel theme for SDDM
+Name=vuxsddm
+Description=chci se zabit
 Type=sddm-theme
-Version=2.1
-Website=https://github.com/catppuccin/sddm
-Screenshot=preview.png
+Version=1.0
 MainScript=Main.qml
 ConfigFile=theme.conf
-TranslationsDirectory=translations
-Theme-Id=Catppuccin
+Theme-Id=vuxsddm
 Theme-API=2.0
-License=MIT
 QtVersion=6
