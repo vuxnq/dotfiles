@@ -67,6 +67,8 @@
     "format": "{{ .hostname }}",
     "tooltip": false,
     "on-click": "~/.config/rofi/launcher.sh",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
     "on-click-right": "hyprctl dispatch togglespecialworkspace s"
     // "on-click-right": "~/.config/sway/toggle_special.sh"
   },
