@@ -1,7 +1,7 @@
 #!/bin/bash
 SCRIPT="virtualmonitor"
-{{ if ne .chezmoi.hostname "desktop" }} echo "$SCRIPT > not a desktop, exitting"; exit 0; {{ end }}
-{{ if not .gpu_output_virtual }} echo "$SCRIPT > gpu_output_virtual not set, exitting"; exit 1; {{ end }}
+{{ if eq .chezmoi.hostname "laptop" }} echo "$SCRIPT > laptop, exitting"; exit 0; {{ end }}
+{{ if not .virtual_output }} echo "$SCRIPT > virtual_output not set, exitting"; exit 1; {{ end }}
 
 EDID_FOLDER="/usr/lib/firmware/edid"
 EDID_FILE="samsung-q800t-hdmi2.1"
@@ -12,7 +12,7 @@ sudo mkdir -p $EDID_FOLDER
 echo "$SCRIPT > downloading $EDID_FILE file into $EDID_FOLDER"
 sudo wget -O $EDID_FOLDER/$EDID_FILE https://git.linuxtv.org/v4l-utils.git/plain/utils/edid-decode/data/$EDID_FILE
 
-PARAMETERS="drm.edid_firmware={{ .gpu_output_virtual }}:edid/$EDID_FILE video={{ .gpu_output_virtual }}:e"
+PARAMETERS="drm.edid_firmware={{ .virtual_output }}:edid/$EDID_FILE video={{ .virtual_output }}:e"
 
 echo "$SCRIPT > adding kernel parameters ($PARAMETERS)"
 sudo grubby --update-kernel=ALL --args="$PARAMETERS"

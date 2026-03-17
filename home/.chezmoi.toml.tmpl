@@ -1,5 +1,5 @@
-{{- output "bash" "-c" "for p in /sys/class/drm/*/status; do con=${p%/status}; echo \"  ${con#*/card?-}: $(cat $p)\" >&2; done" -}}
+{{- $gpuOutputs := output "bash" "-c" "grep -l 'disconnected' /sys/class/drm/*/status | awk -F/ '{print $5}' | cut -d- -f2-" }}
 
 [data]
-    gpu_output_virtual = "{{ promptString "GPU output for virtual monitor" }}"
     hostname = "{{ promptString "hostname" }}"
+    virtual_output = "{{ promptString (printf "available outputs:\n%soutput for virtual monitor" $gpuOutputs) }}"
