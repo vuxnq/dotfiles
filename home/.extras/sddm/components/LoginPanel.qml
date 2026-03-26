@@ -63,7 +63,7 @@ Item {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         color: config.crust
-        text: "Login"
+        text: "login"
       }
 
       background: Rectangle {

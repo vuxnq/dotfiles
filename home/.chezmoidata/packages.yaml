@@ -1,7 +1,7 @@
 packages:
   fedora:
     copr:
-      - solopasha/hyprland
+      - lionheartp/Hyprland
     dnf:
       - git
       - fish

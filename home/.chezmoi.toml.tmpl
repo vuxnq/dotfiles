@@ -1,5 +1,6 @@
 {{- $gpuOutputs := output "bash" "-c" "grep -l 'disconnected' /sys/class/drm/*/status | awk -F/ '{print $5}' | cut -d- -f2-" }}
 
+progress = true
 [data]
     hostname = "{{ promptString "hostname" }}"
     virtual_output = "{{ promptString (printf "available outputs:\n%soutput for virtual monitor" $gpuOutputs) }}"
