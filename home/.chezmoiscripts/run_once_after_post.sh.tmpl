@@ -7,10 +7,10 @@ set -e
 echo "$SCRIPT > changing shell to fish"
 chsh -s $(which fish)
 
-# font
-echo "$SCRIPT > installing MapleMono fonts system-wide"
+# font (sddm needs it)
+echo "$SCRIPT > installing Maple fonts system-wide"
 sudo mkdir -p "/usr/local/share/fonts"
-sudo cp -r "$HOME/.local/share/fonts/MapleMono" "/usr/local/share/fonts/MapleMono"
+sudo cp -r "$HOME/.local/share/fonts/Maple" "/usr/local/share/fonts/Maple"
 sudo fc-cache -f
 
 # syncthing

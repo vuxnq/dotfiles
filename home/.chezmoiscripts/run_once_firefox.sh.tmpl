@@ -2,6 +2,8 @@
 # hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir ".extras/firefox") }}
 SCRIPT="firefox"
 
+set -e
+
 PROFILES_INI="$XDG_CONFIG_HOME/mozilla/firefox/profiles.ini"
 if [[ ! -f "$PROFILES_INI" ]]; then
     echo "$SCRIPT > profiles.ini not found, exitting"

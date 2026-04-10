@@ -3,7 +3,6 @@
     format = "<b>%s</b>\n%b"
 
     icon_path = "~/.local/share/icons/"
-    icon_theme = MonoIcons
     max_icon_size = 64
     enable_recursive_icon_lookup = true
 
@@ -12,7 +11,7 @@
     frame_width = 2
     frame_color = "#313244"
     separator_color= frame
-    font = "Maple Mono Medium"
+    font = "Maple NF Medium"
     corner_radius = 2
     background = "#11111b"
     foreground = "#cdd6f4"

@@ -18,6 +18,7 @@ packages:
       - unar
       - fastfetch
       - syncthing
+      - python3-devel
     rpm:
       - https://vencord.dev/download/vesktop/amd64/rpm
     flathub:

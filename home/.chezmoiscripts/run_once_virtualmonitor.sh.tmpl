@@ -1,5 +1,8 @@
 #!/bin/bash
 SCRIPT="virtualmonitor"
+
+set -e
+
 {{ if eq .hostname "laptop" }} echo "$SCRIPT > laptop, exitting"; exit 0; {{ end }}
 {{ if not .virtual_output }} echo "$SCRIPT > virtual_output not set, exitting"; exit 0; {{ end }}
 

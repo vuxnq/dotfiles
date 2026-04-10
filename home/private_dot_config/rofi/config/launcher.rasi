@@ -7,7 +7,6 @@ configuration {
     display-run: "";
     display-filebrowser: "";
     display-window: "";
-    icon-theme: "MonoIcons";
 	drun-display-format: "{name}";
 }
 
