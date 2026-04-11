@@ -19,6 +19,8 @@ packages:
       - fastfetch
       - syncthing
       - python3-devel
+      - cmake
+      - gcc-c++
     rpm:
       - https://vencord.dev/download/vesktop/amd64/rpm
     flathub:
