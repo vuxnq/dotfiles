@@ -16,7 +16,7 @@ waybar_output() {
 }
 
 simple_output() {
-    get_metadata '  {{title}} | {{artist}}' false
+    get_metadata ' {{title}} | {{artist}}' false
 }
 
 case "$1" in

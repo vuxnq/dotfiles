@@ -1,0 +1,17 @@
+#!/bin/bash
+# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir ".chezmoiscripts") }}
+SCRIPT="sudo"
+
+set -e
+
+echo "$SCRIPT > starting keepalive"
+sudo -v
+
+CHEZMOI_PID=$PPID
+
+( 
+  while kill -0 "$CHEZMOI_PID" 2>/dev/null; do 
+    sudo -n true
+    sleep 50
+  done 
+) &

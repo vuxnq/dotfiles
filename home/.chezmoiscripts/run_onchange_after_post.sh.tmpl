@@ -5,7 +5,11 @@ set -e
 
 # shell
 echo "$SCRIPT > changing shell to fish"
-chsh -s $(which fish)
+sudo chsh -s $(which fish) $USER
+
+# disable adaptive backlight management
+echo "$SCRIPT > disabling adaptive backlight management (adding kernel param)"
+sudo grubby --update-kernel=ALL --args="amdgpu.abmlevel=0"
 
 # font (sddm needs it)
 echo "$SCRIPT > installing Maple fonts system-wide"

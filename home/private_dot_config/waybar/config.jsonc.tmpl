@@ -183,9 +183,9 @@
     "format-source": " {volume}%",
     "format-source-muted": " ",
     "on-click": "~/.config/rofi/volume.sh mic",
-    "on-click-middle": "amixer sset 'Capture' toggle",
-    "on-scroll-up": "amixer sset 'Capture' 2%+",
-    "on-scroll-down": "amixer sset 'Capture' 2%-"
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 2%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 2%-"
   },
   "battery": {
     "format": "{icon} {capacity}%",

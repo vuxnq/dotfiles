@@ -1,11 +1,11 @@
 #!/bin/bash
 
 get_volume() {
-    amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1
+    wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'
 }
 
 is_mute() {
-    amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
+    wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED
 }
 
 send_notification() {
@@ -18,21 +18,24 @@ if [ -n "$2" ]; then change=$2; fi
 
 case $1 in
     up)
-	amixer set Master on > /dev/null
-	amixer sset Master $change%+ > /dev/null
-	send_notification
-	;;
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ ${change}%+ 
+    send_notification
+    ;;
+    
     down)
-	amixer set Master on > /dev/null
-	amixer sset Master $change%- > /dev/null
-	send_notification
-	;;
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ ${change}%- 
+    send_notification
+    ;;
+    
     mute)
-	amixer set Master 1+ toggle > /dev/null
-	if is_mute ; then
-	    notify-send -i NONE -r 2593 "  mute"
-	else
-	    send_notification
-	fi
-	;;
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle 
+    
+    if is_mute ; then
+        notify-send -i NONE -r 2593 "  mute"
+    else
+        send_notification
+    fi
+    ;;
 esac

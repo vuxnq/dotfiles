@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Vesktop
+# TODO: zkurveny wayland pico
+Exec=/opt/Vesktop/vesktop --disable-features=WaylandWpColorManagerV1 %U
+Terminal=false
+Type=Application
+Icon=vesktop
+StartupWMClass=vesktop
+GenericName=Internet Messenger
+Categories=Network;
+Keywords=discord;vencord;electron;chat;
+MimeType=x-scheme-handler/discord;
+Comment=Vesktop is a custom Discord desktop app

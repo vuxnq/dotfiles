@@ -6,7 +6,7 @@ $volume = ~/.local/bin/volume.sh
 $autofilen = ~/.local/bin/autofilen.sh
 
 {{ if eq .hostname "laptop" }}
-monitor = eDP-1, preferred, 0x0, auto
+monitor = eDP-1, 1680x1050, 0x0, auto
 exec = $lidhandle load
 {{ else }}
 monitor = HDMI-A-1, preferred, 0x0, auto
@@ -14,20 +14,20 @@ monitor = DP-3, 1920x1080@60, auto, auto
 exec = ~/.local/bin/virtualmonitor.sh
 {{ end }}
 
-# KEYWORDS
+# keywords
 $terminal = kitty
 $fileManager = thunar
 $wallpaper = ~/.local/share/backgrounds/waves.png
 
 $MOD = SUPER
 
-# ROFI
+# rofi
 $emoji = ~/.config/rofi/emoji.sh
 $launcher = ~/.config/rofi/launcher.sh
 $powermenu = ~/.config/rofi/powermenu.sh
 $screenshot = ~/.config/rofi/screenshot.sh
 
-# AUTOSTART
+# autostart
 exec = killall waybar; waybar
 exec = killall wlsunset; wlsunset -S 6:00 -s 19:00 -d 1800
 exec = killall swaybg; swaybg -m fill -i $wallpaper
@@ -35,10 +35,10 @@ exec-once = playerctld daemon
 exec-once = hypridle
 exec-once = $autofilen
 
-# ENV VARS
+# env vars
 env = GTK_THEME, catppuccin-mocha-lavender-standard+default
 
-# THEME
+# theme
 general { 
     border_size = 2
     gaps_in = 2
@@ -102,6 +102,10 @@ input {
     }
 }
 
+gesture = 4, horizontal, workspace
+gesture = 3, right, dispatcher, sendshortcut, ALT, left, activewindow
+gesture = 3, left, dispatcher, sendshortcut, ALT, right, activewindow
+
 group {
     col.border_active = rgb(313244)
     col.border_inactive = rgba(313244aa)
@@ -120,7 +124,7 @@ misc {
     force_default_wallpaper = 0
     background_color = 0x11111b
     enable_swallow = true
-    swallow_regex = $terminal
+    swallow_regex = ^($terminal)
 }
 
 binds {
