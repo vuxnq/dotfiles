@@ -9,26 +9,26 @@
     origin = top-right
     offset = 10x10
     frame_width = 2
-    frame_color = "#{{ .colors.s_0 }}"
+    frame_color = "#{{ .theme.colors.s_0 }}"
     separator_color= frame
-    font = "{{ .font_main }} Medium"
+    font = "{{ .theme.font.name }} Medium"
     corner_radius = 2
-    background = "#{{ .colors.bg_darkest }}"
-    foreground = "#{{ .colors.fg }}"
+    background = "#{{ .theme.colors.bg_darkest }}"
+    foreground = "#{{ .theme.colors.fg }}"
 
     progress_bar_corner_radius = 2
     
 [urgency_low]
-    foreground = "#{{ .colors.fg }}"
-    highlight = "#{{ .colors.a_lavender }}"
+    foreground = "#{{ .theme.colors.fg }}"
+    highlight = "#{{ .theme.colors.a_lavender }}"
     timeout = 4
 
 [urgency_normal]
-    foreground = "#{{ .colors.fg }}"
-    highlight = "#{{ .colors.a_lavender }}"
+    foreground = "#{{ .theme.colors.fg }}"
+    highlight = "#{{ .theme.colors.a_lavender }}"
     timeout = 6
 
 [urgency_critical]
-    foreground = "#{{ .colors.fg }}"
-    highlight = "#{{ .colors.a_lavender }}"
+    foreground = "#{{ .theme.colors.fg }}"
+    highlight = "#{{ .theme.colors.a_lavender }}"
     timeout = 0

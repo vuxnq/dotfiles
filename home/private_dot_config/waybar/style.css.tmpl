@@ -2,14 +2,14 @@
   border: none;
   border-radius: 4px;
   min-height: 0;
-  font-family: {{ .font_main }} ExtraBold;
+  font-family: {{ .theme.font.name }} ExtraBold;
   font-size: 12px;
 }
 
 @keyframes blink {
   to {
-    background-color: #{{ .colors.a_rose }};
-    color: #{{ .colors.bg_dark }};
+    background-color: #{{ .theme.colors.a_rose }};
+    color: #{{ .theme.colors.bg_dark }};
   }
 }
 
@@ -19,7 +19,7 @@ window#waybar {
 
 #workspaces,
 #taskbar {
-  background-color: #{{ .colors.bg }};
+  background-color: #{{ .theme.colors.bg }};
   margin: 4px 2px 0 2px;
   padding: 2px;
 }
@@ -28,7 +28,7 @@ window#waybar {
 #taskbar button {
   all: initial; /* Remove GTK theme values (waybar #1351) */
   padding: 0 9px;
-  color: #{{ .colors.fg }};
+  color: #{{ .theme.colors.fg }};
   border-radius: 2px;
   transition-duration: 0.1s;
 }
@@ -41,19 +41,19 @@ window#waybar {
 #workspaces button.focused,
 #workspaces button.special.active,
 #taskbar button.active {
-  color: #{{ .colors.bg }};
-  background-color: #{{ .colors.fg }};
+  color: #{{ .theme.colors.bg }};
+  background-color: #{{ .theme.colors.fg }};
 }
 
 #workspaces button:hover,
 #taskbar button:hover {
-  color: #{{ .colors.bg }};
-  background-color: #{{ .colors.a_lavender }};
+  color: #{{ .theme.colors.bg }};
+  background-color: #{{ .theme.colors.a_lavender }};
 }
 
 #workspaces button.urgent {
-  color: #{{ .colors.bg }};
-  background-color: #{{ .colors.a_red }};
+  color: #{{ .theme.colors.bg }};
+  background-color: #{{ .theme.colors.a_red }};
 }
 
 window#waybar.empty #window,
@@ -78,14 +78,14 @@ window#waybar.floating #window {
 #bluetooth {
   margin: 4px 2px 0 2px;
   padding: 0 4px;
-  background-color: #{{ .colors.bg }};
-  color: #{{ .colors.fg }};
+  background-color: #{{ .theme.colors.bg }};
+  color: #{{ .theme.colors.fg }};
 }
 
 /* fullscreen */
 window#waybar.fullscreen {
   border-radius: 0;
-  background-color: #{{ .colors.bg_darkest }};
+  background-color: #{{ .theme.colors.bg_darkest }};
 }
 window#waybar.fullscreen #language,
 window#waybar.fullscreen #mode,
@@ -111,54 +111,54 @@ window#waybar.fullscreen #bluetooth {
 }
 
 #mode {
-  background-color: #{{ .colors.fg }};
-  color: #{{ .colors.bg }};
+  background-color: #{{ .theme.colors.fg }};
+  color: #{{ .theme.colors.bg }};
 }
 
 #custom-spotify {
-  color: #{{ .colors.a_green }};
+  color: #{{ .theme.colors.a_green }};
 }
 
 #memory {
-  color: #{{ .colors.a_flamingo }};
+  color: #{{ .theme.colors.a_flamingo }};
 }
 #cpu {
-  color: #{{ .colors.a_maroon }};
+  color: #{{ .theme.colors.a_maroon }};
 }
 #temperature {
-  color: #{{ .colors.a_red }};
+  color: #{{ .theme.colors.a_red }};
 }
 
 #battery.plugged {
-  color: #{{ .colors.a_green }};
+  color: #{{ .theme.colors.a_green }};
 }
 #battery.charging {
-  background-color: #{{ .colors.a_green }};
-  color: #{{ .colors.bg }};
+  background-color: #{{ .theme.colors.a_green }};
+  color: #{{ .theme.colors.bg }};
 }
 #battery.warning {
-  background-color: #{{ .colors.a_red }};
-  color: #{{ .colors.bg }};
+  background-color: #{{ .theme.colors.a_red }};
+  color: #{{ .theme.colors.bg }};
 }
 #battery.critical,
 #battery.urgent {
-  background-color: #{{ .colors.a_red }};
-  color: #{{ .colors.bg }};
+  background-color: #{{ .theme.colors.a_red }};
+  color: #{{ .theme.colors.bg }};
   animation: blink 0.5s ease infinite alternate;
 }
 
 #pulseaudio {
-  color: #{{ .colors.a_yellow }};
+  color: #{{ .theme.colors.a_yellow }};
 }
 #pulseaudio:not(.source-muted) {
-  background-color: #{{ .colors.a_yellow }};
-  color: #{{ .colors.bg }};
+  background-color: #{{ .theme.colors.a_yellow }};
+  color: #{{ .theme.colors.bg }};
 }
 
 #network.wifi,
 #network.linked,
 #network.ethernet {
-  color: #{{ .colors.a_peach }};
+  color: #{{ .theme.colors.a_peach }};
 }
 
 #clock {
@@ -169,8 +169,8 @@ window#waybar.fullscreen #bluetooth {
 #workspaces button.special,
 #pulseaudio.input,
 #bluetooth {
-  color: #{{ .colors.fg }};
-  background-color: #{{ .colors.s_0 }};
+  color: #{{ .theme.colors.fg }};
+  background-color: #{{ .theme.colors.s_0 }};
 }
 
 /* fix non-mono icons */
@@ -184,9 +184,9 @@ window#waybar.fullscreen #bluetooth {
 }
 
 tooltip {
-  color: #{{ .colors.fg }};
-  background-color: #{{ .colors.bg_darkest }};
-  border: 2px solid #{{ .colors.s_0 }};
+  color: #{{ .theme.colors.fg }};
+  background-color: #{{ .theme.colors.bg_darkest }};
+  border: 2px solid #{{ .theme.colors.s_0 }};
 }
 
 tooltip label {

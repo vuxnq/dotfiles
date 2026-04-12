@@ -1,12 +1,12 @@
 * {
-    font:                           "{{ .font_main }} Bold 10";
-    background:                     #{{ .colors.bg_darkest }};
-    background-alt:                 #{{ .colors.bg }};
-    foreground:                     #{{ .colors.fg }};
-    selected:                       #{{ .colors.a_lavender }};
-    active:                         #{{ .colors.fg }};
-    urgent:                         #{{ .colors.a_red }};
-    border:                         #{{ .colors.s_0 }};
+    font:                           "{{ .theme.font.name }} Bold 10";
+    background:                     #{{ .theme.colors.bg_darkest }};
+    background-alt:                 #{{ .theme.colors.bg }};
+    foreground:                     #{{ .theme.colors.fg }};
+    selected:                       #{{ .theme.colors.a_lavender }};
+    active:                         #{{ .theme.colors.fg }};
+    urgent:                         #{{ .theme.colors.a_red }};
+    border:                         #{{ .theme.colors.s_0 }};
 
     border-colour:                  @selected;
     handle-colour:                  @selected;

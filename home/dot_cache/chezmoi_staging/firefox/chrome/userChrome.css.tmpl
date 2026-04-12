@@ -1,25 +1,25 @@
 *, *::before, *::after {
-  font-family: {{ .font_main }}, monospace;
+  font-family: {{ .theme.font.name }}, monospace;
   font-weight: 700;
   font-size: 12px;
 }
 
 :root {
-  --focus-outline-color: #{{ .colors.fg }} !important;
+  --focus-outline-color: #{{ .theme.colors.fg }} !important;
 
-  --tabpanel-background-color: #{{ .colors.bg_darkest }} !important;
-  --toolbarbutton-icon-fill-attention: #{{ .colors.a_lavender }} !important;
+  --tabpanel-background-color: #{{ .theme.colors.bg_darkest }} !important;
+  --toolbarbutton-icon-fill-attention: #{{ .theme.colors.a_lavender }} !important;
 
-  --swipe-nav-icon-primary-color: #{{ .colors.bg_darkest }};
+  --swipe-nav-icon-primary-color: #{{ .theme.colors.bg_darkest }};
 
-  --toolbar-field-background-color: #{{ .colors.bg }} !important;
-  --toolbar-field-focus-background-color: #{{ .colors.bg }} !important;
-  --toolbar-field-focus-border-color: #{{ .colors.fg }} !important;
+  --toolbar-field-background-color: #{{ .theme.colors.bg }} !important;
+  --toolbar-field-focus-background-color: #{{ .theme.colors.bg }} !important;
+  --toolbar-field-focus-border-color: #{{ .theme.colors.fg }} !important;
 
-  --menu-color: #{{ .colors.fg }} !important;
-  --arrowpanel-color: #{{ .colors.fg }} !important;
+  --menu-color: #{{ .theme.colors.fg }} !important;
+  --arrowpanel-color: #{{ .theme.colors.fg }} !important;
   
-  --arrowpanel-border-color: #{{ .colors.s_0 }} !important;
+  --arrowpanel-border-color: #{{ .theme.colors.s_0 }} !important;
 }
 
 /* hiding bloat */
@@ -33,33 +33,33 @@
 
 /* #nav-bar */
 #navigator-toolbox {
-  background: #{{ .colors.bg_darkest }} !important;
-  color: #{{ .colors.fg }} !important;
+  background: #{{ .theme.colors.bg_darkest }} !important;
+  color: #{{ .theme.colors.fg }} !important;
 }
 
 #nav-bar {
-  background: #{{ .colors.bg_darkest }} !important;
-  border: var(--uc-border) solid #{{ .colors.s_0 }} !important;
+  background: #{{ .theme.colors.bg_darkest }} !important;
+  border: var(--uc-border) solid #{{ .theme.colors.s_0 }} !important;
 }
 
 #PersonalToolbar {
-  background: #{{ .colors.bg_darkest }} !important;
-  border: var(--uc-border) solid #{{ .colors.s_0 }} !important;
+  background: #{{ .theme.colors.bg_darkest }} !important;
+  border: var(--uc-border) solid #{{ .theme.colors.s_0 }} !important;
 }
 
 /* tabs */
-.tab-content { color: #{{ .colors.fg }} !important; transition: 0.2s; }
-.tab-background { background: #{{ .colors.bg }} !important; transition: 0.2s; }
+.tab-content { color: #{{ .theme.colors.fg }} !important; transition: 0.2s; }
+.tab-background { background: #{{ .theme.colors.bg }} !important; transition: 0.2s; }
 
-.tab-background[selected] { background: #{{ .colors.fg }} !important; }
-.tabbrowser-tab:hover .tab-background { background: #{{ .colors.a_lavender }} !important; }
+.tab-background[selected] { background: #{{ .theme.colors.fg }} !important; }
+.tabbrowser-tab:hover .tab-background { background: #{{ .theme.colors.a_lavender }} !important; }
 
 .tabbrowser-tab:not([selected], [multiselected]):hover .tab-content,
-.tabbrowser-tab[selected] .tab-content { color: #{{ .colors.bg }} !important; }
+.tabbrowser-tab[selected] .tab-content { color: #{{ .theme.colors.bg }} !important; }
 
 /* urlbar */
 .urlbarView,
-#urlbar-input { color: #{{ .colors.fg }} !important; --link-color: #{{ .colors.a_lavender }} !important; }
+#urlbar-input { color: #{{ .theme.colors.fg }} !important; --link-color: #{{ .theme.colors.a_lavender }} !important; }
 
 /* sidebar */
 #sidebar,
@@ -68,25 +68,25 @@
 #sidebar-header,
 #sidebar-search-container,
 #historyTree {
-  background: #{{ .colors.bg_darkest }} !important;
-  color: #{{ .colors.fg }} !important;
+  background: #{{ .theme.colors.bg_darkest }} !important;
+  color: #{{ .theme.colors.fg }} !important;
 }
-.sidebar-placesTreechildren { color: #{{ .colors.fg }} !important; }
+.sidebar-placesTreechildren { color: #{{ .theme.colors.fg }} !important; }
 #sidebar {
-  background: #{{ .colors.bg }} !important;
-  color: #{{ .colors.fg }} !important;
+  background: #{{ .theme.colors.bg }} !important;
+  color: #{{ .theme.colors.fg }} !important;
 }
 #sidebar-splitter {
-  background: #{{ .colors.s_0 }} !important;
+  background: #{{ .theme.colors.s_0 }} !important;
 }
 
 /* menus */
 menupopup,
 panel {
-  --panel-background: #{{ .colors.bg_darkest }} !important;
+  --panel-background: #{{ .theme.colors.bg_darkest }} !important;
   --panel-border-radius: var(--uc-rounding) !important;
-  --panel-border-color: #{{ .colors.s_0 }} !important;
-  --panel-separator-color: #{{ .colors.s_0 }} !important;
+  --panel-border-color: #{{ .theme.colors.s_0 }} !important;
+  --panel-separator-color: #{{ .theme.colors.s_0 }} !important;
 }
 
 slot[part="content"] { border-width: 2px !important; }
@@ -99,15 +99,15 @@ slot[part="content"] { border-width: 2px !important; }
 
 menu,
 menuitem {
-  color: #{{ .colors.fg }} !important;
+  color: #{{ .theme.colors.fg }} !important;
 
   &:where([_moz-menuactive]:not([disabled="true"])) {
-    background: #{{ .colors.a_lavender }} !important;
-    color: #{{ .colors.bg }} !important;
+    background: #{{ .theme.colors.a_lavender }} !important;
+    color: #{{ .theme.colors.bg }} !important;
   }
   &:where([_moz-menuactive="true"][disabled="true"]) {
-    background: #{{ .colors.a_lavender }} !important;
-    color: #{{ .colors.bg }} !important;
+    background: #{{ .theme.colors.a_lavender }} !important;
+    color: #{{ .theme.colors.bg }} !important;
   }
 }
 
@@ -117,5 +117,5 @@ menuitem { border-radius: var(--uc-rounding) !important; }
 
 #historySwipeAnimationPreviousArrow,
 #historySwipeAnimationNextArrow {
-  --swipe-nav-icon-primary-color: #{{ .colors.fg }} !important;
+  --swipe-nav-icon-primary-color: #{{ .theme.colors.fg }} !important;
 }

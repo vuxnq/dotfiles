@@ -2,10 +2,10 @@ include                 theme.conf
 remember_window_size    no
 initial_window_width    80c
 initial_window_height   26c
-font_family             {{ .font_main }} Medium
-bold_font               {{ .font_main }} ExtraBold
-italic_font             {{ .font_main }} Medium Italic
-bold_italic_font        {{ .font_main }} ExtraBold Italic
+font_family             {{ .theme.font.name }} Medium
+bold_font               {{ .theme.font.name }} ExtraBold
+italic_font             {{ .theme.font.name }} Medium Italic
+bold_italic_font        {{ .theme.font.name }} ExtraBold Italic
 disable_ligatures       cursor
 tab_bar_style           powerline
 tab_powerline_style     round
