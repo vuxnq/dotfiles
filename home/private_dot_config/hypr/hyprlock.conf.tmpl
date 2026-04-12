@@ -1,5 +1,5 @@
 background {
-    color = rgba(11111bee)
+    color = rgba({{ .colors.bg_darkest }}ee)
     path = ~/.cache/screenlock.png
     blur_passes = 3
     blur_size = 6
@@ -9,12 +9,12 @@ background {
 input-field {
     size = 200, 50
     outline_thickness = 4
-    outer_color = rgba(313244aa)
-    inner_color = rgb(11111b)
-    font_color = rgb(cdd6f4)
-    placeholder_text = <span font_family="{{ .font_main }} ExtraBold" foreground="##A6ADC8">Password...</span>
-    check_color = rgb(b4befe)
-    fail_color = rgb(f38ba8)
+    outer_color = rgba({{ .colors.s_0 }}aa)
+    inner_color = rgb({{ .colors.bg_darkest }})
+    font_color = rgb({{ .colors.fg }})
+    placeholder_text = <span font_family="{{ .font_main }} ExtraBold" foreground="##{{ .colors.fg_sub }}">Password...</span>
+    check_color = rgb({{ .colors.a_lavender }})
+    fail_color = rgb({{ .colors.a_red }})
     fail_text = <span font_family="{{ .font_main }} ExtraBold">$FAIL <b>($ATTEMPTS)</b></span>
 
     halign = center
@@ -24,7 +24,7 @@ input-field {
 # clock
 label {
     text = cmd[update:1000] echo "$(date +"%H:%M")"
-    color = rgb(cdd6f4)
+    color = rgb({{ .colors.fg }})
     font_size = 30
     font_family = {{ .font_main }} ExtraBold
     
@@ -35,7 +35,7 @@ label {
 
 label {
     text = cmd[] echo "$(date +"%a, %d %b %Y")"
-    color = rgb(a6adc8)
+    color = rgb({{ .colors.fg_sub }})
     font_size = 15
     font_family = {{ .font_main }} Bold
     
@@ -47,7 +47,7 @@ label {
 # now playing
 label {
     text = cmd[update:1000] ~/.local/bin/nowplaying.sh
-    color = rgb(a6e3a1)
+    color = rgb({{ .colors.a_green }})
     font_size = 9
     font_family = {{ .font_main }} ExtraBold
     

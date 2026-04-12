@@ -23,9 +23,9 @@ exec_always killall wlsunset; wlsunset -S 6:00 -s 19:00 -d 1800
 exec ~/.local/bin/autofilen.sh
 exec swayidle -w \
     timeout 599 '~/.local/bin/setlockimage.sh' \
-    timeout 600 'swaylock -f -c 11111b -i "~/.cache/screenlock.png"' \
+    timeout 600 'swaylock -f -c #{{ .colors.bg_darkest }} -i "~/.cache/screenlock.png"' \
     timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 11111b'
+    before-sleep 'swaylock -f -c #{{ .colors.bg_darkest }}'
 # TODO: setlockimage.sh is tied to hyprland... like everything else
 
 
@@ -41,9 +41,9 @@ default_border pixel 2
 smart_borders no_gaps
 smart_gaps on
 # class border background text indicator child_border
-client.focused #313244 #cdd6f4 #11111b #cdd6f4 #313244
-client.unfocused #313244 #11111b #cdd6f4 #cdd6f4 #1e1e2e
-client.focused_inactive #313244 #11111b #cdd6f4 #cdd6f4 #1e1e2e
+client.focused #{{ .colors.s_0 }} #{{ .colors.fg }} #{{ .colors.bg_darkest }} #{{ .colors.fg }} #{{ .colors.s_0 }}
+client.unfocused #{{ .colors.s_0 }} #{{ .colors.bg_darkest }} #{{ .colors.fg }} #{{ .colors.fg }} #{{ .colors.bg }}
+client.focused_inactive #{{ .colors.s_0 }} #{{ .colors.bg_darkest }} #{{ .colors.fg }} #{{ .colors.fg }} #{{ .colors.bg }}
 
 font pango:{{ .font_main }} Bold 9
 

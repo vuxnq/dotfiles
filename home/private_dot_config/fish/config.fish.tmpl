@@ -3,9 +3,9 @@ if status is-interactive
 end
 
 set -Ux FZF_DEFAULT_OPTS "\
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+--color=bg+:#{{ .colors.s_0 }},bg:#{{ .colors.bg }},spinner:#{{ .colors.a_rose }},hl:#{{ .colors.a_red }} \
+--color=fg:#{{ .colors.fg }},header:#{{ .colors.a_red }},info:#{{ .colors.a_mauve }},pointer:#{{ .colors.a_rose }} \
+--color=marker:#{{ .colors.a_rose }},fg+:#{{ .colors.fg }},prompt:#{{ .colors.a_mauve }},hl+:#{{ .colors.a_red }}"
 
 set -gx EDITOR nvim
 

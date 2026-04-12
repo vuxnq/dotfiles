@@ -44,8 +44,8 @@ general {
     gaps_in = 2
     gaps_out = 4
 
-    col.active_border = rgb(313244)
-    col.inactive_border = rgb(1e1e2e)
+    col.active_border = rgb({{ .colors.s_0 }})
+    col.inactive_border = rgb({{ .colors.bg }})
 
     snap {
         enabled = true
@@ -66,8 +66,8 @@ decoration {
     shadow {
         range = 16
         render_power = 1
-        color = rgba(11111b55)
-        color_inactive = rgba(11111b00)
+        color = rgba({{ .colors.bg_darkest }}55)
+        color_inactive = rgba({{ .colors.bg_darkest }}00)
         offset = 0, 12
         scale = 0.97
     }
@@ -107,22 +107,22 @@ gesture = 3, right, dispatcher, sendshortcut, ALT, left, activewindow
 gesture = 3, left, dispatcher, sendshortcut, ALT, right, activewindow
 
 group {
-    col.border_active = rgb(313244)
-    col.border_inactive = rgba(313244aa)
+    col.border_active = rgb({{ .colors.s_0 }})
+    col.border_inactive = rgba({{ .colors.s_0 }}aa)
 
     groupbar {
         font_family = {{ .font_main }} Bold
         height = 12
-        text_color = rgb(cdd6f4)
-        col.active = rgb(11111b)
-        col.inactive = rgba(11111baa)
+        text_color = rgb({{ .colors.fg }})
+        col.active = rgb({{ .colors.bg_darkest }})
+        col.inactive = rgba({{ .colors.bg_darkest }}aa)
     }
 }
 
 misc { 
     disable_hyprland_logo = true
     force_default_wallpaper = 0
-    background_color = 0x11111b
+    background_color = 0x{{ .colors.bg_darkest }}
     enable_swallow = true
     swallow_regex = ^($terminal)
 }

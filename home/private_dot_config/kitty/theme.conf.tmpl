@@ -1,0 +1,81 @@
+# vim:ft=kitty
+
+## name:     Catppuccin Kitty Mocha
+## author:   Catppuccin Org
+## license:  MIT
+## upstream: https://github.com/catppuccin/kitty/blob/main/themes/mocha.conf
+## blurb:    Soothing pastel theme for the high-spirited!
+
+
+
+# The basic colors
+foreground              #{{ .colors.fg }}
+background              #{{ .colors.bg }}
+selection_foreground    #{{ .colors.bg }}
+selection_background    #{{ .colors.a_rose }}
+
+# Cursor colors
+cursor                  #{{ .colors.a_rose }}
+cursor_text_color       #{{ .colors.bg }}
+
+# URL underline color when hovering with mouse
+url_color               #{{ .colors.a_rose }}
+
+# Kitty window border colors
+active_border_color     #{{ .colors.a_lavender }}
+inactive_border_color   #{{ .colors.o_0 }}
+bell_border_color       #{{ .colors.a_yellow }}
+
+# OS Window titlebar colors
+wayland_titlebar_color  #{{ .colors.bg }}
+macos_titlebar_color    #{{ .colors.bg }}
+
+# Tab bar colors
+active_tab_foreground   #{{ .colors.bg_darkest }}
+active_tab_background   #{{ .colors.a_mauve }}
+inactive_tab_foreground #{{ .colors.fg }}
+inactive_tab_background #{{ .colors.bg_dark }}
+tab_bar_background      #{{ .colors.bg_darkest }}
+
+# Colors for marks (marked text in the terminal)
+mark1_foreground #{{ .colors.bg }}
+mark1_background #{{ .colors.a_lavender }}
+mark2_foreground #{{ .colors.bg }}
+mark2_background #{{ .colors.a_mauve }}
+mark3_foreground #{{ .colors.bg }}
+mark3_background #{{ .colors.a_sky }}
+
+# The 16 terminal colors
+
+# black
+color0 #{{ .colors.s_1 }}
+color8 #{{ .colors.s_2 }}
+
+# red
+color1 #{{ .colors.a_red }}
+color9 #{{ .colors.a_red }}
+
+# green
+color2  #{{ .colors.a_green }}
+color10 #{{ .colors.a_green }}
+
+# yellow
+color3  #{{ .colors.a_yellow }}
+color11 #{{ .colors.a_yellow }}
+
+# blue
+color4  #{{ .colors.a_blue }}
+color12 #{{ .colors.a_blue }}
+
+# magenta
+color5  #{{ .colors.a_pink }}
+color13 #{{ .colors.a_pink }}
+
+# cyan
+color6  #{{ .colors.a_teal }}
+color14 #{{ .colors.a_teal }}
+
+# white
+color7  #{{ .colors.fg_dim }}
+color15 #{{ .colors.fg_sub }}
+

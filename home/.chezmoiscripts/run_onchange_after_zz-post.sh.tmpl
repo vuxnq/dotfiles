@@ -3,11 +3,6 @@ SCRIPT="post"
 
 set -e
 
-if [ -d "$HOME/.extras_staging" ]; then
-    echo "$SCRIPT > removing ~/.extras_staging"
-    rm -rf "$HOME/.extras_staging"
-fi
-
 # shell
 echo "$SCRIPT > changing shell to fish"
 sudo chsh -s $(which fish) $USER

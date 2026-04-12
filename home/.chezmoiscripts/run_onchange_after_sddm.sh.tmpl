@@ -1,5 +1,5 @@
 #!/bin/bash
-# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir "dot_extras_staging/sddm") }}
+# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir "dot_cache/chezmoi_staging/sddm") }}
 SCRIPT="sddm"
 
 set -e
@@ -9,7 +9,7 @@ TARGET="/usr/share/sddm/themes/vuxsddm"
 echo "$SCRIPT > copying the theme to sddm's themes folder"
 sudo rm -rf "$TARGET"
 sudo mkdir -p "$TARGET"
-sudo cp -a "$HOME/.extras_staging/sddm/." "$TARGET"
+sudo cp -a "$HOME/.cache/chezmoi_staging/sddm/." "$TARGET"
 
 echo "$SCRIPT > setting the theme"
 echo -e "[Theme]\nCurrent=vuxsddm" | sudo tee /etc/sddm.conf > /dev/null

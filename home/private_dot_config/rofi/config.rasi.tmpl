@@ -1,12 +1,12 @@
 * {
     font:                           "{{ .font_main }} Bold 10";
-    background:                     #11111b;
-    background-alt:                 #1e1e2e;
-    foreground:                     #cdd6f4;
-    selected:                       #b4befe;
-    active:                         #cdd6f4;
-    urgent:                         #f38ba8;
-    border:                         #313244;
+    background:                     #{{ .colors.bg_darkest }};
+    background-alt:                 #{{ .colors.bg }};
+    foreground:                     #{{ .colors.fg }};
+    selected:                       #{{ .colors.a_lavender }};
+    active:                         #{{ .colors.fg }};
+    urgent:                         #{{ .colors.a_red }};
+    border:                         #{{ .colors.s_0 }};
 
     border-colour:                  @selected;
     handle-colour:                  @selected;
