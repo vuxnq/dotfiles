@@ -1,5 +1,5 @@
 #!/bin/bash
-# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir ".extras/firefox") }}
+# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir "dot_extras_staging/firefox") }}
 SCRIPT="firefox"
 
 set -e
@@ -14,7 +14,7 @@ PROFILE=$(grep -E "^Default=.*\.default" "$PROFILES_INI" | cut -d"=" -f2)
 echo "$SCRIPT > firefox profile folder = $PROFILE"
 
 echo "$SCRIPT > copying firefox files"
-cp -r "{{ .chezmoi.sourceDir }}/.extras/firefox/." "$XDG_CONFIG_HOME/mozilla/firefox/$PROFILE/"
+cp -r "$HOME/.extras_staging/firefox/." "$XDG_CONFIG_HOME/mozilla/firefox/$PROFILE/"
 
 echo "$SCRIPT > done"
 echo "$SCRIPT > remember to manually install: https://addons.mozilla.org/firefox/addon/catppuccin-mocha-lavender-git/"

@@ -1,12 +1,12 @@
 #!/bin/bash
-# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir ".extras/fonts") }}
+# hash: {{ includeTemplate "hash_dir" (joinPath .chezmoi.sourceDir "dot_extras_staging/fonts") }}
 SCRIPT="fonts"
 
 set -e
 
 TMP_DIR="/tmp/maple"
 FONT_DIR="$HOME/.local/share/fonts/Maple"
-CONFIG_SRC="{{ .chezmoi.sourceDir }}/.extras/fonts/maple-config.json"
+CONFIG_SRC="$HOME/.extras_staging/fonts/maple-config.json"
 
 rm -rf "$TMP_DIR"
 
