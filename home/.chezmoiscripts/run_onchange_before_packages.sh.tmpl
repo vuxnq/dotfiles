@@ -22,6 +22,16 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 echo "$SCRIPT > upgrading system"
 sudo dnf upgrade -y --refresh
 
+echo "$SCRIPT > swapping packages"
+{{ range $remove, $install := .packages.fedora.dnf_swap -}}
+if ! rpm -q {{ $install }} > /dev/null 2>&1; then
+    echo "swapping {{ $remove }} for {{ $install }}..."
+    sudo dnf swap -y --allowerasing {{ $remove }} {{ $install }}
+else
+    echo "{{ $install }} is already installed. skipping."
+fi
+{{ end }}
+
 echo "$SCRIPT > installing packages"
 sudo dnf install -y \
 {{ range .packages.fedora.dnf -}}

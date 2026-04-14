@@ -2,6 +2,10 @@ packages:
   fedora:
     copr:
       - lionheartp/Hyprland
+    dnf_swap:
+      ffmpeg-free: ffmpeg
+      mesa-va-drivers: mesa-va-drivers-freeworld
+      mesa-va-drivers.i686: mesa-va-drivers-freeworld.i686
     dnf:
       - git
       - fish
@@ -21,6 +25,9 @@ packages:
       - python3-devel
       - cmake
       - gcc-c++
+      - ffmpeg-libs
+      - libva
+      - libva-utils
     rpm:
       - https://vencord.dev/download/vesktop/amd64/rpm
     flathub:
