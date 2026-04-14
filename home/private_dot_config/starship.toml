@@ -1,0 +1,57 @@
+format = """
+$username\
+$hostname\
+$character\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+"""
+
+right_format = """
+$git_metrics\
+$cmd_duration\
+$time\
+"""
+
+add_newline = false
+
+[line_break]
+disabled = true
+
+[username]
+format = '[$user](bold green)'
+
+[hostname]
+format = '[@$hostname](bold green) '
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+[directory]
+read_only = ':ro'
+read_only_style = 'italic black'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = " "
+
+[git_commit]
+
+[git_state]
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+
+[git_metrics]
+disabled = false
+
+[cmd_duration]
+min_time = 10000
+format = '[$duration](yellow) '
+
+[time]
+disabled = false
+format = '[$time](italic black)'

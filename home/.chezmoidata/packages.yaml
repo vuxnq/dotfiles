@@ -2,11 +2,16 @@ packages:
   fedora:
     copr:
       - lionheartp/Hyprland
+      - atim/starship
     dnf_swap:
       ffmpeg-free: ffmpeg
       mesa-va-drivers: mesa-va-drivers-freeworld
       mesa-va-drivers.i686: mesa-va-drivers-freeworld.i686
     dnf:
+      - zsh
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - starship
       - git
       - fish
       - kitty

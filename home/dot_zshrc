@@ -1,0 +1,26 @@
+HISTFILE=~/.cache/zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt autocd
+unsetopt beep
+bindkey -e
+
+export EDITOR="nvim"
+
+typeset -U path
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.filen-cli/bin"
+  "$HOME/.spicetify"
+  "$HOME/.opencode/bin"
+  $path
+)
+
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
+
+alias la='ls -la'
