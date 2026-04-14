@@ -12,7 +12,7 @@ Item {
     model: sessionModel
     delegate: ItemDelegate {
       id: sessionEntry
-      height: inputHeight
+      height: config.input_height
       width: parent.width
       highlighted: sessionList.currentIndex == index
 
@@ -29,7 +29,7 @@ Item {
 
       background: Rectangle {
         color: config.base
-        radius: 2
+        radius: config.rounding_small
       }
 
       states: [
@@ -63,8 +63,8 @@ Item {
 
   Button {
     id: sessionButton
-    height: inputHeight
-    width: inputHeight
+    height: config.input_height
+    width: config.input_height
     hoverEnabled: true
 
     Label {
@@ -77,7 +77,7 @@ Item {
       text: ""
     }
 
-    background: Rectangle { radius: 2; color: config.surface0 }
+    background: Rectangle { radius: config.rounding; color: config.surface0 }
 
     states: [
       State {
@@ -106,22 +106,22 @@ Item {
 
   Popup {
     id: sessionPopup
-    width: inputWidth + padding * 2
-    x: -inputWidth - 16
+    padding: config.gaps_out
+    width: config.input_width * 1 + padding * 2
+    x: -config.input_width - 16
     y: -(contentHeight + padding * 2) + sessionButton.height
-    padding: 8
 
     background: Rectangle {
-      radius: 4
+      radius: config.rounding
       color: config.crust
-      border.width: 2
+      border.width: config.border_size
       border.color: config.surface0
     }
 
     contentItem: ListView {
       id: sessionList
       implicitHeight: contentHeight
-      spacing: 5
+      spacing: config.gaps_in
       model: sessionWrapper
       currentIndex: sessionModel.lastIndex
       clip: true
@@ -130,7 +130,7 @@ Item {
     enter: Transition {
       ParallelAnimation {
         NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 100; easing.type: Easing.OutExpo }
-        NumberAnimation { property: "x"; from: sessionPopup.x + (inputWidth * 0.1); to: sessionPopup.x; duration: 100; easing.type: Easing.OutExpo }
+        NumberAnimation { property: "x"; from: sessionPopup.x + (config.input_width * 0.1); to: sessionPopup.x; duration: 100; easing.type: Easing.OutExpo }
       }
     }
     exit: Transition {

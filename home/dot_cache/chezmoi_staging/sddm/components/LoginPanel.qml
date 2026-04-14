@@ -5,8 +5,6 @@ Item {
   property var user: userField.text
   property var password: passwordField.text
   property var session: sessionPanel.session
-  property var inputHeight: 35
-  property var inputWidth: 200
 
   anchors.fill: parent
 
@@ -16,18 +14,18 @@ Item {
       verticalCenter: parent.verticalCenter
       horizontalCenter: parent.horizontalCenter
     }
-    height: inputHeight * 3 + (2 * 8) + 32
-    width: inputWidth + 32
-    radius: 4
+    height: config.input_height * 3 + (2 * config.gaps_in) + (2 * config.border_size) + (2 * config.gaps_out)
+    width: config.input_width * 1 + (2 * config.border_size) + (2 * config.gaps_out)
+    radius: config.rounding
     color: config.crust
-    border.width: 2
+    border.width: config.border_size
     border.color: config.surface0
   }
 
   Column {
-    spacing: 8
+    spacing: config.gaps_in
     z: 5
-    width: inputWidth
+    width: config.input_width
     anchors {
       verticalCenter: parent.verticalCenter
       horizontalCenter: parent.horizontalCenter
@@ -35,20 +33,20 @@ Item {
 
     UserField {
       id: userField
-      height: inputHeight
+      height: config.input_height
       width: parent.width
     }
 
     PasswordField {
       id: passwordField
-      height: inputHeight
+      height: config.input_height
       width: parent.width
       onAccepted: loginButton.clicked()
     }
 
     Button {
       id: loginButton
-      height: inputHeight
+      height: config.input_height
       width: parent.width
       enabled: user !== "" && password !== ""
       hoverEnabled: true
@@ -67,7 +65,7 @@ Item {
       }
 
       background: Rectangle {
-        radius: 2
+        radius: config.rounding_small
         color: config.text
       }
 

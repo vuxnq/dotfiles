@@ -1,6 +1,6 @@
 * {
   border: none;
-  border-radius: 4px;
+  border-radius: {{ .theme.ui.rounding }}px;
   min-height: 0;
   font-family: {{ .theme.font.name }} ExtraBold;
   font-size: 12px;
@@ -20,21 +20,21 @@ window#waybar {
 #workspaces,
 #taskbar {
   background-color: #{{ .theme.colors.bg }};
-  margin: 4px 2px 0 2px;
+  margin: {{ .theme.ui.gaps_out }}px {{ .theme.ui.gaps_in }}px 0 {{ .theme.ui.gaps_in }}px;
   padding: 2px;
 }
 
 #workspaces button,
 #taskbar button {
   all: initial; /* Remove GTK theme values (waybar #1351) */
-  padding: 0 9px;
+  padding: 0 {{ .theme.ui.padding }}px;
   color: #{{ .theme.colors.fg }};
-  border-radius: 2px;
+  border-radius: {{ .theme.ui.rounding_small }}px;
   transition-duration: 0.1s;
 }
 
 #taskbar button {
-  padding: 0 4px;
+  padding: 0 {{ .theme.ui.padding }}px;
 }
 
 #workspaces button.active,
@@ -76,7 +76,7 @@ window#waybar.floating #window {
 #pulseaudio.muted,
 #network,
 #bluetooth {
-  margin: 4px 2px 0 2px;
+  margin: {{ .theme.ui.gaps_out }}px {{ .theme.ui.gaps_in }}px 0 {{ .theme.ui.gaps_in }}px;
   padding: 0 4px;
   background-color: #{{ .theme.colors.bg }};
   color: #{{ .theme.colors.fg }};
@@ -107,7 +107,7 @@ window#waybar.fullscreen #bluetooth {
 }
 
 #custom-hostname {
-  margin-left: 4px;
+  margin-left: {{ .theme.ui.gaps_out }}px;
 }
 
 #mode {
@@ -162,7 +162,7 @@ window#waybar.fullscreen #bluetooth {
 }
 
 #clock {
-  margin-right: 4px;
+  margin-right: {{ .theme.ui.gaps_out }}px;
 }
 
 /* toggle */
@@ -186,7 +186,7 @@ window#waybar.fullscreen #bluetooth {
 tooltip {
   color: #{{ .theme.colors.fg }};
   background-color: #{{ .theme.colors.bg_darkest }};
-  border: 2px solid #{{ .theme.colors.s_0 }};
+  border: {{ .theme.ui.border_size }}px solid #{{ .theme.colors.s_0 }};
 }
 
 tooltip label {

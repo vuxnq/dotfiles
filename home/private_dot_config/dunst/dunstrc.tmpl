@@ -8,15 +8,15 @@
 
     origin = top-right
     offset = 10x10
-    frame_width = 2
+    frame_width = {{ .theme.ui.border_size }}
     frame_color = "#{{ .theme.colors.s_0 }}"
-    separator_color= frame
+    separator_color = frame
     font = "{{ .theme.font.name }} Medium"
-    corner_radius = 2
+    corner_radius = {{ .theme.ui.rounding_small }}
     background = "#{{ .theme.colors.bg_darkest }}"
     foreground = "#{{ .theme.colors.fg }}"
 
-    progress_bar_corner_radius = 2
+    progress_bar_corner_radius = {{ .theme.ui.rounding_small }}
     
 [urgency_low]
     foreground = "#{{ .theme.colors.fg }}"

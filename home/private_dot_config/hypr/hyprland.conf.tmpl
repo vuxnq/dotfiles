@@ -40,9 +40,9 @@ env = GTK_THEME, catppuccin-mocha-lavender-standard+default
 
 # theme
 general { 
-    border_size = 2
-    gaps_in = 2
-    gaps_out = 4
+    border_size = {{ .theme.ui.border_size }}
+    gaps_in = {{ .theme.ui.gaps_in }}
+    gaps_out = {{ .theme.ui.gaps_out }}
 
     col.active_border = rgb({{ .theme.colors.s_0 }})
     col.inactive_border = rgb({{ .theme.colors.bg }})
@@ -54,7 +54,7 @@ general {
 }
 
 decoration {
-    rounding = 4
+    rounding = {{ .theme.ui.rounding }}
     # inactive_opacity = 0.75
 
     blur {

@@ -3,8 +3,8 @@ import QtQuick.Controls 2.15
 
 Button {
   id: root
-  height: inputHeight
-  width: inputHeight
+  height: config.input_height
+  width: config.input_height
   hoverEnabled: true
 
   property string buttonText: ""
@@ -23,7 +23,7 @@ Button {
   }
 
   background: Rectangle {
-    radius: 2
+    radius: config.rounding
     color: config.base
   }
 

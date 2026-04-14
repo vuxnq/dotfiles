@@ -1,6 +1,21 @@
 theme:
   font:
     name: "Maple NF"
+  ui:
+    gaps_in: 2
+    gaps_out: 4
+    padding: 8
+    border_size: 2
+    rounding: 4
+    rounding_small: 2
+  rofi:
+    gaps_in: 4
+    gaps_out: 8
+  sddm:
+    gaps_in: 4
+    gaps_out: 8
+    input_height: 35
+    input_width: 200
   colors:
     bg_darkest: "11111b"
     bg_dark: "181825"

@@ -6,12 +6,23 @@ FontWeightBold=700
 Background="backgrounds/waves.png"
 PasswordShowLastLetter=500
 
-blue      = "#{{ .theme.colors.a_blue }}"
-lavender  = "#{{ .theme.colors.a_lavender }}"
-text      = "#{{ .theme.colors.fg }}"
-subtext0  = "#{{ .theme.colors.fg_sub }}"
-overlay0  = "#{{ .theme.colors.o_0 }}"
-surface1  = "#{{ .theme.colors.s_1 }}"
+rounding = {{ .theme.ui.rounding }}
+rounding_small = {{ .theme.ui.rounding_small }}
+
+border_size = {{ .theme.ui.border_size }}
+
+gaps_in = {{ .theme.sddm.gaps_in }}
+gaps_out = {{ .theme.sddm.gaps_out }}
+
+input_height = {{ .theme.sddm.input_height }}
+input_width = {{ .theme.sddm.input_width }}
+
+blue = "#{{ .theme.colors.a_blue }}"
+lavender = "#{{ .theme.colors.a_lavender }}"
+text = "#{{ .theme.colors.fg }}"
+subtext0 = "#{{ .theme.colors.fg_sub }}"
+overlay0 = "#{{ .theme.colors.o_0 }}"
+surface1 = "#{{ .theme.colors.s_1 }}"
 surface0  = "#{{ .theme.colors.s_0 }}"
-base      = "#{{ .theme.colors.bg }}"
-crust     = "#{{ .theme.colors.bg_darkest }}"
+base = "#{{ .theme.colors.bg }}"
+crust = "#{{ .theme.colors.bg_darkest }}"

@@ -14,9 +14,9 @@ TextField {
 
   background: Rectangle {
     id: fieldBackground
-    radius: 2
+    radius: config.rounding_small
     color: config.base
-    border.width: 2
+    border.width: config.border_size
     border.color: config.surface0
   }
 
