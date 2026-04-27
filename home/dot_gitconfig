@@ -3,3 +3,5 @@
 	name = vuxnq
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
