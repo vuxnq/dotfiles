@@ -33,7 +33,10 @@ packages:
       - ffmpeg-libs
       - libva
       - libva-utils
+      - gvfs-mtp
+      - libmtp
     rpm:
       - https://vencord.dev/download/vesktop/amd64/rpm
     flathub:
       - com.spotify.Client
+      - it.mijorus.gearlever
