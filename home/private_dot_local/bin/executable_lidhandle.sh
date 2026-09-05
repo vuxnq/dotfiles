@@ -46,7 +46,7 @@ case $1 in
         fi
         ;;
     open)
-        mon_eval "output = \"$INTERNAL_MON\", mode = \"$OPEN_RES\", position = \"$OPEN_POS\", scale = $OPEN_SCALE"
+        mon_eval "output = \"$INTERNAL_MON\", mode = \"$OPEN_RES\", position = \"$OPEN_POS\", scale = $OPEN_SCALE, disabled = false"
         ;;
     load)
         wait_for_hyprland
