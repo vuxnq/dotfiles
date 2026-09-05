@@ -1,0 +1,86 @@
+-- https://wiki.hypr.land/Configuring/Basics/Window-Rules/
+-- https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+
+-- opacity
+hl.window_rule({
+    name = "opacity_tiled",
+    match = { float = false },
+    opacity = "1 override",
+})
+
+hl.window_rule({
+    name = "opacity_fullscreen",
+    match = { fullscreen = true },
+    opacity = "1 override",
+})
+
+-- gaps
+hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
+
+hl.window_rule({
+    name = "smart_gaps",
+    match = { workspace = "f[1]" },
+    border_size = 0,
+    rounding = 0,
+})
+
+-- screenshot
+hl.layer_rule({
+    name = "screenshots_ui",
+    match = { namespace = "^(hyprpicker|selection)" },
+    no_anim = true,
+})
+
+-- idle inhibit
+hl.window_rule({
+    name = "idle_inhibit",
+    match = { class = "^(spotify)$", title = "^(.*-.*)$" },
+    idle_inhibit = "always",
+})
+
+-- pinned
+hl.window_rule({
+    name = "pinned_styling",
+    match = { pin = true },
+    border_color = "rgb({{ .theme.colors.s_2 }}) rgb({{ .theme.colors.s_2 }})",
+    opacity = "1 override",
+    opaque = true,
+})
+
+-- floating
+hl.window_rule({
+    name = "float_pip",
+    match = { title = "^(Picture-in-Picture)$" },
+    float = true,
+    keep_aspect_ratio = true,
+    pin = true,
+    move = "monitor_w-window_w monitor_h-window_h",
+})
+
+hl.window_rule({
+    name = "float_apps",
+    match = { class = "^(kitty|imv|vesktop|spotify|qBittorrent|xdg-desktop-portal-gtk)$" },
+    float = true,
+})
+
+-- special workspace & layout
+hl.window_rule({
+    name = "special_vesktop",
+    match = { class = "^(vesktop)$" },
+    workspace = "special:s silent",
+    move = "0 0",
+})
+
+hl.window_rule({
+    name = "special_spotify",
+    match = { class = "^(spotify)$" },
+    workspace = "special:s silent",
+    move = "monitor_w-window_w monitor_h-window_h",
+})
+
+-- suppress maximize
+hl.window_rule({
+    name = "suppress_maximize",
+    match = { class = ".*" },
+    suppress_event = "maximize",
+})

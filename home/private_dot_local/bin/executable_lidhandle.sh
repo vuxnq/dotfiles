@@ -11,6 +11,14 @@ MIRROR_RES="1920x1080"
 MIRROR_POS="auto"
 MIRROR_SCALE="1"
 
+mon_eval() {
+    hyprctl eval "hl.monitor({ $1 })"
+}
+
+disable_internal() {
+    mon_eval "output = \"$INTERNAL_MON\", disabled = true"
+}
+
 wait_for_hyprland() {
     local tries=0
     while ! hyprctl monitors &>/dev/null; do
@@ -23,29 +31,29 @@ wait_for_hyprland() {
 
 case $1 in
     single)
-        hyprctl keyword monitor "$INTERNAL_MON, disable"
+        disable_internal
         ;;
     mirror)
-        hyprctl keyword monitor "$INTERNAL_MON, $MIRROR_RES, $MIRROR_POS, $MIRROR_SCALE, mirror, $EXTERNAL_MON"
+        mon_eval "output = \"$INTERNAL_MON\", mode = \"$MIRROR_RES\", position = \"$MIRROR_POS\", scale = $MIRROR_SCALE, mirror = \"$EXTERNAL_MON\""
         ;;
     close)
         ext=$(hyprctl monitors | grep -c "$EXTERNAL_MON")
         if [ "$ext" -gt 0 ]; then
-            hyprctl keyword monitor "$INTERNAL_MON, disable"
+            disable_internal
         else
             loginctl lock-session
             systemctl suspend
         fi
         ;;
     open)
-        hyprctl keyword monitor "$INTERNAL_MON, $OPEN_RES, $OPEN_POS, $OPEN_SCALE" > /dev/null
+        mon_eval "output = \"$INTERNAL_MON\", mode = \"$OPEN_RES\", position = \"$OPEN_POS\", scale = $OPEN_SCALE"
         ;;
     load)
         wait_for_hyprland
         state=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
         if [ "$state" == "closed" ]; then
             ext=$(hyprctl monitors | grep -c "$EXTERNAL_MON")
-            [ "$ext" -gt 0 ] && hyprctl keyword monitor "$INTERNAL_MON, disable" || $0 close
+            [ "$ext" -gt 0 ] && disable_internal || $0 close
         else
             $0 open
         fi

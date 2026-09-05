@@ -67,23 +67,23 @@
     "format": "{{ .hostname }}",
     "tooltip": false,
     "on-click": "~/.config/rofi/launcher.sh",
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1",
-    "on-click-right": "hyprctl dispatch togglespecialworkspace s"
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-click-right": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"s\")'"
     // "on-click-right": "~/.config/sway/toggle_special.sh"
   },
   "hyprland/workspaces": {
     "show-special": true,
     "format": "{name}",
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1",
-    "on-click-right": "hyprctl dispatch togglespecialworkspace s"
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-click-right": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"s\")'"
   },
   "sway/workspaces": {
     "show-special": true,
     "format": "{name}",
-    // "on-scroll-up": "hyprctl dispatch workspace e-1",
-    // "on-scroll-down": "hyprctl dispatch workspace e+1",
+    // "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    // "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
     "on-click-right": "~/.config/sway/toggle_special.sh"
   },
   "wlr/taskbar": {
@@ -116,7 +116,11 @@
       "paused": ""
     },
     "on-click": "~/.config/rofi/mediaplayer.sh",
-    "on-click-right": "hyprctl dispatch focuswindow class:spotify | hyprctl dispatch alterzorder top, class:spotify",
+    // TODO: verify the alter_z_order field name (guessed "mode") against
+    // the Lua LSP stubs / hl.dsp.window.alter_z_order docs on your machine -
+    // this dispatcher exists in 0.55+ but its exact table shape wasn't
+    // confirmable from public docs at the time this was written.
+    "on-click-right": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:spotify\" })' && hyprctl dispatch 'hl.dsp.window.bring_to_top()'",
     // "on-click-right": "swaymsg [class=spotify] focus",
     "on-click-middle": "playerctl --player=spotify play-pause",
     "on-click-forward": "playerctl --player=spotify next",

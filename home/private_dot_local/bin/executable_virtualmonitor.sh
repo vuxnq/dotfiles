@@ -3,14 +3,18 @@
 [[ -z "$HYPRLAND_INSTANCE_SIGNATURE" ]] && exit 1
 sock="$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"
 
+mon_eval() {
+    hyprctl eval "hl.monitor({ $1 })"
+}
+
 toggle_monitor() {
     m=$(hyprctl monitors)
     has_real=$(grep -c '^Monitor ' <<< "$m" | xargs)
     has_real=$(grep '^Monitor ' <<< "$m" | grep -vc 'DP-3')
     dp3_on=$(grep -c '^Monitor DP-3 ' <<< "$m")
 
-    (( has_real == 0 && dp3_on == 0 )) && hyprctl keyword monitor "DP-3, 1920x1080@60, auto, auto"
-    (( has_real > 0 && dp3_on > 0 )) && hyprctl keyword monitor "DP-3, disabled"
+    (( has_real == 0 && dp3_on == 0 )) && mon_eval 'output = "DP-3", mode = "1920x1080@60", position = "auto", scale = "auto"'
+    (( has_real > 0 && dp3_on > 0 )) && mon_eval 'output = "DP-3", disabled = true'
 }
 
 toggle_monitor

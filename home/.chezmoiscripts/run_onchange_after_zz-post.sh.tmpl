@@ -13,6 +13,10 @@ sudo grubby --update-kernel=ALL --args="amdgpu.abmlevel=0"
 echo "$SCRIPT > enabling verbose boot logs (removing rhgb and quiet)"
 sudo grubby --update-kernel=ALL --remove-args="rhgb quiet"
 
+# disable cpu boost
+echo "$SCRIPT > disabling cpu boost"
+echo 'w /sys/devices/system/cpu/cpufreq/boost - - - - 0' | sudo tee /etc/tmpfiles.d/disable-boost.conf
+
 # font (sddm needs it)
 echo "$SCRIPT > installing Maple fonts system-wide"
 sudo mkdir -p "/usr/local/share/fonts"
