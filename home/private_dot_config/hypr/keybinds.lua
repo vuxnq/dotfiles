@@ -93,8 +93,8 @@ hl.bind(mainMod .. " + T", hl.dsp.group.toggle())
 hl.bind(mainMod .. " + CTRL + TAB", hl.dsp.group.next())
 
 -- scroll through workspaces
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
 -- media control
 hl.bind("PRINT", hl.dsp.exec_cmd(vars.screenshot))

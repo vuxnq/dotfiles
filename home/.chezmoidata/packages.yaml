@@ -35,6 +35,9 @@ packages:
       - libva-utils
       - gvfs-mtp
       - libmtp
+      - opentofu
+      - ansible
+      - rsync
     rpm:
       - https://vencord.dev/download/vesktop/amd64/rpm
     flathub:

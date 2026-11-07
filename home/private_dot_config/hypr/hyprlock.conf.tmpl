@@ -1,6 +1,6 @@
 background {
     color = rgba({{ .theme.colors.bg_darkest }}ee)
-    path = ~/.cache/screenlock.png
+    path = screenshot
     blur_passes = 3
     blur_size = 6
     brightness = 0.6
@@ -12,10 +12,10 @@ input-field {
     outer_color = rgba({{ .theme.colors.s_0 }}aa)
     inner_color = rgb({{ .theme.colors.bg_darkest }})
     font_color = rgb({{ .theme.colors.fg }})
-    placeholder_text = <span font_family="{{ .theme.font.name }} ExtraBold" foreground="##{{ .theme.colors.fg_sub }}">Password...</span>
+    placeholder_text = <span font_family='{{ .theme.font.name }}' font_weight='extrabold' foreground='##{{ .theme.colors.fg_sub }}'>Password...</span>
     check_color = rgb({{ .theme.colors.a_lavender }})
     fail_color = rgb({{ .theme.colors.a_red }})
-    fail_text = <span font_family="{{ .theme.font.name }} ExtraBold">$FAIL <b>($ATTEMPTS)</b></span>
+    fail_text = <span font_family='{{ .theme.font.name }}' font_weight='extrabold'>$FAIL <b>($ATTEMPTS)</b></span>
 
     halign = center
     valign = center
@@ -23,22 +23,21 @@ input-field {
 
 # clock
 label {
-    text = cmd[update:1000] echo "$(date +"%H:%M")"
+    text = cmd[update:1000] echo "<span font_family='{{ .theme.font.name }}' font_weight='extrabold'>$(date +"%H:%M")</span>"
     color = rgb({{ .theme.colors.fg }})
     font_size = 30
-    font_family = {{ .theme.font.name }} ExtraBold
-    
+
     position = 0, 85
     halign = center
     valign = center
 }
 
+# date
 label {
-    text = cmd[] echo "$(date +"%a, %d %b %Y")"
+    text = cmd[] echo "<span font_family='{{ .theme.font.name }}' font_weight='bold'>$(date +"%a, %d %b %Y")</span>"
     color = rgb({{ .theme.colors.fg_sub }})
     font_size = 15
-    font_family = {{ .theme.font.name }} Bold
-    
+
     position = 0, 50
     halign = center
     valign = center
@@ -46,10 +45,9 @@ label {
 
 # now playing
 label {
-    text = cmd[update:1000] ~/.local/bin/nowplaying.sh
+    text = cmd[update:1000] echo "<span font_family='{{ .theme.font.name }}' font_weight='extrabold'>$(~/.local/bin/nowplaying.sh)</span>"
     color = rgb({{ .theme.colors.a_green }})
     font_size = 9
-    font_family = {{ .theme.font.name }} ExtraBold
     
     position = 0, -6
     halign = center
